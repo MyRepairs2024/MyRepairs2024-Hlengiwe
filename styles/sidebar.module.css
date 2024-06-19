@@ -1,0 +1,161 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 100%;
+    background-color: #ff0068;
+    z-index: 1111;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+  
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 8px 0 10px -8px #454545;
+
+    .sidebar-toggle{
+      box-shadow: 8px 0 10px -9px #454545;
+      background-color: #FF0066;
+      color: white;
+    }
+  }
+  
+  .sidebar-logo img {
+
+   margin-top: 2px;
+   object-fit: 'cover';
+   margin-left: 45px;
+width: 100px;
+height:  auto;
+  
+
+  }
+  
+  .sidebar-title {
+    padding: 16px;
+    color: white;
+  }
+  
+  .sidebar-title h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ff0078;
+    font-weight: bold;
+  }
+  
+  .sidebar-title hr {
+    border: solid 3px;
+    border-top: 1px solid #fff;
+    color: pink;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 11%;
+    width: 165px;
+    left: 10;
+    z-index: 1111;
+    border-radius: 10px;
+  }
+  
+  .sidebar-links {
+    padding: 0 16px;
+    position: inherit;
+    left:-5%;
+    top: 12%;
+    justify-content: space-between;
+    
+
+
+  }
+  
+  .sidebar-links ul {
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    color: black;
+    width:180px;
+    
+
+  }
+ 
+  
+  .sidebar-links li {
+    margin-bottom: 8px;
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #21B6A8;
+    border-radius: 10px;
+    width:200;
+    cursor: pointer;
+    box-shadow: 0 0 5px #454545;
+
+    
+  }
+
+  .sidebar-links li:hover{
+    background-color: #ff0066;
+    box-shadow:0 0 15px black;
+    border-radius: 10px;
+    transition: border-radius 3s;
+    
+
+   
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  
+  }
+
+  .sidebar-link:hover{
+    list-style: none;
+    text-decoration: none;
+    color: #fffdd0;
+  
+  }
+
+  .sidebar-link:active {
+    display: flex;
+    align-items: center;
+    color: #454545;
+    text-decoration: none;
+    background-color: red;
+  }
+  
+  .sidebar-icon {
+    margin-right: 20px;
+    font-size: 30px;
+  }
+  
+  .sidebar-toggle {
+    position: absolute;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0;
+    line-height: 2px;
+    color: #FF0066;
+    top: 50px;
+    right: -16px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+
+    
+
+  }
+  
+  .sidebar-toggle:hover {
+    transform: rotate(360deg);
+    
+    
+  }
+ 
+  
+  

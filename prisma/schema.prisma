@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int          @id @default(autoincrement())
+  name     String
+  surname  String
+  email    String       @unique
+  username String       @unique
+  password String
+  profilePicture String?
+  profile  UserProfile?
+}
+
+model UserProfile {
+  id     Int     @id @default(autoincrement())
+  userId Int     @unique
+  bio    String?
+  avatar String?
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+model ServiceProviderSignup {
+  id                     Int     @id @default(autoincrement())
+  email                  String  @unique
+  verificationKey        String
+  password               String
+  name                   String?
+  surname                String?
+  dateOfBirth            String?
+  phone                  String?
+  country                String?
+  city                   String?
+  zip                    String?
+  street                 String?
+  buildingNo             String?
+  companyName            String?
+  companyRegistration    String?
+  ID   String?
+  IDPassport_No          String?
+  avatar                 String?
+  qualifications         String?
+  tradingLicense         String?
+  businessRegistration   String?
+  nationality            String? 
+  gender                 String? 
+  province               String? 
+  identificationType     String? 
+
+}
+
+
+model ProviderContactInfo {
+  id            Int                 @id @default(autoincrement())
+  businesstype  BusinessType
+  providertype  ServiceProviderRole
+  name          String
+  surname       String
+  contactnumber String
+  address       String
+}
+
+model OnboardQuestions {
+  id            Int    @id @default(autoincrement())
+  licenses      String
+  experience    String
+  insurance     String
+  workquality   String
+  communication String
+}
+
+model Service {
+  id                   Int      @id @default(autoincrement())
+  serviceProviderEmail String
+  serviceType          String
+  description          String
+  location             String
+  pricePerHour         Float
+  availability         String
+  image                String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model Servicepay {
+  id            Int     @id @default(autoincrement())
+  serviceType   String
+  pricePerHour  Float
+  paymentStatus String?
+}
+
+model paidrequests {
+  id          Int    @id @default(autoincrement())
+  cus_email   String
+  pro_email   String
+  service     String
+  price       Float
+  cus_address String
+  pro_address String?
+  sevice_description String
+  date        DateTime
+}
+
+model pendingrequests {
+  id          Int     @id @default(autoincrement())
+  cus_email   String
+  pro_email   String
+  service     String
+  sevice_description String
+  price       Float
+  cus_address String
+  pro_address String?
+  date        DateTime
+}
+
+enum ServiceProviderRole {
+  APPLIANCE_REPAIR
+  PLUMBER
+  ELECTRICIAN
+  HVAC_TECHNICIAN
+  CARPENTER
+  PAINTER
+  ROOFER
+  FLOORING_SPECIALIST
+  LOCKSMITH
+  PEST_CONTROL_EXPERT
+  GARDENING_LANDSCAPING_PROFESSIONAL
+  HOME_SECURITY_INSTALLER
+  WINDOW_DOOR_INSTALLER
+  HANDYMAN
+  CLEANING_JANITORIAL
+}
+
+enum BusinessType {
+  BUSINESS
+  FREELANCER
+}

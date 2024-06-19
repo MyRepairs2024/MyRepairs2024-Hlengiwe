@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+
+const DailyOrderTracker = () => {
+  const [dailyOrders, setDailyOrders] = useState({});
+
+  // Function to add an order for the current date
+  const addOrder = (order) => {
+    const currentDate = new Date().toLocaleDateString();
+    setDailyOrders((prevOrders) => ({
+      ...prevOrders,
+      [currentDate]: [...(prevOrders[currentDate] || []), order],
+    }));
+  };
+
+  // Example function to simulate adding an order
+  const handleAddOrder = () => {
+    const newOrder = { id: Math.random(), item: 'Sample Item', quantity: 1 };
+    addOrder(newOrder);
+  };
+
+  return (
+    <div>
+      <button onClick={handleAddOrder}>Add Order</button>
+      <h2>Daily Orders</h2>
+      <ul>
+        {Object.entries(dailyOrders).map(([date, orders]) => (
+          <li key={date}>
+            <strong>{date}</strong>
+            <ul>
+              {orders.map((order) => (
+                <li key={order.id}>
+                  {order.item} - Quantity: {order.quantity}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default DailyOrderTracker;
