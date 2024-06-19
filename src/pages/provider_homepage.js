@@ -3,7 +3,7 @@ import { FaUser } from 'react-icons/fa';
 import { createClient } from '@supabase/supabase-js';
 import TermsAndConditionsModal from './TermsAndConditionsModal'; 
 import axios from 'axios';
-import  GoogleLogin  from 'react-google-login';
+
 import { NotificationsNone } from '@mui/icons-material';
 
 const supabaseUrl = 'https://hpavlbqbspludmrvjroo.supabase.co'; 
@@ -83,9 +83,10 @@ const styles = {
     cursor: 'pointer',
     fontFamily: 'Arial',
     textAlign: 'center',
-    width: '100px',
+    width: '120px',
     margin: '20px auto',
     borderRadius: '20px',  
+   
   },
 };
 
@@ -160,13 +161,41 @@ const TermsAndConditionsModal = ({ handleClose }) => {
   );
 };
 
+const checkPasswordStrength = (password) => {
+  // Define your criteria for password strength
+  const minLength = 8;
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasLowercase = /[a-z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
 
+  // Calculate password strength based on criteria
+  let strength = 0;
+  if (password.length >= minLength) {
+    strength += 1;
+  }
+  if (hasUppercase) {
+    strength += 1;
+  }
+  if (hasLowercase) {
+    strength += 1;
+  }
+  if (hasNumber) {
+    strength += 1;
+  }
+  if (hasSpecialChar) {
+    strength += 1;
+  }
+
+  return strength;
+};
 
 
 
   const handleCloseTermsModal = () => {
     setShowTermsModal(false);
   };
+  
   
  
   const handleChange = (e) => {
@@ -177,15 +206,10 @@ const TermsAndConditionsModal = ({ handleClose }) => {
     }));
   };
   
-  const responseGoogleSuccess = (response) => {
-    console.log('Google Login Response:', response);
-    // Use the response to extract user information and update your state or perform any other actions
-  };
+ 
   
-  const responseGoogleFailure = (response) => {
-    console.log('Google Login Failed:', response);
-    // Handle failed Google Sign-In
-  };
+  
+  const [passwordError, setPasswordError] = useState('');
 
 //for close
 const handleSubmitClose = async (e) => {
@@ -195,6 +219,28 @@ const handleSubmitClose = async (e) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setPasswordError('Passwords do not match');
+      return;
+    } else {
+      setPasswordError('');
+    }
+    const { password, confirmPassword } = formData;
+
+    const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    
+    if (!passwordValidation.test(password)) {
+      setPasswordError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setPasswordError('Passwords do not match');
+      return;
+    }
+
+    setPasswordError('');
+  
  
     // Handle user registration and get user data
     console.log('Form data submitted:', formData);
@@ -202,13 +248,34 @@ const handleSubmitClose = async (e) => {
   
     // Use a try-catch block to handle errors during Supabase interaction
     console.log('Submit button clicked');
+  
     try {
-      await axios.post('/api/formsubmit', formData); // Replace with your API endpoint URL
-      console.log('Form data submitted successfully');
+      // Insert the user data into your Supabase table
+      const { data, error } = await supabase.from('Provider Registration').insert([
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          address: formData.address,
+          password: formData.password,
+          phoneNumber: formData.phoneNumber,
+        },
+      ]);
+      
+      if (error) {
+        console.error('Error submitting form:', error);
+        // Handle error appropriately, such as displaying a message to the user
+      } else {
+        console.log('Form data submitted successfully:', data);
+        // Redirect the user to the profile page or perform any other action
+        window.location.href = '/Profile-Page';
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+      // Handle error appropriately, such as displaying a message to the user
     }
   };
+  
   
   const openTermsPopup = () => {
     setShowTermsModal(true);
@@ -240,7 +307,7 @@ const handleSubmitClose = async (e) => {
               value={formData.username}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
           
          
@@ -251,7 +318,7 @@ const handleSubmitClose = async (e) => {
               value={formData.lastName}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
           
 
@@ -262,7 +329,7 @@ const handleSubmitClose = async (e) => {
               value={formData.email}
               onChange={handleChange}
               required
-            
+              style={styles.input}
             />
           
 
@@ -273,7 +340,7 @@ const handleSubmitClose = async (e) => {
               value={formData.address}
               onChange={handleChange}
               required
-            
+              style={styles.input}
             />
           
 
@@ -284,7 +351,7 @@ const handleSubmitClose = async (e) => {
               value={formData.password}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
           
 
@@ -295,8 +362,10 @@ const handleSubmitClose = async (e) => {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
+        
+         
           
 
          <input
@@ -306,8 +375,10 @@ const handleSubmitClose = async (e) => {
               value={formData.phoneNumber}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
+               {passwordError && <p style={{ color: 'black' }}>{passwordError}</p>}
+         
 
             <>
           <label For="acceptedTerms" >
@@ -330,21 +401,42 @@ const handleSubmitClose = async (e) => {
                <span>I agree to the</span>         
                
          {/* Button or trigger to open the modal */}
-         <div class="terms">
          <button
                id="termsLink" 
-               onClick={handleTermsClick}     
+               onClick={handleTermsClick}
+               style={{
+               backgroundColor: 'transparent',
+               color: 'blue',
+               fontSize: '13px',
+               borderRadius: '20px',
+               cursor: 'pointer',
+               height:'30px' ,
+            width:'210px',
+            marginRight:'30px',
+            marginTop: '20px',
+            marginLeft: '30px',
+            
+         }}
         >
          Terms and Conditions
         </button>
-        </div>
      </label>
-     
 
 
        <button 
         type="submit"
          disabled={!formData.acceptedTerms} 
+         style={{ 
+          position:'relative',
+          bottom:'10px',
+          marginLeft:'90px',
+          marginTop:'15px',
+          padding: '10px 20px',
+           fontSize: '16px',
+            borderRadius: '50px',
+            height:'40px' ,
+            width:'120px'
+            }}
             >
               Sign Up
           </button>  
@@ -361,146 +453,43 @@ const handleSubmitClose = async (e) => {
     )}
     </>
 
-           <GoogleLogin
-             clientId="YOUR_GOOGLE_CLIENT_ID"
-             buttonText="Sign up with Google"
-             onSuccess={responseGoogleSuccess}
-             onFailure={responseGoogleFailure}
-             cookiePolicy={'single_host_origin'}
-              />
-          
+           
+          <div style={styles.links}>
             <p>Already have an account? 
               <a href="/MyLogin">
                 Log in
                 </a>
                 </p>
-          
+          </div>
         </form>   
       </div>
 
       <style jsx>{`
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: #fff;
-}
-
-
-.form-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  margin: 20px;
-  width: 80%;
-  max-width: 400px;
+/*.alert-box {
+  background-color: orange;
+  width: 800px;
+  border-radius: 5px;
+ /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
   text-align: center;
-}
+  margin-bottom: 15px;
+ 
+}*/
 
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"] {
-  width: 90%;
-  padding: 10px;
-  background-color: #f7f7f7; /* Makes the input background transparent */
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #333333;
-}
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder,
-input[type="tel"]::placeholder {
-  color: #aaaaaa;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.terms {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  font-size: 14px;
-  
-}
-
-.terms a {
-  color: blue;
-  text-decoration: none;
-}
-
-.terms a:hover {
-  text-decoration: underline;
-}
-
-.submit-btn {
-  background-color: #ff4081;
-  color: #fff;
-  padding: 10px 20px;
+/*.close-alert {
+  background-color: #e74c3c;
+  color: black;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.submit-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.social-login {
-  margin-top: 20px;
-}
-
-.google-btn {
-  background-color: #fff;
-  color: #444;
   padding: 10px 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-}
+  margin-top: 10px;
+}*/
 
-.google-btn:hover {
-  background-color: #f4f4f9;
-}
+/*.close-alert:hover {
+  background-color: #c0392b;
+}*/
 
-p {
-  margin-top: 20px;
-  font-size: 14px;
-}
 
-p a {
-  color: #ff4081;
-  text-decoration: none;
-}
-
-p a:hover {
-  text-decoration: underline;
-}
 .closemetric{
   background: black;
   color: green;
@@ -527,7 +516,7 @@ p a:hover {
 .overlay-container {
   position: absolute;
   place-items: center;
-  width: 1100px;
+  width: 1000px;
   height: 6000px;
   display: flex;
   justify-content: center;
@@ -541,7 +530,32 @@ p a:hover {
 
 
 
+.Terms{
+  padding-left: 8px;
+    height: 100px;
+    width: 200px;
+   
+    color: azure;
+    border-radius: 10px;
+    background-color:#ff0068;
+    cursor: pointer;
+}
 
+.Terms{
+  width: 80px;
+  height: 70px;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.Terms{
+  width: 100%;
+    margin-bottom: 10px;
+    width: 800px;
+    height: 70px;
+    font-size: 12px;
+    font-family: poppins;
+}
 
 
 .expanded-content.show {
@@ -551,7 +565,7 @@ p a:hover {
 }
 /* CSS styles for the expanded-content (the actual content inside the container) */
 .expanded-content {
-  background-color: #000; /* Background color for the content */
+  background-color: #ff0068; /* Background color for the content */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -563,8 +577,6 @@ p a:hover {
 .expanded-content{
   width:350px;
   height:550px;
-  background-color:#ff4081;
-  color:#000;
 
 }
 

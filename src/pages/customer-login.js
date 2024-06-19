@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GoogleLogin } from 'react-google-login';
+
 
 
   const styles = {
@@ -64,6 +64,11 @@ import { GoogleLogin } from 'react-google-login';
       margin: '20px auto',
       borderRadius: '20px',
     },
+    forgotPassword: {
+      color: '#fff',
+      textDecoration: 'underline',
+      cursor: 'pointer',
+    },
   
   
 };
@@ -78,31 +83,23 @@ function LoginPage() {
   const [verificationSent, setVerificationSent] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
-  const responseGoogleSuccess = (response) => {
-    console.log('Google Login Response:', response);
-    // Use the response to extract user information and update your state or perform any other actions
-  };
-  
-  const responseGoogleFailure = (response) => {
-    console.log('Google Login Failed:', response);
-    // Handle failed Google Sign-In
-  };
+ 
+ 
 
-  const handleSendVerification =async () => {
-      try {
-        await axios.post('/send-verification', { email: formData.email });
-        setVerificationSent(true);
-      } catch (error) {
-        console.error('Error sending verification code', error);
-      }
-    };
+  const handleSendVerification = async (e) => {
+    e.preventDefault();
 
-    const verifyCode = async () => {
-      // Add verification logic here
-    };
-  
+    // Add your logic for sending verification code via email
+    // For now, let's simulate the code sending
+    console.log('Verification code sent to:', formData.email);
+    setVerificationSent(true);
+  };
 
   const handleResendVerification = () => {
     // Add your logic for resending verification code via email
@@ -125,23 +122,36 @@ function LoginPage() {
     } else {
       console.log('Incorrect verification code.');
     }
-  };
+    try {
+      const { user, session, error } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+      });
 
-  const handleForgotPasswordClick = () => {
-    history.push('/forgot-password'); // Use history.push for navigation
+      if (error) {
+        console.error('Registration error:', error.message);
+        return;
+      }
+
+      console.log('User registered:', user);
+      console.log('Session:', session);
+      // Redirect to dashboard or update UI accordingly
+    } catch (error) {
+      console.error('Registration error:', error.message);
+    }
   };
 
   return (
-    <div className='container'>
+    <div style={styles.container}>
       <div style={styles.logoContainer}>
         <div className="logo">
           <img src="/logo-w.png" alt="My Repairs" style={styles.logo} />
         </div>
       </div>
-      <h1 style={{ color: '#fff' }}>Welcome Back!</h1>
-      <div className='formContainer'>
+      <h1>Welcome Back!</h1>
+      <div style={styles.formContainer}>
         <form style={styles.form} onSubmit={verificationSent ? handleLogin : handleSendVerification}>
-            <label>
+          <label>
             <input
               type="email"
               name="email"
@@ -149,14 +159,22 @@ function LoginPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className='input'
+              style={styles.input}
             />
           </label>
 
-        <div>
-          {!verificationSent ? (
-            <div>
-                
+          {!verificationSent && (
+            <>
+              <button type="submit" style={styles.button}>
+                Password
+              </button>
+              
+            </>
+          )}
+
+          {verificationSent && (
+            <>
+              <label>
                 <input
                   type="text"
                   name="verificationKey"
@@ -164,138 +182,29 @@ function LoginPage() {
                   value={formData.verificationKey}
                   onChange={handleChange}
                   required
-                  className='password-input'
+                  style={styles.input}
                 />
-              
-              <button type="button" onClick={handleSendVerification} className='button'>
-            Send Verification
-          </button>
-              </div>
-          
-          ):(
-            <>
-            <label>
-              <input
-                type="text"
-                name="verificationKey"
-                placeholder="Verification Code"
-                value={formData.verificationKey}
-                onChange={handleChange}
-                required
-                className='password-input'
-              />
-            </label>
-            <button type="button" onClick={verifyCode} className='button'>
-              Verify Code
-            </button>
-         </>
+              </label>
+              <button type="submit" style={styles.button}>
+                Login
+              </button>
+            </>
           )}
-</div>
-
-          <GoogleLogin
-  clientId="YOUR_GOOGLE_CLIENT_ID"
-  buttonText="Log in  with Google"
-  onSuccess={responseGoogleSuccess}
-  onFailure={responseGoogleFailure}
-  cookiePolicy={'single_host_origin'}
-/>
+    
 
           <div style={styles.links}>
             <p>Don't have an account? <a href="/customer-register">Register</a></p>
             <p>
-            <a href= "/ForgotPassword">Forgot Password?</a>
+              <span
+                style={styles.forgotPassword}
+                onClick={() => window.location.href = '/ForgotPassword'}
+              >
+                Forgot Password?
+              </span>
             </p>
-          
           </div>
         </form>
       </div>
-      <style jsx>{`
-      .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #ff0066;
-}
-
-.logoContainer {
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 150px;
-}
-
-.formContainer {
-  background-color: #00cccc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.input {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-.password-input {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-
-.button {
-  width: 70%;
-  padding: 8px;
-  background-color: #ff0066;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-left:35px;
-}
-
-.links {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.link {
-  color: #fff;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* New CSS for labels and password input */
-
-label {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 5px;
-  display: block;
-  text-align: left;
-  width: 100%;
-}
-
-
-`}</style>
     </div>
   );
 }

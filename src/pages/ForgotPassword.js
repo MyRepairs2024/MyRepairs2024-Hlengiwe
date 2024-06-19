@@ -7,44 +7,25 @@ const styles = {
     backgroundColor: '#ff0068',
     color: '#fff',
     fontSize: '14px',
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: 'Arial',
     padding: '20px',
     borderRadius: '10px',
-    width: '90%',
-    maxWidth: '500px',
-    margin: '50px auto',
   },
   formContainer: {
     backgroundColor: '#40E0D0',
-    padding: '20px',
+    padding: '10px',
     borderRadius: '10px',
-    width: '100%',
-    maxWidth: '400px',
+    width: '300px',
     margin: '0 auto',
   },
-  logoContainer: {
-    textAlign: 'left',
-  },
-  logo: {
-    width: '100px',
-    height: 'auto',
-    borderRadius: '50%',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px',
-    alignItems: 'center',
-    textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
-    border: 'none',
-    color: '#fff',
-  },
   input: {
-    width: '90%',
+    width: '200px',
     padding: '12px',
+    marginBottom: '10px',
+    display: 'grid',
+    alignItems: 'left',
+    margin: '10px auto',
     borderRadius: '20px',
-    border: '1px solid #ccc',
   },
   button: {
     padding: '10px 20px',
@@ -81,6 +62,7 @@ const ForgotPassword = () => {
 
   const sendPasswordResetLink = (email) => {
     return new Promise((resolve, reject) => {
+        // Simulate sending a reset link setTimeout
         setTimeout(() => {
         const success = true;
         if (success) {
@@ -88,7 +70,7 @@ const ForgotPassword = () => {
         } else {
           reject(new Error('Failed to send reset link'));
         }
-      }, 2000);
+      }, 2000);// Simulate a delay of 2 seconds
     });
   };
 
@@ -114,11 +96,6 @@ const ForgotPassword = () => {
   };
   return (
     <div style={styles.container}>
-         <div style={styles.logoContainer}>
-        <div className="logo">
-          <img src="/logo-w.png" alt="My Repairs" style={styles.logo} />
-        </div>
-      </div>
       <h2>Forgot Password</h2>
       <div style={styles.formContainer}>
         <form onSubmit={handleSubmit}>
@@ -139,6 +116,7 @@ const ForgotPassword = () => {
             Send Reset Link
           </button>
         </form>
+        
         <div style={styles.links}>
           <p>
             <a href="/customer-login" style={styles.backLink}>

@@ -3,15 +3,12 @@ import { FaUser } from 'react-icons/fa';
 import { createClient } from '@supabase/supabase-js';
 import TermsAndConditionsModal from './TermsAndConditionsModal'; 
 import axios from 'axios';
-import { GoogleLogin } from 'react-google-login';
 
-
+import { NotificationsNone } from '@mui/icons-material';
 
 const supabaseUrl = 'https://hpavlbqbspludmrvjroo.supabase.co'; 
 const supabaseApiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwYXZsYnFic3BsdWRtcnZqcm9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTAyNzcwODIsImV4cCI6MjAwNTg1MzA4Mn0.HZXbPikgoL0V7sYj7xNPj0FUupXd8hx1JdMrixvq7Xw'; // Replace with your Supabase API key
-
-
- const supabase = createClient(supabaseUrl, supabaseApiKey);  
+const supabase = createClient(supabaseUrl, supabaseApiKey);  
 
 const styles = {
   container: {
@@ -88,17 +85,16 @@ const styles = {
     textAlign: 'center',
     width: '100px',
     margin: '20px auto',
-    borderRadius: '20px',
+    borderRadius: '20px',  
   },
 };
 
 
-
 function App() {
-  
   const [expandedTermsModal, setExpandedTermsModal] = useState(false);
 
   const [terms, setTerms] = useState(true);
+
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -108,13 +104,14 @@ function App() {
     password: '',
     confirmPassword: '',
     phoneNumber: '',
+    acceptedTerms:false,
   });
 
   const [showTermsModal, setShowTermsModal] = useState(false);
-
-  const handleTermsClick = (event) => {
+ 
+  function handleTermsClick(event) {
     setExpandedTermsModal(true); // Set state to open modal
-    openTermsPopup();  
+    openTermsPopup(); 
     event.preventDefault(); // Prevent default action
     // Your custom logic to handle the button click (e.g., display terms)
   }
@@ -139,35 +136,39 @@ function App() {
     </div>
   )}
 
-  const termsAndConditionsData = {
-    title: "Terms and Conditions",
-    content:[
-         "Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern our relationship with you in relation to this website.", 
-          "By accessing or using this website in any way, you agree to and are bound by the terms and conditions set forth herein. If you do not agree to all of the terms and conditions contained in this agreement do not use this website.",
-          "The content of the pages of this website is for your general information and use only. It is subject to change without NotificationsNone",
-          "If you create an account on this website, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password."
-  ],
-  };
 
-  const TermsAndConditionsModal = ({ handleClose }) => {
-    return (
-      <div className="popup">
-        <h2>{termsAndConditionsData.title}</h2>
-        <p>{termsAndConditionsData.content[0]}</p>
-        <p>{termsAndConditionsData.content[1]}</p>
-        <p>{termsAndConditionsData.content[2]}</p>
-        <p>{termsAndConditionsData.content[3]}</p>
-        {/* ... loop through and render all content paragraphs */}
-         </div>
-    );
-  };
-  
+const termsAndConditionsData = {
+  title: "Terms and Conditions",
+  content:[
+       "Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern our relationship with you in relation to this website.", 
+        "By accessing or using this website in any way, you agree to and are bound by the terms and conditions set forth herein. If you do not agree to all of the terms and conditions contained in this agreement do not use this website.",
+        "The content of the pages of this website is for your general information and use only. It is subject to change without NotificationsNone",
+        "If you create an account on this website, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password."
+],
+};
+
+const TermsAndConditionsModal = ({ handleClose }) => {
+  return (
+    <div className="popup">
+      <h2>{termsAndConditionsData.title}</h2>
+      <p>{termsAndConditionsData.content[0]}</p>
+      <p>{termsAndConditionsData.content[1]}</p>
+      <p>{termsAndConditionsData.content[2]}</p>
+      <p>{termsAndConditionsData.content[3]}</p>
+      {/* ... loop through and render all content paragraphs */}
+       </div>
+  );
+};
+
+
+
+
 
   const handleCloseTermsModal = () => {
     setShowTermsModal(false);
   };
   
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -175,43 +176,60 @@ function App() {
       [name]: value,
     }));
   };
-  const responseGoogleSuccess = (response) => {
-    console.log('Google Login Response:', response);
-    // Use the response to extract user information and update your state or perform any other actions
-  };
   
-  const responseGoogleFailure = (response) => {
-    console.log('Google Login Failed:', response);
-    // Handle failed Google Sign-In
-  };
+  
+  
+ 
+  const [passwordError, setPasswordError] = useState('');
+
+//for close
+const handleSubmitClose = async (e) => {
+ // Handle user registration and get user data
+ console.log('Form data submitted:', formData);
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    if (formData.password !== formData.confirmPassword) {
+      setPasswordError('Passwords do not match');
+      return;
+    } else {
+      setPasswordError('');
+    }
+    const { password, confirmPassword } = formData;
+
+    const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    
+    if (!passwordValidation.test(password)) {
+      setPasswordError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setPasswordError('Passwords do not match');
+      return;
+    }
+
+    setPasswordError('');
+    
+    
+    
+ 
     // Handle user registration and get user data
     console.log('Form data submitted:', formData);
     window.location.href = '/user-dashboard';
-    const responseGoogle = (response) => {
-      console.log('Google Login Response:', response);
-      // Use the response to extract user information and update your state or perform any other actions
-    };
-    const responseFacebook = (response) => {
-      console.log('Facebook Login Response:', response);
-      // Use the response to extract user information and update your state or perform any other actions
-    };
-    
   
     // Use a try-catch block to handle errors during Supabase interaction
     console.log('Submit button clicked');
-
     try {
-      
       await axios.post('/api/formsubmit', formData); // Replace with your API endpoint URL
       console.log('Form data submitted successfully');
     } catch (error) {
       console.error('Error submitting form:', error);
-    }   
+    }
+    
   };
+  
   
   const openTermsPopup = () => {
     setShowTermsModal(true);
@@ -221,10 +239,11 @@ function App() {
     setShowTermsModal(false);
   };
 
+
   return (
+  
     <div style={styles.container}>
       <div style={styles.header}></div>
-     
       <div style={styles.logoContainer}>
   <div className="logo">
     <img src="/logo-w.png" alt="My Repairs" style={styles.logo} />
@@ -235,272 +254,336 @@ function App() {
       <h1><FaUser style={styles.icon} /> Sign Up Here!</h1>
       <div style={styles.formContainer}>
         <form style={styles.form} onSubmit={handleSubmit}>
-          <label>
-            <input
+              <input
               type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.firstName}
+              name="username"
+              placeholder=" first name"
+              value={formData.username}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
-
-          <label>
-            <input
+          
+         
+          <input
               type="text"
               name="lastName"
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
+          
 
-          <label>
-            <input
+        <input
               type="email"
               name="email"
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
+          
 
-          <label>
-            <input
+        <input
               type="text"
               name="address"
               placeholder="Address"
               value={formData.address}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
+          
 
-          <label>
-            <input
+        <input
               type="password"
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
+          
 
-          <label>
-            <input
+        <input
               type="password"
               name="confirmPassword"
               placeholder="Confirm Password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              
+              style={styles.input}
             />
-          </label>
+          
 
-          <label>
-            <input
+         <input
               type="tel"
               name="phoneNumber"
               placeholder="Contact Number"
               value={formData.phoneNumber}
               onChange={handleChange}
               required
-            
+              style={styles.input}
             />
-          </label>
-
-          <>
-              <label htmlFor="acceptedTerms" >
-                 <input
-                   type="checkbox"
-                    name="acceptedTerms"
-                    id="acceptedTerms"
-                     checked={formData.acceptedTerms}
-                      onChange={(event) => setFormData({ ...formData, acceptedTerms: event.target.checked })}
-                       style={{
-                        backgroundColor: 'transparent',
-                           borderRadius: '2px',
-                           cursor: 'pointer',
-                           height:'15px' ,
-                           marginRight:'5px',
-                           marginTop:'5px',
-                           marginLeft:'-40px'
-                            }}
-                           />
-                           <span>I agree to the</span>
-                              {/* Button or trigger to open the modal */}
-                               <button
-                               id="termsLink" 
-                                onClick={handleTermsClick}
-                                 style={{
-                                  backgroundColor: 'transparent',
-                                  color: 'blue',
-                                  fontSize: '13px',
-                                   borderRadius: '20px',
-                                     cursor: 'pointer',
-                                      height:'25px',
-                                       width:'200px',
-                                         marginRight:'40px',
-                                         
-                                        }}
-                                        >
-                                          Terms and Conditions
-                                        </button>         
-                                        </label>
-
-                                        <button 
-                                        type="submit"
-                                        disabled={!formData.acceptedTerms} 
-                                      
-                                           >
-                                            Sign Up
-                                         </button> 
-                                       
-{expandedTermsModal && (
-<div className='overlay-container'>
-<div className="expanded-content">
-{showTermsModal && <TermsAndConditionsModal handleClose={closeTermsPopup} />}
-<button className="close-modal-button" onClick={() => setExpandedTermsModal(false)} aria-label="Close Terms and Conditions">
-Close
-</button>
-</div>    
-</div>
-)}
-</>
+            {passwordError && <p style={{ color: 'black' }}>{passwordError}</p>}
 
 
-          <GoogleLogin
-        clientId="YOUR_GOOGLE_CLIENT_ID"
-        buttonText="Sign up with Google"
-        onSuccess={responseGoogleSuccess}
-        onFailure={responseGoogleFailure}
-        cookiePolicy={'single_host_origin'}
-      />
-          <div style={styles.checkboxContainer}>
+            <>
+          <label For="acceptedTerms" >
+           <input
+             type="checkbox"
+              name="acceptedTerms"
+               id="acceptedTerms"
+                checked={formData.acceptedTerms}
+                onChange={(event) => setFormData({ ...formData, acceptedTerms: event.target.checked })}
+                 style={{
+                  backgroundColor: 'transparent',
+                  borderRadius: '2px',
+                  cursor: 'pointer',
+                   height:'15px' ,
+                    marginRight:'5px',
+                       marginTop:'5px',
+                       marginLeft:'-40px'
+                   }}
+                 />
+               <span>I agree to the</span>         
+               
+         {/* Button or trigger to open the modal */}
+         <button
+               id="termsLink" 
+               onClick={handleTermsClick}
+               style={{
+               backgroundColor: 'transparent',
+               color: 'blue',
+               fontSize: '13px',
+               borderRadius: '20px',
+               cursor: 'pointer',
+               height:'30px' ,
+            width:'210px',
+            marginRight:'30px',
+            marginTop: '20px',
+            marginLeft: '30px',
             
+         }}
+        >
+         Terms and Conditions
+        </button>
+     </label>
+
+
+       <button 
+        type="submit"
+         disabled={!formData.acceptedTerms} 
+         style={{ 
+          position:'relative',
+          bottom:'10px',
+          marginLeft:'90px',
+          marginTop:'15px',
+          padding: '10px 20px',
+           fontSize: '16px',
+            borderRadius: '50px',
+            height:'40px' ,
+            width:'120px'
+            }}
+            >
+              Sign Up
+          </button>  
           
-          </div>
-        
+    {expandedTermsModal && (
+<div className='overlay-container'>
+      <div className="expanded-content">
+         {showTermsModal && <TermsAndConditionsModal handleClose={closeTermsPopup} />}
+         <button className="close-modal-button" onClick={() => setExpandedTermsModal(false)} aria-label="Close Terms and Conditions">
+  Close
+</button>
+         </div>    
+         </div>
+    )}
+    </>
+
+         
           <div style={styles.links}>
-            <p>Already have an account? <a href="/customer-login">Log in</a></p>
+            <p>Already have an account? 
+              <a href="/customer-login">
+                Log in
+                </a>
+                </p>
           </div>
-          
-        </form>
-        
+        </form>   
       </div>
+
       <style jsx>{`
+/*.alert-box {
+  background-color: orange;
+  width: 800px;
+  border-radius: 5px;
+ /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+  text-align: center;
+  margin-bottom: 15px;
+ 
+}*/
+
+/*.close-alert {
+  background-color: #e74c3c;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}*/
+
+/*.close-alert:hover {
+  background-color: #c0392b;
+}*/
 
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
+.closemetric{
+  background: black;
+  color: green;
+  font-weight: bold;
+
+}
+.closemetric:hover{
+  background: red;
+  color: #fff;
+  transition: background 0.5s;
+}
+.alert-container {
+
+  width: 100%;
+  height: 100%;
+  font-family: poppins;
+  font-size: 100px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of other elements */
 }
 
-.container {
+.overlay-container {
+  position: absolute;
+  place-items: center;
+  width: 1100px;
+  height: 6000px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  /* Semi-transparent overlay background */
+  transition: backdropFilter 3s;
 }
 
-.formContainer {
-  background-color: #40E0D0;
-  padding: 20px; /* Increased padding for better spacing on mobile */
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 90%; /* Adjusted width for better responsiveness */
-  max-width: 350px; /* Added max-width to limit size on larger screens */
-  margin: 0 auto; /* Center the form container horizontally */
+
+
+.Terms{
+  padding-left: 8px;
+    height: 100px;
+    width: 200px;
+   
+    color: azure;
+    border-radius: 10px;
+    background-color:#ff0068;
+    cursor: pointer;
 }
 
-label {
-  display: block;
-  color: #555555;
-  margin-bottom: 8px;
-  font-weight: bold;
+.Terms{
+  width: 80px;
+  height: 70px;
+  font-size: 12px;
+  font-family: poppins;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-textarea {
-  width: 80%; /* Full width on smaller screens */
-  padding: 10px;
-  background-color: #f7f7f7;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #000;
-  margin-bottom: 10px; /* Space between inputs */
-}
-
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="password"]::placeholder,
-input[type="tel"]::placeholder,
-textarea::placeholder {
-  color: #aaaaaa;
-}
-
-button {
+.Terms{
   width: 100%;
-  padding: 10px;
-  color: #000;
-  border: none;
-  border-radius: 2px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px; /* Space between button and inputs */
+    margin-bottom: 10px;
+    width: 800px;
+    height: 70px;
+    font-size: 12px;
+    font-family: poppins;
 }
 
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+
+.expanded-content.show {
+  opacity: 1;
+  /* Keep the final position as you like */
+  transform: translateY(0);
+}
+/* CSS styles for the expanded-content (the actual content inside the container) */
+.expanded-content {
+  background-color: #ff0068; /* Background color for the content */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  /* Add other styling as needed */
+  animation: fallingBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+
 }
 
-.checkbox-container input {
-  margin-right: 10px;
+.expanded-content{
+  width:350px;
+  height:550px;
+
 }
 
-.terms-link {
-  color: #007bff;
-  text-decoration: none;
+/* CSS styles for the "No Pending Requests" message */
+.no-pending-requests {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  /* Add other styling as needed */
 }
 
-.terms-link:hover {
-  text-decoration: underline;
-  color: #0056b3;
+.container-wrapper {
+  /* Add your desired styles here */
+  
+  margin: 20px auto;  /* Example: Add margin for spacing */
+  padding: 10px;     /* Example: Add padding for content */
+  border: 1px solid #ddd;  /* Example: Add a border */
+  width: 200px;      /* Example: Set a specific width */
+  background-color:#f0f0;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .formContainer {
-    width: 90%; /* Adjusted width for smaller screens */
-    max-width: 100%; /* Full width on smaller screens */
-  }
-
-  .expanded-content {
-    width: 100%; /* Full width for expanded content on smaller screens */
-  }
-}
-
+      .closeButton {
+        /* Button dimensions */
+        width: 80px; /* Adjust width as desired */
+        height: 30px; /* Adjust height as desired */
+      
+        /* Button background color */
+        background-color: #cccccc; /* Change to your preferred color */
+      
+        /* Text color */
+        color: #333333; /* Change to your preferred color */
+      
+        /* Border */
+        border: 1px solid #cccccc; /* Adjust border style and color */
+      
+        /* Rounded corners */
+        border-radius: 5px; /* Adjust corner radius as desired */
+      
+        /* Padding */
+        padding: 5px 10px; /* Adjust padding as desired */
+      
+        /* Font */
+        font-family: Arial, sans-serif; /* Change to your preferred font */
+        font-size: 14px; /* Adjust font size as desired */
+      
+        /* Hover effect (optional) */
+        cursor: pointer; /* Indicate clickable behavior */
+        transition: background-color 0.2s ease-in-out; /* Smooth transition */
+      
+        &:hover {
+          background-color: #dddddd; /* Change hover background color */
+        }
+      }
       
       `}</style>
+
     </div>
   );
 }
