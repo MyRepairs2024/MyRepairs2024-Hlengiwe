@@ -1046,7 +1046,26 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
 
         </nav>
         
-        {activeTab === 'overview' && (
+        {activeTab === 'services' && (
+          <div>
+ <div className='popularservice_heading'>
+     Service Performance
+       </div>
+    
+    <div className="services-wrapper">
+        <BarChart servicePerformanceData={servicePerformanceData} months={months} />
+
+   </div>
+   
+   <h2>Days</h2>
+   
+        </div>  
+        )}
+
+
+{activeTab === 'overview' && (
+          <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
+          
           <div className='Dash-Container'>
          <div className="metrics">
          <div
@@ -1054,6 +1073,7 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
   onClick={() => {
     setExpandedPendingServices(!expandedPendingServices);
     // Perform the database search here
+    
  
   }}
 >
@@ -1066,6 +1086,64 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
       <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
       <span>{pendingServicesProgress}%</span>
     </div>
+    <div className="container">
+      {/* First Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Service Description
+        <h2>Service Description</h2>
+        <p style={{ fontWeight: 'normal' }}>Repairing a Samsung fridge</p>
+        
+        </div>
+        <div className='updates-Container'>Service Description
+        <h2>Service Description</h2>
+        <p style={{ fontWeight: 'normal' }}>Repairing a Microwave</p>
+        
+        </div>
+        
+        
+      </div>
+
+      {/* Second Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
+        </div>
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
+        </div>
+        
+      </div>
+
+
+      <div className="set">
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
+      </div>
+      </div>
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
+      </div>
+      </div>
+
+      </div>
+      </div>
+       
     
 </div>
 
@@ -1088,13 +1166,11 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
     <p className='popular_heading'>Current Services</p>
        </div>
        
+      
      
   </div>
-  
+</div>
 
-
- 
-  
   
 </div>
 
@@ -1103,67 +1179,10 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
 
           
         )}
-
-
-  {activeTab === 'services' && (     
-      <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
-            <div className='Dash-Container'>
-                 <div className="metrics">
-                  {/*pendingRequest*/}
-                  <div
-                  className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
-                  onClick={() => {
-                     setExpandedPendingServices(!expandedPendingServices);
-    // Perform the database search here
-}}
->
-  <br/>
-   <h3>Pending Requests</h3>
-       <div className="progress-circle">
-        <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
-         <span>{pendingServicesProgress}%</span>
-         </div>
-         </div>
-
-
-{/* Expenses */}
-<div 
-className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`}
- onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
-    <h3>Expenses</h3>
-        <div className="progress-circle">
-          <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
-            <span>{pendingServicesProgress}%</span>
-         </div>
-     </div>
-
-{/*Points*/}
-<div 
-className={`Rewards ${expandedRewards ? 'expanded' : ''}`} 
-onClick={() => setExpandedRewards(!expandedRewards)}>
-   <h3>Points</h3>
-   <div className="progress-circle">
-     <progress className="circle-progress" value={rewardsProgress} max="100"></progress>
-     <span>{rewardsProgress}%</span>
-    </div>
-  </div>
-     </div>  
-    
-     <div className='popularservice_heading'>
-     Service Performance
-       </div>
-    {/*for bar chart*/}
-    <div className="services-wrapper">
-        <BarChart servicePerformanceData={servicePerformanceData} months={months} />
-
-   </div>
-   
-   <h2>Days</h2>
-   
-  </div>
-  </div>
-)}
  
+
+   
+
         {activeTab === 'accounts' && (
            <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
           <div>
