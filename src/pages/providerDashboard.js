@@ -852,6 +852,11 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+
+
+
+  
   const handleDownloadpdf = () => {
     // Create a new Blob object with the text content
     const blob = new Blob(['.analytics-container'], { type: 'application/pdf' });
@@ -1032,15 +1037,17 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
           <a href="#" onClick={() => handleTabChange('services')}>Reviews</a>
           <a href="#" onClick={() => handleTabChange('accounts')}>Account</a>
           
-          
-          <div className="search-container"></div>
+
+
           <div className="account-link">
+          <div className="search-container">
+          <input type="text" placeholder="Search..." className="search-input" />
           <a href="#" onClick={() => handleTabChange('accounts')}>
-    
-    
-    <span className="search-symbol" role="img" aria-label="Search">&#128269;</span>
-    </a>
+          <span className="search-symbol" role="img" aria-label="Search">&#128269;</span>
+          </a>
 </div>
+</div>
+
  
         
 
@@ -1068,25 +1075,38 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
           
           <div className='Dash-Container'>
          <div className="metrics">
-         <div
-  className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
-  onClick={() => {
-    setExpandedPendingServices(!expandedPendingServices);
-    // Perform the database search here
-    
- 
-  }}
+         <div className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
+         onClick={() => {
+          setExpandedPendingServices(!expandedPendingServices);
+          }}
 >
- <br/>
- 
-
     <h3>Pending Requests</h3>
-  
+    <div className="progress-circle">
+      <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
+      <span>{pendingServicesProgress}%</span>
+    </div> 
+</div>
+
+<div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`} onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
+    <h3>Expenses</h3>
     <div className="progress-circle">
       <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
       <span>{pendingServicesProgress}%</span>
     </div>
-    <div className="container">
+  </div>
+
+  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`} onClick={() => setExpandedRewards(!expandedRewards)}>
+    <h3>Points</h3>
+    <div className="progress-circle">
+      <progress className="circle-progress" value={rewardsProgress} max="100"></progress>
+      <span>{rewardsProgress}%</span>
+    </div>
+  </div>
+</div>
+
+
+
+<div className="container">
       {/* First Set of Containers */}
       <div className="set">
         <div className='updates-Container'>Service Description
@@ -1140,44 +1160,10 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
         <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
       </div>
       </div>
-
       </div>
       </div>
-       
-    
-</div>
-
-
-<div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`} onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
-    <h3>Expenses</h3>
-    <div className="progress-circle">
-      <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
-      <span>{pendingServicesProgress}%</span>
-    </div>
-  </div>
-
-  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`} onClick={() => setExpandedRewards(!expandedRewards)}>
-    <h3>Points</h3>
-    <div className="progress-circle">
-      <progress className="circle-progress" value={rewardsProgress} max="100"></progress>
-      <span>{rewardsProgress}%</span>
-    </div>
-    <div className='popularservice_heading'>
-    <p className='popular_heading'>Current Services</p>
-       </div>
-       
-      
-     
-  </div>
-</div>
-
-  
-</div>
-
-   
-          </div>
-
-          
+      </div>   
+        </div>         
         )}
  
 
@@ -1964,30 +1950,34 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
     
       <style jsx>{`
 
+body {
+font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+  hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
 
 .logsout{
-
-  
-  
   background-color: #fff;
   color: #FF0066;
   border: none;
   padding: 8px 18px;
-  
-  margin: 0 auto;
-  
-  font-size: 14px;
-  font-weight: bold;
+   cursor: pointer;
+  width: 80%;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  
-
 }
+
+
 .UserDashboard{
   display: flex;
  justify-content: center;
-  width: 100%;
+width: 100%;
   align-items: center;
 background: azure;
 padding: 10px;
@@ -1995,23 +1985,65 @@ height: 100vh;
 position: fixed;
 left: 0;
 top: 0;
+}
 
-  
- 
-}
-.UserDashboard{
-  margin: 0;
-  padding: 0;
-}
-.dashcontent{
-        
+.dashcontent{    
   width: 150px;
   padding: 0px;
   margin-left: 0px;
- 
-
-
 }
+
+@media (min-width: 768px) {
+  .UserDashboard {
+    flex-direction: row;
+  }
+
+  .img-and-title {
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+  }
+    .dashboard-container {
+    flex-direction: row;
+    width: 250px;
+  }
+
+  .dashboard-content {
+    height: 100vh;
+  }
+    .mainpage {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .active_Tab {
+    display: block;
+    margin-left: auto;
+  }
+      }
+
+@media (max-width: 767px) {
+  .img-and-title {
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .dashboard-content {
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .dashboard-section {
+    display: inline-block;
+    padding: 10px 20px;
+  }
+
+  .mainpage {
+    padding: 10px;
+  }
+}
+
 
 
 .profile_information{
@@ -2624,6 +2656,7 @@ padding-top: 8px;
   
 }
 .set {
+
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -2848,15 +2881,14 @@ padding-top: 8px;
 .ScrollableContainer {
   height: 10000px; /* Adjust the height as needed */
   overflow-y: auto;
+
+ 
 }
 .Dash-Container {
-  display: flex; /* Arrange metrics horizontally */
-  flex-direction: row;
-  flex-wrap: wrap; /* Allow metrics to wrap if needed */
-
-  /* Optional spacing and styling */
-  padding: 10px;
-   border-radius: 5px;
+   padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .top-containers {
@@ -3101,7 +3133,6 @@ margin: 0;
 
   }
   .maindash{
-
     margin: 0;
     margin-top: -120px;
     margin-bottom: 10px;
@@ -3110,32 +3141,59 @@ margin: 0;
     margin-right: 0;
     padding: 6;
     top :10px
-    
+  }
+
+  .maindash a {
+  color: #ff0068;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.maindash a:hover {
+  background-color: #ff4d94;
+  border-radius: 5px;
+}
+  .maindash a.active 
+  {
+  background-color:#ff0068;
+  color:#fff;
+  border-radius:5px;
   }
   .search-container {
-    display: flex;
-    align-items: center;
-    
-  }
+  display: flex;
+  align-items: center;
+
+}
+
+
   .search-link {
     margin-left: 10px; /* Adjust spacing between "Account" and the search symbol */
   }
+    .account-link {
+  margin-left: 10px;
+}
   .account-link a {
     text-decoration: none;
     color: #333; /* Set the color to your desired text color */
   }
   
-  .search-symbol {
-    margin-left: 600px; /* Adjust spacing between "Account" and the search symbol */
-    width: 10px; /* Set the width of the image */
-    height: 20px; /* Set the height of the image */
-    cursor: pointer;
-    padding: 5px;
-  }
-  .search-symbol[contentEditable="true"] {
-    border: 1px solid #ccc; /* Add a border to indicate the active state */
-    padding: 5px; /* Adjust padding for better visual appearance */
-  }
+ .search-symbol {
+  font-size: 20px;
+  color: #ff0068;
+  cursor: pointer;
+ 
+}
+.search-input {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 5px;
+}
+
+
+  
   .countedorders{
     display: flex;
     margin-top: 2%;
@@ -3283,19 +3341,12 @@ margin: 0;
 }
 
 
-
 .popularservice_heading:after {
   right: 0%;
   margin-right: 0%;
   top: 100%;
   padding-top: 20px;
-  
-  
-  
 }
-
-  
-   
 
   .fileheading{
     font-family: poppins;
@@ -3508,19 +3559,10 @@ background-color: #0056b3;
 
     }
   .username{
-
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -30px;
     color: white;
-    font-family: poppins;
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  width: 150px;
   }
+
+  
   h4{
   
   
@@ -3531,30 +3573,18 @@ background-color: #0056b3;
   
   }
   .profile-pic {
-    display: flex;
-    text-overflow: ellipsis;
-    justify-content: center;
-    align-items: center; /* Center vertically */
-  text-align: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #fff;
-    color: #ff0068;
-    font-size: 36px;
-    font-family: poppins;
-    font-weight: bold;
-    margin: 0 auto 20px;
-    margin-top: 10px;
-    white-space: nowrap;
-
-   
-  }
-  .profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Adjust the object-fit property to control how the image fits within the container */
-  }
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #ff0068;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 10px;
+}
+ 
         .closemetric:hover{
           background: red;
           color: #fff;
@@ -3693,8 +3723,6 @@ background-color: #0056b3;
   .overlay-container {
     position: absolute;
     place-items: center;
-  
-  
     width: 1100px;
     height: 660px;
     display: flex;
@@ -3712,8 +3740,7 @@ background-color: #0056b3;
     /* Keep the final position as you like */
     transform: translateY(0);
   }
-  /* CSS styles for the expanded-content (the actual content inside the container) */
-  .expanded-content {
+   .expanded-content {
     background-color: #fff; /* Background color for the content */
     padding: 20px;
     border-radius: 5px;
@@ -3724,6 +3751,10 @@ background-color: #0056b3;
   }
 
   
+.loading-spinner {
+  text-align: center;
+}
+
   
   /* CSS styles for the "No " message */
   .no-pending-requests {
@@ -3738,10 +3769,30 @@ background-color: #0056b3;
 color: black;
 }
 
+.requestcard {
+  text-align: left;
+}
+
+.pendingrequests {
+  list-style: none;
+  padding: 0;
+}
+
+.pending-request {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
 
 
-
-
+.closemetric, .acceptrequest {
+  background-color: #ff0068;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 }
 
@@ -3893,13 +3944,10 @@ border-radius: 10px;
 .dashboard-container {
   padding: 15px;
   background-color: #ff0068;
-  border: solid light-red 5px;
   width: 180px;
   height: 100%;
-  left: 0;
-
- 
-  
+   display: flex;
+   flex-direction: column;
 }
 
 @media (max-width: 768px){
@@ -3925,35 +3973,9 @@ height: 100vh;
       margin-left: 19px;
       font-family: cursive;
       color: #fffdd0;
-   
-     
       text-align: center;
-    
     }
 
-    .profile-picture {
-     
-      background-color: #fff;
-      align-items: center;
-      width: 80px; 
-      height: 80px; /* Adjust the size as needed */
-      border-radius: 50%; /* Makes it a circle */
-      overflow: hidden; /* Clip the image to the circular boundary */
-      margin: 0 auto; /* Center horizontally */
-      margin-bottom: -10px;
-      margin-top: 15px;
-      margin-left: 25px;
-      border: 2px solid #fff; /* Add a border for styling */
-      box-shadow: 0 0 5px #fff;
-    }
-    
-    .profile-picture img {
-      align-items: center;
-      position: relative;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Maintain aspect ratio and cover the circle */
-    }
 
     nav{
       height: 50px;
@@ -4008,6 +4030,15 @@ height: 100vh;
       
 
     }
+
+    .img-and-title {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #ff0068;
+  color: #fff;
+}
+
     .img-and-title hr{
       border-top: 2px solid #ff0068;
       border-bottom: 2px solid #ff0068;
@@ -4048,40 +4079,21 @@ height: 100vh;
       width: 170px;
       position: relative;
       font-weight: bold;
-    margin: 0 auto;
-  
-    
-      
+    margin: 0 auto;  
     }
-
-   
-
-
-
-
-  
-
-
-
-    
-
-    
 
     .mainpage{
-      width: 950px;
+      flex:1;
+      width: 500px;
       height: 100%;
-            padding: 15px;
-          
-             background-color: #fff;
-   margin-left: -19px;
-             z-index: 5555;
-             
-            
-          overflow: hidden;
-             display: block;
-      
-
+      padding: 15px;   
+      background-color: #fff;
+      margin-left: -19px;
+      z-index: 5555;
+      overflow: hidden;
+      display: block;
     }
+
     .mainpage hr{
       border-top: 2px solid #ff0068;
       border-bottom: 2px solid #ff0068;
@@ -4165,7 +4177,6 @@ border-radius: 30px;
  }
 
  .metrics{
-  
  
       border-radius: 10px;
       display: flex;
@@ -4234,12 +4245,22 @@ color: azure;
 border-radius: 10px;
 background-color:#ff0068;
 cursor: pointer;
-margin-left: -90px
-
-
-
-
+margin-left: -100px
  }
+
+ .servicesdone:hover {
+  background-color: #e1e1e1;
+}
+
+
+ .pendingservices:hover {
+  background-color: #e1e1e1;
+}
+
+ .Rewards:hover {
+  background-color: #e1e1e1;
+}
+
 
 
 
@@ -4278,21 +4299,22 @@ margin-left: -90px
 }
 
 
-
+.dashboard-section {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 .dashboard-section.active {
   font-weight: bold;
 color: #ff0068;
   background-color: #ff0068;
  z-index: 99999;
-  text-decoration: none;
-  font-style: none;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  box-shadow: none;
   padding-top: 20px;
   padding-bottom: 20px;
 width: 170px;
+
   .dashboard-section:hover{
 background: #ff0068;
   }
@@ -4380,16 +4402,8 @@ position: relative;
   color: white;
 }
 
-.btn_logout{
-  width: auto;
-  align-items: center;
-  display: flex;
-  width: 160px;
-  padding: 0;
-  position: absolute;
-  bottom: 20px;
- 
-  
+.btn_logout {
+  margin-top: auto;
 }
 
 .active_Tab{
