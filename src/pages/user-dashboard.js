@@ -1492,19 +1492,6 @@ const handleCloseAlert = () => {
       <button className='edit_personal' onClick={toggleEdit}>Edit</button>
       </div>
 <div className='User_info'>
-<div className='fetched_salut'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='Name'>Salutation:</p></strong></div>
-              <div className='fetched_name'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='profile_name'>Name:</p></strong></div>
-              <div className='fetched_dob'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='dob'>Date of Birth</p></strong></div>
-              <div className='fetched_phone'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='phone'>Phone:</p></strong></div>
-
-              <div className='fetched_email'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='profile_email'>Email:</p></strong></div>
-              <div className='fetched_country'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='country'>Country</p></strong></div>
-              <div className='fetched_city'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='city'>City:</p></strong></div>
-              <div className='fetched_zip'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='zip'>ZIP:</p></strong></div>
-              <div className='fetched_street'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='street'>Street Name</p></strong></div>
-              <div className='fetched_building'><strong><p style={{color: '#454545', fontFamily: 'poppins', fontWeight: 'bold'}} className='building'>Building:</p></strong></div>
-
-
 </div>
 {editMode && (
   <>
@@ -2669,16 +2656,19 @@ button {
 }
 
 .edit_personal, .edit_image, .edit_personal1, .edit_personal2 {
-  background-color: #007bff;
+  background-color: #40E0D0;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   margin: 5px;
 }
+  .edit_personal {
+  background-color: #40E0D0;
+}
 
 .edit_personal1 {
-  background-color: #28a745;
+  background-color: ##ff0068;
 }
 
 .edit_personal2 {
@@ -2985,6 +2975,94 @@ body {
   
 
 
+.edit-personal-info-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+    border: 3px solid #ff0068; 
+}
+.editinfo_header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+  .personalinfo_heading {
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+    color:#ff0068;
+      }
+  .editbuttons {
+  display: flex;
+  gap: 10px;
+ 
+}
+
+.edit_personal1, .edit_personal2 {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+  .edit_personal1 {
+  background-color: #ff0068;
+  color: white;
+}
+
+.edit_personal2 {
+  background-color: #dc3545;
+  color: white;
+}
+  .edit_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+  .edit_form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit_form strong {
+  flex: 1;
+}.edit_form input {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .editinfo_header1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .editbuttons {
+    margin-top: 10px;
+  }
+
+  .edit_form div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit_form strong {
+    margin-bottom: 5px;
+  }
+
+  .edit_form input {
+    width: 100%;
+  }
+}
            `}</style>
     </div>
   );
