@@ -2636,6 +2636,7 @@ button {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 10px;
+   border: 3px solid #ff0068; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -2645,6 +2646,7 @@ button {
   background-color: #ddd;
   border-radius: 50%;
   margin: 0 auto;
+    border-radius: 5px;
 }
 
 .Name_Surname, .Name, .dob, .phone, .profile_email, .country, .city, .zip, .street, .building {
@@ -2669,10 +2671,12 @@ button {
 
 .edit_personal1 {
   background-color: ##ff0068;
+  margin-left:-10px;
 }
 
 .edit_personal2 {
   background-color: #dc3545;
+  margin-left:-10px;
 }
 
 .User_info, .edit_form {
@@ -2719,8 +2723,8 @@ button {
   }
 
   .edit_personal, .edit_image, .edit_personal1, .edit_personal2 {
-    padding: 8px 15px;
-    font-size: 14px;
+    padding: 4px 10px;
+    font-size: 11px;
   }
 }
 /* General Styles */
