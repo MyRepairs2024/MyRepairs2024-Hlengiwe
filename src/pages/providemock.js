@@ -2411,9 +2411,6 @@ border-radius: 10px;
    position: fixed;
    left: 0;
    top: 0;
-
-      
-     
     }
 
       

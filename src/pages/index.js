@@ -111,7 +111,7 @@ const HomePage = () => {
  const [showNextContainerC, setShowNextContainerC] = useState(false);
 const [showNextContainer, setShowNextContainer] = useState(false);
 const [selectedService, setSelectedService] = useState("");
-
+const [selectedBrand, setSelectedBrand] = useState('');
 const [selectedTime, setSelectedTime] = useState("");
 const [selectedDate, setSelectedDate] = useState(null);
 const [description, setDescription] = useState('');
@@ -214,8 +214,50 @@ const subFaultsAppliancesRepairs = {
   ]
 };
 
+//for Cappentry
+const subFaultsCapentryServices={
+  '2.1': [
+    
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+  '2.2': [
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+  '2.3': [
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+  '2.4': [
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+  '2.5': [
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+  '2.6': [
+    { id: 1, name: 'Compressor Not Running', description: 'The compressor fails to start, resulting in no cooling.' },
+    { id: 2, name: 'Compressor Noisy', description: 'Unusual or excessively loud noises coming from the compressor.' },
+    { id: 3, name: 'Compressor Overheating', description: 'The compressor becomes too hot, affecting cooling efficiency.' }
+  ],
+};
 
+//for HAVC
+const subFaultsHAVCServices={
+};
 
+//for Gardening and Landscapeing
+const subFaultsGardeningAndLandscapeingServices={};
+
+//for Home Security Services
+const subFaultsHomeSecurityServicesServices={};
 
 
 //for Handyman Services
@@ -813,46 +855,49 @@ const subFaultsLocksmith = {
         <p style={{ fontWeight: 'bold', color: '#fff',fontSize: '15px'}}>What do you need help with?</p>
   <select value={selectedService} 
   onChange={(e) => setSelectedService(e.target.value)}  
-  style={{ borderRadius: '5px' ,width: '250px',height: '40px'}}>
-   <option value="">Select Service</option>
-<option value="electrician">Refrigerator Repair</option>
-<option value="appliance">Oven and Hob Repair</option>
-<option value="electrician">Washing Machine Repair</option>
-<option value="appliance">Fridge Repair</option>
-<option value="electrician">Dishwasher Repair</option>
-<option value="appliance">Tumble Dryer Repair</option>
-<option value="electrician">Dishwasher Repair</option>
-<option value="appliance">Microwave Repair</option>
-<option value="electrician">Freezer Repair</option>
-<option value="appliance">Garbage Disposal Repair</option>
-<option value="electrician">Air Conditioning Repair</option>
-<option value="appliance">Water Heater Repair</option>
-<option value="appliance">Extractor Hood Repair</option>
-<option value="appliance">Ice Maker Repair</option>
-<option value="appliance">Small Appliance Repair</option>
-<option value="appliance">General Maintenance and Servicing</option>
-</select>
+  style={{ borderRadius: '5px' ,width: '250px',height: '40px'}}
+  >
+  <option value="">Select Service</option>
+          <option value="refrigerator-repair">Refrigerator Repair</option>
+          <option value="oven-hob-repair">Oven and Hob Repair</option>
+          <option value="washing-machine-repair">Washing Machine Repair</option>
+          <option value="fridge-repair">Fridge Repair</option>
+          <option value="dishwasher-repair">Dishwasher Repair</option>
+          <option value="tumble-dryer-repair">Tumble Dryer Repair</option>
+          <option value="microwave-repair">Microwave Repair</option>
+          <option value="freezer-repair">Freezer Repair</option>
+          <option value="garbage-disposal-repair">Garbage Disposal Repair</option>
+          <option value="air-conditioning-repair">Air Conditioning Repair</option>
+          <option value="water-heater-repair">Water Heater Repair</option>
+          <option value="extractor-hood-repair">Extractor Hood Repair</option>
+          <option value="ice-maker-repair">Ice Maker Repair</option>
+          <option value="small-appliance-repair">Small Appliance Repair</option>
+          <option value="general-maintenance">General Maintenance and Servicing</option>
+        </select>
 
   <p style={{ fontWeight: 'bold', color: '#fff',fontSize: '15px'}}>Select your brand?</p>
-  <select value={selectedService} onChange={(e) => setSelectedService(e.target.value)}  style={{ borderRadius: '5px' ,width: '250px',height: '40px'}}>
-    <option value="">Select Brand</option>
-    <option value="electrician">Whirlpool Corporation</option>
-    <option value="appliance">LG Electronics</option>
-    <option value="electrician">Samsung Electronics</option>
-    <option value="appliance">Electrolux</option>
-    <option value="electrician">Bosch: </option>
-    <option value="appliance">General Electic</option>
-    <option value="electrician">Sofa Repair</option>
-    <option value="appliance">Haier Group </option>
-    <option value="electrician">Miele</option>
-    <option value="appliance">Panasonic Corporation</option>
-    <option value="electrician">Siemens</option>
-    <option value="appliance">Maytag</option>
-    <option value="appliance">AEG</option>
-    <option value="appliance">KitchenAid</option>
-    <option value="appliance">Sharp Corporation</option>
-    <option value="appliance">Indesit Company</option>
-  </select>
+  <select 
+  value={selectedBrand} 
+  onChange={(e) => setSelectedBrand(e.target.value)}  
+  style={{ borderRadius: '5px', width: '250px', height: '40px'}}
+>
+<option value="">Select Brand</option>
+          <option value="whirlpool">Whirlpool Corporation</option>
+          <option value="lg">LG Electronics</option>
+          <option value="samsung">Samsung Electronics</option>
+          <option value="electrolux">Electrolux</option>
+          <option value="bosch">Bosch</option>
+          <option value="ge">General Electric</option>
+          <option value="haier">Haier Group</option>
+          <option value="miele">Miele</option>
+          <option value="panasonic">Panasonic Corporation</option>
+          <option value="siemens">Siemens</option>
+          <option value="maytag">Maytag</option>
+          <option value="aeg">AEG</option>
+          <option value="kitchenaid">KitchenAid</option>
+          <option value="sharp">Sharp Corporation</option>
+          <option value="indesit">Indesit Company</option>
+        </select>
 
 
  {/* Yes or No question */}
@@ -3008,9 +3053,9 @@ const subFaultsLocksmith = {
             </div>
             <div className='pictureinfo' >
               <h1 style={{color: '#ff0068', fontWeight: 'bold', fontFamily: 'poppins', fontSize: '40px', marginBottom: '40px'}}>Become a partner and enjoy many benefits</h1>
-              <button style={{color: '#fff', float: 'right', background: '#ff0068', borderStyle: 'none', fontWeight: 'bold', fontFamily: 'poppins', padding: "8px", borderRadius: '10px', marginRight: '40px'}}>
-                Register Now
-                </button>
+              <h2 style={{color: '#ff0068', float: 'right',   fontWeight: 'bold', fontFamily: 'poppins', padding: "8px",  marginRight: '40px'}}>
+  Register Now
+</h2>
                <PDFLink/>
             </div>
             

@@ -1266,12 +1266,23 @@ padding: 0 20px;
       color: #c4c3ca;
 
     }
-    .header {
+   .header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding-top: 20px;
+}
 
-      width: 100%;
-      z-index: 999;
-      
-    }
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .header {
+    position: fixed; /* Fixed position for mobile header */
+    padding-top: 10px; /* Decrease padding for smaller screens */
+    background-color: #fff; /* Optional: Change background color for mobile header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for mobile header */
+  }
+}
 
    
    
