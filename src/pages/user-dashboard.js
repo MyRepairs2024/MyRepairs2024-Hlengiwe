@@ -1451,16 +1451,16 @@ const handleCloseAlert = () => {
             <tbody>
               {receiptdata.map((row) => (
                 <tr key={row.id}>
-                  <td>{row.service}</td>
-                  <td>{row.pro_email}</td>
-                  <td>R{row.price}</td>
-                  <td>{/* Add the date format you want here */}</td>
-                  <td>{new Date(row.created_at).toLocaleDateString()}</td>
-                  <td>
-                    <button
-                      onClick={() => handleDownload(row.id)}
-                      className="download-button"
-                    >
+                  <td data-label="Description">{row.service}</td>
+        <td data-label="Service Provider">{row.pro_email}</td>
+        <td data-label="Total Paid">R{row.price}</td>
+        <td data-label="Invoice No">{/* Add the date format you want here */}</td>
+        <td data-label="Date">{new Date(row.created_at).toLocaleDateString()}</td>
+        <td data-label="Download">
+          <button
+            onClick={() => handleDownload(row.id)}
+            className="download-button"
+          >
                       Download
                     </button>
                   </td>
@@ -2505,29 +2505,26 @@ border-radius:5px;
       }
 
 
-      .receipts{
-        border: 2px solid #ff0068;
-        border-radius: 5px;
-        padding: 10px;
-        width: 650px;
-        height: 300px;
-      }
-        .receipts table {
-        margin-right:-10px;
+      .receipts {
+  border: 2px solid #ff0068;
+  border-radius: 5px;
+  padding: 10px;
+  width: 650px;
+  height: 300px;
+}
+      .receipts table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.receipts th.column,
-.receipts td.column {
+.receipts th,
+.receipts td {
   width: 16.67%; 
   padding: 8px;
   text-align: left;
   border-bottom: 2px solid #ff0068;
 }
-
-.receipts th.column:last-child,
-.receipts td.column:last-child {
+.receipts th:last-child,
+.receipts td:last-child {
   width: 16.67%; /* Adjust the width of the last column if needed */
 }
 
@@ -2536,52 +2533,67 @@ border-radius:5px;
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
   .receipts {
-    width: 100%; /* Full width for smaller screens */
-    height: 250px; /* Adjust height for smaller screens */
+    width: 100%; 
+    height: 250px; 
   }
-
-  .receipts th.column,
-  .receipts td.column {
-    padding: 6px; /* Adjust padding for smaller screens */
+  .receipts th,
+  .receipts td {
+    padding: 6px; 
   }
 }
 
 @media (max-width: 768px) {
   .receipts {
-    width: 100%; /* Full width for tablet screens */
-    height: auto; /* Adjust height for tablet screens */
-  }
+    width: 100%;
+    height: auto; 
+   }
 
-  .receipts th.column,
-  .receipts td.column {
-    font-size: 14px; /* Adjust font size for tablet screens */
-    padding: 5px; /* Adjust padding for tablet screens */
+  .receipts th,
+  .receipts td {
+    font-size: 14px;
+    padding: 5px; 
   }
 }
 
 @media (max-width: 480px) {
   .receipts {
-    width: 100%; /* Full width for mobile screens */
-    height: auto; /* Adjust height for mobile screens */
-    padding: 5px; /* Adjust padding for mobile screens */
+    width: 100%; 
+    height: auto; 
+    padding: 5px; 
   }
 
-  .receipts th.column,
-  .receipts td.column {
-    font-size: 12px; /* Adjust font size for mobile screens */
-    padding: 4px; /* Adjust padding for mobile screens */
-  }
-
-  .receipts th.column,
-  .receipts td.column {
-    display: block; /* Stack table cells for mobile view */
+  .receipts table, 
+  .receipts thead, 
+  .receipts tbody, 
+  .receipts th, 
+  .receipts td, 
+  .receipts tr {
+    display: block; /* Make elements block level for stacking */
     width: 100%; /* Full width for each cell */
-    border-bottom: 1px solid #ff0068;
+  }
+    .receipts tr {
+    margin-bottom: 10px; /* Space between rows */
   }
 
-  .receipts th.column:last-child,
-  .receipts td.column:last-child {
-    border-bottom: none; /* Remove bottom border for the last column */
+  .receipts th {
+    /* Hide headers in mobile view */
+    display: none;
+  }
+
+   .receipts td {
+    text-align: right;
+    padding-left: 50%; /* Align the text to the right and create space for labels */
+    position: relative;
+  }
+
+  .receipts td::before {
+    content: attr(data-label); /* Use the data-label attribute as the content */
+    position: absolute;
+    left: 0;
+    width: 50%; /* Adjust the width as needed */
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left; /* Align the labels to the left */
   }
 }
 

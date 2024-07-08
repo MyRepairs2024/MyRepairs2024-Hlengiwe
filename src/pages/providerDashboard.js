@@ -2429,7 +2429,7 @@ display: block;
 }
 
 .edit_image {
-  background-color: #ff3c78; /* Medium pink */
+  background-color: #ff3c78; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -2464,7 +2464,7 @@ display: block;
 }
 
 .edit_personal {
-  background-color: #21b6a8; /* Teal */
+  background-color: #21b6a8; 
   color: white;
   border: none;
   padding: 5px 10px;
@@ -2474,7 +2474,7 @@ display: block;
 }
 
 .edit_personal:hover {
-  background-color: #007bff; /* Dark blue */
+  background-color: #007bff; 
 }
 
 .User_info {
