@@ -1425,11 +1425,46 @@ const handleCloseAlert = () => {
 
 
 
+{activeTab === 'accounts' && (
+      <div className="balance-container">
+      <div className="balance-summary">
+        <h3>Current Balance</h3>
+        <p className="balance-amount">R0.00</p>
+        <button className="purchase-button">Purchase Credit</button>
+      </div>
+      <div className="transaction-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Sender</th>
+              <th>Recipient</th>
+              <th>Transaction Type</th>
+              <th>Balance Change</th>
+              <th>Order</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan="6" className="no-records">Nothing found - sorry</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="pagination">
+          <label htmlFor="records-per-page">Display</label>
+          <select id="records-per-page">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+          <span>records per page</span>
+        </div>
+      </div>
+    </div>  
 
-        {activeTab === 'accounts' && (
-        <div className='ScrollableContainer'>            
-          </div>
-        )}
+    
+      )}
+
         
         {activeTab === 'payments' && (
           <div className='ScrollableContainer'>
@@ -1568,11 +1603,10 @@ const handleCloseAlert = () => {
 </div>
 <div className='current_msg'>
 <div  className='default_msg1'><p>No Messages...</p></div>
-
 </div>
 <div className='condition_msg'>
 <div  className='default_msg'><p>No Messages...</p></div>
-inde
+
 </div>
 <div className='footer_msg'>
 <div className='heading_footer_msg'><h4 className='heading_footer_msg1'>Contact Us</h4><p>support@myrepairs.co.za</p></div>
@@ -1713,20 +1747,18 @@ inde
 
 /* Dashboard section styles */
 .dashboard-section {
-   width: 70%;
-  max-width: 250px;
-  background-color: #454545;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ background-color: #454545;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  color: #fff;
+border-radius: 3px;
+ display: flex;
   justify-content: space-between;
-  display: flex;
-  height:30px;
+height: 15px;
+  width: 125px;
+  margin: 10px;
+text-align: center;
+  padding: 10px;
+  color: #fff;
 }
 
 .dashboard-section.active {
@@ -1898,7 +1930,8 @@ display: block;
 @media screen and (max-width: 480px) {
   .Dash-Container2 {
     flex-direction: column; 
-    margin: 10px; 
+    margin: 0; 
+   
   }
 
   .Dash-Container2 > * {
@@ -1927,6 +1960,9 @@ display: block;
     margin-bottom: 10px; 
   }
 }
+
+
+
 
 
 
@@ -2071,10 +2107,11 @@ display: block;
 @media (max-width: 480px) {
   .servicesdone,
   .Rewards {
-    height: 40px; /* Decrease height for smaller screens */
-    width: 160px; /* Decrease width for smaller screens */
-    padding: 6px; /* Adjust padding for smaller screens */
-    font-size: 12px; /* Decrease font size for smaller screens */
+       height: 40px; 
+    width: 160px; 
+    padding: 6px; 
+    font-size: 12px;
+    margin-bottom: 10px;
   }
 }
   @media (max-width: 768px) {
@@ -2742,58 +2779,142 @@ button {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Messaging Tab Styles */
-.cus_inbox {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
 
-.all_msg, .opened_msg {
-  background-color: #f8f8f8;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
 
-.header_msg, .current_msg, .condition_msg, .footer_msg {
-  margin: 10px 0;
-}
+      .current_msg{
+        width: 500px;
+        border: 1px solid #ff0068;
+        height: 280px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
 
-.default_msg, .default_msg1 {
-  text-align: center;
-  color: #888;
-}
+      .condition_msg{
+        width: 500px;
+        margin-bottom: 10px;
+        border: 1px solid #ff0068;
+        height: 80px;
+        border-radius: 5px;
+        text-align: center;
+      }
 
-.footer_msg {
-  text-align: center;
-}
+      .default_msg1{
+          margin: 0 auto;
+          margin-top: 140px;
+        }
+      .default_msg{
+        margin: 0 auto;
+        margin-top: 30px;
+      }
+      .heading_footer_msg1{
+        margin: 0;
+        margin-bottom: -8px;
+        padding: 0;
+      }
+      .heading_footer_msg{
+        padding: 5px;
+        margin: 0;
+        width: 400px;
+        height: 20px;
+      }
+.footer_msg{
+        width: 500px;
+        height: 70px;
+        border-radius: 5px;
+        border: 1px solid #ff0068;
 
-.heading_footer_msg1 {
-  margin-bottom: 5px;
-}
 
-.heading_footer_msg p {
-  margin: 0;
-}
+      }
+      .condition_msg{
+        width: 500px;
+        margin-bottom: 10px;
+        border: 1px solid #ff0068;
+        height: 80px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .current_msg{
+        width: 500px;
+        border: 1px solid #ff0068;
+        height: 280px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+        }
+.opened_msg{
+        width: 550px;
+        border-radius: 5px;
 
-/* Favourites Tab Styles */
-.fav_services {
-  padding: 20px;
-}
+      }
+      .header_msg{
+        text-align: center;
+
+        width: 500px;
+        margin-bottom: 10px;
+        border: 1px solid #ff0068;
+        height: 140px;
+        border-radius: 5px;
+      }
+      .all_msg{
+        border: 1px solid #ff0068;
+        width: 350px;
+        border-radius: 5px;
+        margin-right: 30px;
+      }
+ .cus_inbox{
+        display: flex;
+        width: 920px;
+        padding: 10px;
+        height: 100%;
+      }
+
+      .edit_container1{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+      }
+      .edit_image{
+        background: #21B6A8;
+        color: #fff;
+        width: 60px;
+        font-weight:bold;
+        font-family: poppins;
+        }
+
 
 .heading_fav {
   text-align: center;
   margin-bottom: 20px;
 }
+ .Add_fav{
+width: 200px;
+height: 200px;
+border-radius: 5px;
+box-shadow: 0 0 5px black;
+justify-content: center;
+align-items: center;
+display: flex;
 
-.fav_services1 {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+      }
+      .add-icon {
+        object-fit: cover;
+        width: 50px; 
+        height: 50px;
+        display: block;
+      }
+      .fav_services1{
+        width: 100%;
+        border-bottom: 1px solid #ff0068;
+        height: 450px;
+        padding: 10px;
 
+      }
+      .heading_fav{
+        width: 100%;
+        border-bottom: 1px solid #ff0068;
+
+      }
 .Add_fav {
   display: flex;
   justify-content: center;
@@ -2811,14 +2932,40 @@ button {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .cus_inbox, .fav_services {
-    padding: 10px;
-  }
 
-  .all_msg, .opened_msg, .Add_fav {
+@media screen and (max-width: 768px) {
+  .cus_inbox {
+    flex-direction: column;
+    width:170px;
+  }
+.all_msg{
+    flex-direction: column;
+    width:170px;
+    height:200px;
+    }
+
+  
+  .opened_msg,
+  .current_msg,
+  .condition_msg,
+  .header_msg,
+  .footer_msg {
+    width: 100%; 
+    max-width: none;
+    margin-right: 0;
+    font-size: 12px;
+    }
+
+  .Add_fav {
     padding: 15px;
   }
-
+ .edit_personal, .edit_image, .edit_personal1, .edit_personal2 {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .add-icon {
     width: 36px;
     height: 36px;
@@ -2938,9 +3085,14 @@ body {
 @media (max-width: 480px) {
   .filter-container label {
     font-size: 12px;
-
   }
 
+  .filters-search {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+        height:340px;
+  }
   .filteremail {
     padding: 6px;
     font-size: 10px;
@@ -3067,6 +3219,234 @@ body {
     width: 100%;
   }
 }
+
+.balance-container {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.balance-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 2px solid #ff0068;
+  border-radius:5px;
+  width:170px;
+  height:100px;
+}
+
+.balance-summary h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.balance-amount {
+  font-size: 10px;
+  color: #ff0068;
+  margin: 10px 0;
+}
+
+.purchase-button {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top:-10px;
+  height:25px;
+}
+
+
+.transaction-table {
+  width: 100%;
+  overflow-x: auto;
+  border: 2px solid #ff0068;
+  border-radius:5px;
+}
+
+.transaction-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.no-records {
+  text-align: center;
+  color: #666;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.pagination label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.pagination select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.pagination span {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+
+/* Responsive design for all devices */
+@media (max-width: 768px) {
+  .balance-summary,
+  .transaction-table {
+    padding: 10px;
+  }
+
+  .balance-amount {
+    font-size: 1.5em;
+  }
+
+  .purchase-button {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    font-size: 0.7em;
+    padding: 5px;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+
+  .pagination label,
+  .pagination select,
+  .pagination span {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .balance-amount {
+    font-size: 1.2em;
+    color:#ff0068;
+  }
+
+  .purchase-button {
+    font-size: 0.7em;
+    padding: 5px 8px;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    font-size: 0.6em;
+    padding: 4px;
+  }
+}
+.balance-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.balance-summary {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.balance-summary h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.balance-amount {
+  font-size: 32px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.purchase-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.purchase-button:hover {
+  background-color: #0056b3;
+}
+
+.transaction-table table {
+  width: 10%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.transaction-table th {
+  background-color: #f1f1f1;
+}
+
+.transaction-table .no-records {
+  text-align: center;
+  font-style: italic;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pagination label {
+  margin-right: 10px;
+}
+
+.pagination select {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.pagination span {
+  margin-left: 5px;
+}
+
            `}</style>
     </div>
   );
