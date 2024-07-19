@@ -7,103 +7,22 @@ import { Products } from './components/services';
 import { createClient } from '@supabase/supabase-js';
 import { BarLoader } from "react-spinners";
 import { useRouter } from 'next/router';
-import { IoWarningSharp } from 'react-icons/io5';;
+import { IoWarningSharp } from 'react-icons/io5';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import BarChart from './BarChart';
-import { generateServiceDeliveryData } from './dataGenerator';
+
+
 
 const supabaseUrl = 'https://hpavlbqbspludmrvjroo.supabase.co';
 const supabaseApiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwYXZsYnFic3BsdWRtcnZqcm9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTAyNzcwODIsImV4cCI6MjAwNTg1MzA4Mn0.HZXbPikgoL0V7sYj7xNPj0FUupXd8hx1JdMrixvq7Xw';
 
 const supabase = createClient(supabaseUrl, supabaseApiKey);
 //FaTools
-const styles = {
-  container: {
-    textAlign: 'center',
-    marginTop: '50px',
-    backgroundColor: '#ff0068',
-    color: '#fff',
-    fontSize: '14px',
-    fontFamily: 'Arial',
-    padding: '20px', // Added padding for the container
-    borderRadius: '10px', // Added border radius for a rounded appearance
-  },
-  
-  header: {
-    alignItems: 'left',
-    justifyContent: 'space-between', // Adjusted spacing
-    marginBottom: '20px',
-    width: '20px',
-  },
-  formContainer: {
-    backgroundColor: '#40E0D0',
-    padding: '10px',
-    borderRadius: '10px',
-    width: '300px', // Adjusted width to make it smaller
-    margin: '0 auto', // Centered the form container horizontally
-    marginTop: '20px'
-  },
-  logoContainer: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px',
-    zIndex: 1,
-  },
-  
-  logo: {
-    width: '170px', // Adjusted logo width to be slightly bigger
-    height: 'auto',
-    borderRadius: '50%',
-    backgroundColor: 'none',
-  },
-  
-  icon: {
-    fontSize: '40px', // Increased font size for the icon
-    marginBottom: '-3px', // Adjusted margin for icon
-  },
-  
-  
-  form: {
-    display: 'grid',
-    gap: '10px',
-    alignItems: 'center',
-    textAlign: 'center',
-    fontFamily: 'Arial',
-    border: 'none',
-    color: '#fff',
-  },
-  input: {
-    width: '180px',
-    padding: '12px',
-    marginBottom: '10px', // Increased marginBottom for double lines
-   marginLeft:'-620px',
-    display: 'grid',
-    alignItems: 'left',
-    margin: '10px auto',
-    borderRadius: '0px',
-  },
-  
-  button: {
-    padding: '10px 20px',
-    backgroundColor: '#fff',
-    color: '#000',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontFamily: 'Arial',
-    textAlign: 'center',
-    width: '100px',
-    margin: '20px auto',
-    borderRadius: '20px',
-  },
-};
 
 const UserDashboard = (order) => {
-const [servicePerformanceData] = useState(generateServiceDeliveryData());
-const router = useRouter();
-const { userEmail } = router.query;
-const firstLetter = userEmail ? userEmail.charAt(0).toUpperCase() : '';
+  const router = useRouter();
+  const { userEmail } = router.query;
+  const firstLetter = userEmail ? userEmail.charAt(0).toUpperCase() : '';
 const [currentorders, setcurrentorders] = useState([]);
 const [pendingorders, setpendingorders] = useState([]);
 const [Customers, setCustomers] = useState([]);
@@ -112,44 +31,42 @@ const customersPerPage = 3;
 const indexOfLastCustomer = currentPage * customersPerPage;
 const indexOfFirstCustomer = indexOfLastCustomer - customersPerPage;
 const currentCustomers = Customers.slice(indexOfFirstCustomer, indexOfLastCustomer);
-const [providerEmail, setProviderEmail] = useState('');
-const [services, setServices] = useState([]);
-const firstTenServices = services.slice(0, 10);
-const [activeTab, setActiveTab] = useState('overview');
-const[activeTab2, setActiveTab2] = useState('dashboard');
-const [userData, setUserData] = useState(null);
-const [expandedServicesDone, setExpandedServicesDone] = useState(false);
-const [expandedPendingServices, setExpandedPendingServices] = useState(false);
-const [expandedRewards, setExpandedRewards] = useState(false);
-const [servicesDoneProgress, setServicesDoneProgress] = useState(0);
-const [pendingServicesProgress, setPendingServicesProgress] = useState(0);
-const [rewardsProgress, setRewardsProgress] = useState(0);
-const [selectedTab, setSelectedTab] = useState('dashboard');
-const [pendingRequests, setPendingRequests] = useState(null);
-const [imageUrl, setImageUrl] = useState(null);
-const numberOfDisplayedcurrentOrders = currentorders.length;
-const numberOfDisplayedpendingOrders = pendingorders.length;
-const [selectedDate, setSelectedDate] = useState(new Date());
-const [textDate, setTextDate] = useState('');
-const [orders, setOrders] = useState([]);
 
 
+  const [providerEmail, setProviderEmail] = useState('');
 
-//for backend
-const [serviceRequests, setServiceRequests] = useState([]);
+  const [services, setServices] = useState([]);
+  const firstTenServices = services.slice(0, 10);
+  const [activeTab, setActiveTab] = useState('overview');
+  const[activeTab2, setActiveTab2] = useState('dashboard');
+  const [userData, setUserData] = useState(null);
+  const [expandedServicesDone, setExpandedServicesDone] = useState(false);
+  const [expandedPendingServices, setExpandedPendingServices] = useState(false);
+  const [expandedRewards, setExpandedRewards] = useState(false);
+  const [servicesDoneProgress, setServicesDoneProgress] = useState(0);
+  const [pendingServicesProgress, setPendingServicesProgress] = useState(0);
+  const [rewardsProgress, setRewardsProgress] = useState(0);
+  const [selectedTab, setSelectedTab] = useState('dashboard');
+  const [pendingRequests, setPendingRequests] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+  const numberOfDisplayedcurrentOrders = currentorders.length;
+  const numberOfDisplayedpendingOrders = pendingorders.length;
 
-const [formData, setFormData] = useState({
-   businesstype: '',
-   providertype: '',
-   name: '',
-   surname: '',
-   contactnumber: '',
-   address: '',
-   licenses: '',
-   communication: '',
-   experience: '',
-   insurance: '',
-   workquality: '',
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [textDate, setTextDate] = useState('');
+  const [formData, setFormData] = useState({
+    businesstype: '',
+    providertype: '',
+    name: '',
+    surname: '',
+    contactnumber: '',
+    address: '',
+    licenses: '',
+    communication: '',
+    experience: '',
+    insurance: '',
+    workquality: '',
+   
   });
 
   const [selectedAvatarFile, setSelectedAvatarFile] = useState(null);
@@ -162,18 +79,15 @@ const [formData, setFormData] = useState({
   const [showWarning, setShowWarning] = useState(true); // Initially show the warning
 
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [editing, setEditing] = useState(false);
   const [editedUserInfo, setEditedUserInfo] = useState({});
   const fileInputRefs = {
-   avatar: useRef(null),
-   ID: useRef(null),
-   tradingLicense: useRef(null),
-   qualifications: useRef(null),
-   businessRegistration: useRef(null),
+    avatar: useRef(null),
+    ID: useRef(null),
+    tradingLicense: useRef(null),
+    qualifications: useRef(null),
+    businessRegistration: useRef(null),
   };
- 
-
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadedFiles, setUploadedFiles] = useState([]); // State to store uploaded file names
   const [uploading, setUploading] = useState(false);
@@ -182,60 +96,17 @@ const [formData, setFormData] = useState({
 
   const supabaseUrl = 'https://hpavlbqbspludmrvjroo.supabase.co';
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhwYXZsYnFic3BsdWRtcnZqcm9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTAyNzcwODIsImV4cCI6MjAwNTg1MzA4Mn0.HZXbPikgoL0V7sYj7xNPj0FUupXd8hx1JdMrixvq7Xw';
-  const supabase = createClient(supabaseUrl, supabaseKey);
-  const [activeTabOrders, setActiveTabOrders] = useState('current');
-  const [activeTabCustomers, setActiveTabCustomers] = useState('current1');
-  const [profileImage, setProfileImage] = useState(null);
-  const [imageSrc, setImageSrc] = useState('');
-  const [displayedimage, setDisplayedImage] = useState('');
-  const handleDownloadInvoice = (customerEmail) => {
+   const supabase = createClient(supabaseUrl, supabaseKey);
+   const [activeTabOrders, setActiveTabOrders] = useState('current');
+   const [activeTabCustomers, setActiveTabCustomers] = useState('current1');
+   const [profileImage, setProfileImage] = useState(null);
+   const [imageSrc, setImageSrc] = useState('');
+const [displayedimage, setDisplayedImage] = useState('');
+const [showPopuprequest, setShowPopuprequest] = useState(false);
+   const handleDownloadInvoice = (customerEmail) => {
     // Logic to download invoice for the given customer
-  console.log(`Downloading invoice for ${customerEmail}`);
+    console.log(`Downloading invoice for ${customerEmail}`);
   };
-
-  //to fetch services from user dashboard/index page
-  useEffect(() => {
-    const fetchServiceRequests = async () => {
-      try {
-        // Fetch service requests from the server
-        const response = await axios.get('/api/electrician-requests');
-        setServiceRequests(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching service requests:', error);
-        setError('Error fetching service requests. Please try again later.');
-        setLoading(false);
-      }
-    };
-
-    fetchServiceRequests();
-  }, []);
-
-
-
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        // Fetch orders based on the active tab
-        let response;
-        if (activeTabOrders === 'current') {
-          response = await axios.get('http://your-backend-api-url/current-orders');
-        } else if (activeTabOrders === 'pending') {
-          response = await axios.get('http://your-backend-api-url/pending-orders');
-        } else if (activeTabOrders === 'total') {
-          response = await axios.get('http://your-backend-api-url/all-orders');
-        }
-        setOrders(response.data);
-      } catch (error) {
-        console.error('Error fetching orders:', error);
-      }
-    };
-
-    fetchOrders();
-  }, [activeTabOrders]);
-
-
- 
 
   const [newService, setNewService] = useState({
     serviceName: '',
@@ -246,9 +117,10 @@ const [formData, setFormData] = useState({
   });
 
   const handlePhotoChange = (e) => {
-   const photoFile = e.target.files[0];
-   setNewService({ ...newService, servicePhoto: photoFile });
+    const photoFile = e.target.files[0];
+    setNewService({ ...newService, servicePhoto: photoFile });
   };
+
 
 
 
@@ -258,6 +130,7 @@ const [formData, setFormData] = useState({
     setTextDate(formattedDate);
     // You can handle further actions or update state as needed
   };
+  
 
 
    const handleTabChangeOrders = (tabName) => {
@@ -271,7 +144,6 @@ const [formData, setFormData] = useState({
     console.log('Adding service...');
     setShowAddingContainer(true); // Set the state to true when clicking "Add New Service" button
   };
-  
 
   const handleSave = () => {
     // Logic for saving new service
@@ -288,43 +160,9 @@ const [formData, setFormData] = useState({
 
   const handleClosePopup = () => {
     setShowPopup(false);
+    setShowPopuprequest(false);
   };
-
- // Filter service requests based on active tab
- const filteredRequests = serviceRequests.filter((request) => {
-  if (activeTabOrders === 'current') return request.status === 'current';
-  if (activeTabOrders === 'pending') return request.status === 'pending';
-  return true; // For 'total' or any other case, show all requests
-});
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
- // Handle user registration and get user data
- console.log('Form data submitted:', formData);
- window.location.href = '/user-dashboard';
- const responseGoogle = (response) => {
-   console.log('Google Login Response:', response);
-   // Use the response to extract user information and update your state or perform any other actions
- };
- const responseFacebook = (response) => {
-   console.log('Facebook Login Response:', response);
-   // Use the response to extract user information and update your state or perform any other actions
- };
- 
-
- // Use a try-catch block to handle errors during Supabase interaction
- console.log('Submit button clicked');
-
- try {
-   
-   await axios.post('/api/formsubmit', formData); // Replace with your API endpoint URL
-   console.log('Form data submitted successfully');
- } catch (error) {
-   console.error('Error submitting form:', error);
- }   
-};
-
-
+  
 
    const acceptServiceRequest = async (requestId) => {
     try {
@@ -493,23 +331,6 @@ const handleSubmit = async (e) => {
       console.error('An error occurred:', error);
     }
   };
-//new code for months review
-  const [selectedMonth, setSelectedMonth] = useState('January'); // Default to January
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  const handleMonthChange = (event) => {
-    setSelectedMonth(event.target.value);
-  };
-
-  // Dummy service reviews data for each month (you can replace this with your actual data)
-  const serviceReviewsByMonth = {
-    January: 'Great service in January!',
-    February: 'Excellent service in February!',
-    March: 'Amazing service in March!',
-    // Add reviews for other months here
-  };
-
-
   const [selectedPicture, setSelectedPicture] = useState(null);
 
     function handleSelectPicture() {
@@ -553,7 +374,34 @@ const handleSubmit = async (e) => {
     }
   };*/
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formDataUpperCase = {
+      ...formData,
+      businesstype: formData.businesstype.toUpperCase(),
+      providertype: formData.providertype.toUpperCase(),
+      // Convert other form fields to uppercase if needed
+    };
+    const AnalyticsOverview = () => {
+      const activeTab = 'analyticsoverview';
+      
+    };
+   
 
+    
+   
+   
+  
+    console.log('Submit button clicked');
+
+    try {
+      
+      await axios.post('/api/formsubmit', formData); // Replace with your API endpoint URL
+      console.log('Form data submitted successfully');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -604,25 +452,6 @@ const handleSubmit = async (e) => {
       // Handle error scenarios if needed
     }
   };
-
-  const handleServicePerformance = (serviceId) => {
-    // Logic to track service performance for service provider
-  };
-
-  useEffect(() => {
-    if (expandedPendingServices) {
-      // Perform the database search when expandedPendingServices changes
-      axios.get('your-api-endpoint')
-        .then(response => {
-          // Assuming the response data is an array of search results
-          setSearchResults(response.data);
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }
- }, [expandedPendingServices]);
-  
   useEffect(() => {
   
     const userEmail = localStorage.getItem('userEmail'); // Fetch userEmail from localStorage or wherever it's stored
@@ -662,54 +491,6 @@ const handleSubmit = async (e) => {
         setLoading(false);
       }
     };
-
-    // Assuming you have the user data stored in variables
-const userData = {
-  date: "2024-04-20",
-  email: "johndoe@example.com",
-  totalSales: 1000,
-  income: 500,
-};
-// Function to populate the info elements with user data
-// Function to retrieve provider data (replace with your implementation)
-async function getProviderData() {
-  try{
-  const url = "https://localhost:3000/user-dashboard"; // Replace with your API endpoint
-  const response = await fetch(url);
-  const data = await response.json();
- // Process successful response data
-} catch (error) {
-  console.error("Failed to fetch provider data:", error);
-  // Handle the error (e.g., display an error message to the user)
-}
-  
-}
-
-function updateUserData() {
-  const currentProvider = getProviderData();
-  const previousProvider = sessionStorage.getItem("previousProvider");
-
-  // Store previous provider (if it exists)
-  if (previousProvider) {
-    userData.previousProviders = userData.previousProviders || []; // Initialize if not already present
-    userData.previousProviders.push(JSON.parse(previousProvider)); // Store as object
-  }
-
-  // Update current provider and store in session storage
-  userData.currentProvider = currentProvider;
-  sessionStorage.setItem("previousProvider", JSON.stringify(currentProvider));
-}
-
-// Call updateUserData to initially set providers
-updateUserData();
-
-// Example usage throughout your application:
-console.log("Current provider:", userData.currentProvider);
-console.log("Previous provider:", userData.previousProviders ? userData.previousProviders[userData.previousProviders.length - 1] : null);
-
-
-
-
     const fetchUploadedFiles = async () => {
       try {
         const response = await axios.get(`/api/uploadedfiles?userEmail=${email}`);
@@ -784,28 +565,7 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
   
 
 
-  const handleAcceptRequest = async (userEmail) => {
-    try {
-      const response = await fetch('/api/acceptrequest', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userEmail: pendingRequests.pro_email }), // Use pendingRequests instead of pendingRequest
-      });
-
-      if (response.ok) {
-        // Request accepted successfully, update the UI or fetch pending requests again
-        await deletePendingRequest(pendingRequests.pro_email);
-      await populatePaidRequests(pendingRequests);
  
-      } else {
-        console.error('Error accepting request:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error accepting request:', error);
-    }
-  };
   const handleTabChange2 = (tab1) => {
     setActiveTab2(tab1);
     if (selectedTab === tab1) {
@@ -852,11 +612,6 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
-
-
-
-
-  
   const handleDownloadpdf = () => {
     // Create a new Blob object with the text content
     const blob = new Blob(['.analytics-container'], { type: 'application/pdf' });
@@ -883,114 +638,128 @@ console.log("Previous provider:", userData.previousProviders ? userData.previous
     var input = document.getElementById('street');
     var autocomplete = new google.maps.places.Autocomplete(input);
 }
-
-const handleLogout = () => {
-  // Clear any authentication tokens or user data as needed
-  localStorage.removeItem('token'); // Clear token or other data
-
-  // Redirect the user to the landing page
-  window.location.href = '/'; // Replace with the path of your landing page (index.js)
+function handleTabChangeCustomers(tabName) {
+  // Add your implementation here
+  console.log("Tab changed to:", tabName);
+  // You can perform any necessary actions based on the tabName parameter
+}
+const handleAcceptRequest = () => {
+  setShowPopuprequest(true);
+  // You can also include additional logic here for handling the request acceptance
 };
+
+const handleStartProcess = () => {
+  // Add logic for starting the process
+  console.log('Process started');
+};
+
+const handleInProgress = () => {
+  // Add logic for process in progress
+  console.log('Process in progress');
+};
+
+const handleProcessDone = () => {
+  // Add logic for process done
+  console.log('Process done');
+};
+
+
+// Load the Autocomplete API asynchronously
 
   return (
 <div className='UserDashboard'>
+
     <div className="dashboard-container">
-    <div className="img-and-title">      
+
+    <div className="img-and-title">
+      
+        
       <div className='Profile'>
+      
+
       {imageUrl ? (
     // Display the uploaded image when it exists
     <img src={imageUrl} alt="Profile" className="profile-pic" />
   ) : (
     // Display the initial letter when no image is uploaded
     <div className="profile-pic">{firstLetter}</div>
-  )}  
+  )}
+      
 </div>
+
+
 </div>
-
-
-<div className='username'>
-<h4>{userEmail}</h4></div>
-
-<div className="dashcontent">
-<div className="dashboard-content">
-
-
-<div className={`dashboard-section ${selectedTab === 'dashboard' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('dashboard')}>
-          <div className="dashboard-section-header" >
+<div className='username'><h4>{userEmail}</h4></div>
+      
+ <div className="dashcontent">
+      <div className="dashboard-content">
+        <div
+          className={`dashboard-section ${selectedTab === 'dashboard' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('dashboard')}
+        >
+          <div className="dashboard-section-header">
             <FaHome className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">Dashboard</h3>
           </div>
-          <div className='active_Tab'>&gt;
-</div>
-
-
+          <div className="active_Tab">&gt;</div>
         </div>
-        
-        
-        <div className={`dashboard-section ${selectedTab === 'profile' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('profile')}>
-          <div className="dashboard-section-header"  >
+        <div
+          className={`dashboard-section ${selectedTab === 'profile' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('profile')}
+        >
+          <div className="dashboard-section-header">
             <FaUserCircle className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">Profile</h3>
           </div>
-
-          <div className='active_Tab'>
-          &gt;
-</div>
-
+          <div className="active_Tab">&gt;</div>
         </div>
-        <div className={`dashboard-section ${selectedTab === 'orders' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('orders')}>
-          <div className="dashboard-section-header"  >
+        <div
+          className={`dashboard-section ${selectedTab === 'orders' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('orders')}
+        >
+          <div className="dashboard-section-header">
             <FaRegPaperPlane className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">Orders</h3>
           </div>
-          <div className='active_Tab'>
-&gt;
-</div>
+          <div className="active_Tab">&gt;</div>
         </div>
-        
-        <div className={`dashboard-section ${selectedTab === 'Customers' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('Customers')}>          <div className="dashboard-section-header">
+        <div
+          className={`dashboard-section ${selectedTab === 'Customers' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('Customers')}
+        >
+          <div className="dashboard-section-header">
             <FaUsers className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">Customers</h3>
           </div>
-          <div className='active_Tab'>
-&gt;
-</div>
-         
+          <div className="active_Tab">&gt;</div>
         </div>
-        <div className={`dashboard-section ${selectedTab === 'My Services' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('My Services')}>          <div className="dashboard-section-header">
+        <div
+          className={`dashboard-section ${selectedTab === 'My Services' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('My Services')}
+        >
+          <div className="dashboard-section-header">
             <FaTools className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">My Services</h3>
           </div>
-          <div className='active_Tab'>
-&gt;
-</div>
-          </div>
-
-          <div className={`dashboard-section ${selectedTab === 'Analytics' ? 'active' : ''}`}
-          onClick={() => handleTabChange2('Analytics')}>          <div className="dashboard-section-header">
+          <div className="active_Tab">&gt;</div>
+        </div>
+        <div
+          className={`dashboard-section ${selectedTab === 'Analytics' ? 'active' : ''}`}
+          onClick={() => handleTabChange2('Analytics')}
+        >
+          <div className="dashboard-section-header">
             <FaChartBar className="dashboard-section-icon" />
             <h3 className="dashboard-section-title">Analytics</h3>
           </div>
-          <div className='active_Tab'>
-          &gt;
-     </div>
+          <div className="active_Tab">&gt;</div>
+        </div>
       </div>
+      <div className="btn_logout">
+        <button className="logsout">Log Out</button>
       </div>
-      <div className='btn_logout'>
-      <button className='logsout' onClick={handleLogout}>Log Out</button>
+    </div>
       </div>
-      </div>
-      </div>
-
-
       <div className='mainpage'>
-      <Dashheader/>
-    <div className='main-info'>
       {expandedPendingServices && (
   <div className='overlay-container'>
     <div className="expanded-content">
@@ -1003,7 +772,11 @@ const handleLogout = () => {
         <div className='requestcard'>
           <h2 className='totalpendingreq'>Awaiting Approval ({pendingRequests.length})</h2>
           {pendingRequests && pendingRequests.length > 0 && (
-        <div className="alert-container">         
+        <div className="alert-container">
+         
+            
+         
+          
         </div>
       )}
           <ul className='pendingrequests'>
@@ -1027,193 +800,270 @@ const handleLogout = () => {
       <button className="closemetric" onClick={() => setExpandedPendingServices(false)}>
         Close
       </button>
-      </div>
+
+     
+    </div>
   </div>
 )}
-</div>
-
         {activeTab2 === 'dashboard' &&(
+          
           <div>
-          <nav className='maindash'>
+      <Dashheader />
+      <hr/>
+
+
+
+
+      <nav className='maindash'>
           <a href="#" onClick={() => handleTabChange('overview')}>Updates</a>
           <a href="#" onClick={() => handleTabChange('services')}>Reviews</a>
           <a href="#" onClick={() => handleTabChange('accounts')}>Account</a>
+          <div className="search-container"></div>
+          <div className="account-link">
+          <a href="#" onClick={() => handleTabChange('accounts')}>
+    
+    <span className="search-link" onClick={(e) => handleSearchClick(e)}>
+    <span className="search-symbol" role="img" aria-label="Search">&#128269;</span>
+    </span>
+  </a>
+</div>
+ 
+         
           
 
-
-          <div className="account-link">
-          <div className="search-container">
-          <input type="text" placeholder="Search..." className="search-input" />
-          <a href="#" onClick={() => handleTabChange('accounts')}>
-          <span className="search-symbol" role="img" aria-label="Search">&#128269;</span>
-          </a>
-     </div>
-      </div>
         </nav>
-        
-        {activeTab === 'services' && (
-          <div>
- <div className='popularservice_heading'>
-     Service Performance
-       </div>
-    
-    <div className="services-wrapper">
-        <BarChart servicePerformanceData={servicePerformanceData} months={months} />
-
-   </div>
-   
-   <h2>Days</h2>
-   
-        </div>  
-        )}
-
-
-{activeTab === 'overview' && (
+        {activeTab === 'overview' && (
           <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
           
           <div className='Dash-Container'>
-        <div className='metrics'>
+         <div className="metrics">
+         <div
+  className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
+  onClick={() => {
+    setExpandedPendingServices(!expandedPendingServices);
+    // Perform the database search here
+    
+ 
+  }}
+>
+ <br/>
+ 
 
-         <div className={`pendingServices ${expandedPendingServices ? 'expanded' : ''}`}
-          onClick={() => {
-          setExpandedPendingServices(!expandedPendingServices);
-          }}
-         >
-        <h3>Pending Requests</h3>
-        <div className="progress-circle">
-        <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
-        <span>{pendingServicesProgress}%</span>
-       </div> 
-    </div>
-
-
-       <div className={`servicesdone ${expandedServicesDone ? 'expanded' : ''}`}
-         onClick={() => {
-          setExpandedServicesDone(!expandedServicesDone);
-          }}
-        >
-    <h3>Services Done</h3>
+    <h3>Pending Requests</h3>
+  
     <div className="progress-circle">
-      <progress className="circle-progress" value={servicesDoneProgress} max="100"></progress>
-      <span>{servicesDoneProgress}%</span>
-    </div> 
+      <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
+      <span>{pendingServicesProgress}%</span>
+    </div>
+    <div className="container">
+      {/* First Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Service Description
+        <h2>Service Description</h2>
+        <p style={{ fontWeight: 'normal' }}>Repairing a Samsung fridge</p>
+        
+        </div>
+        <div className='updates-Container'>Service Description
+        <h2>Service Description</h2>
+        <p style={{ fontWeight: 'normal' }}>Repairing a Microwave</p>
+        
+        </div>
+        
+        
+      </div>
+
+      {/* Second Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
+        </div>
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
+        </div>
+        
+      </div>
+
+
+      <div className="set">
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
+      </div>
+      </div>
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
+      </div>
+      </div>
+
+      </div>
+      </div>
+       
+    
 </div>
 
 
-  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`}
-   onClick={() => setExpandedRewards(!expandedRewards)}
-    >
-   <h3>Points</h3>
+<div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`} onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
+    <h3>Expenses</h3>
+    <div className="progress-circle">
+      <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
+      <span>{pendingServicesProgress}%</span>
+    </div>
+  </div>
+
+  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`} onClick={() => setExpandedRewards(!expandedRewards)}>
+    <h3>Points</h3>
     <div className="progress-circle">
       <progress className="circle-progress" value={rewardsProgress} max="100"></progress>
       <span>{rewardsProgress}%</span>
     </div>
-  </div>
-  </div>
-  </div>
-
-
-
-  <div className='Dash-Container'>
-<div className="container">
-      <div className="set">
-    
-      <br></br>
-      <span className="line"></span>
-      <div className='updates-Container'>
-      <h2>Service Description</h2>
-        <p style={{ fontWeight: 'normal' }}><h3>Repairing a Samsung fridge</h3></p>
-        <h4>Client</h4>
-        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
-        <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
-        <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
+    <div className='popularservice_heading'>
+    <p className='popular_heading'>Current Services</p>
+       </div>
        
-     <div class="stars">
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
-      </div>
-      </div>
-      </div>
+      
+     
+  </div>
+</div>
+  
 
 
-
-       
-        <div className="set">
-        <br></br>
-        <span className="line"></span>
-        <div className='updates-Container'>
-        <h2>Service Description</h2>
-        <p style={{ fontWeight: 'normal' }}><h3>Repairing a Microwave</h3></p>
-       <h4>Client</h4>
-        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
-    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
-    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
-        
-        <div class="stars">
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
-      </div>
-      </div>
-        </div>
-    </div>
-    </div>
- </div>       
-        )}
  
+  
+  
+</div>
 
    
-        {activeTab === 'accounts' && (
-           <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
-          <div>
-              <div className='countedorders'>
-            <div className='ordersummary_title'><h1>Total Earnings</h1></div>
-            <div className='ordersummary_number'>{numberOfDisplayedcurrentOrders}</div>
-            <button className="button">View Invoices</button>
           </div>
 
-
-          <div className='orderslist'>
-            <div className="grid-container1">
-              <div className="item3">Client</div>
-          <div className="item3">Service</div>
-          <div className="item3">Transaction Type</div>
-          <div className="item3">Balance change</div>
-          <div className="item3">Order</div>
-          <div className="item3">Date</div>
-         
-          </div>
-          </div>
-          
-          </div>
-          </div>
           
         )}
-        
-        {activeTab === 'payments' && (
-          <div>
-            {/* Add content for the Payments tab here */}
+       
+       <div>
+  {activeTab === 'services' && (
+    <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
+      <div className="services-wrapper">
+        <div className="services-container">
+          {/* Testimonial reviews */}
+          <div className="testimonial">
+            <h3>Testimonials</h3>
+            <div className="testimonial-list">
+              {/* Individual testimonial */}
+              <div className="testimonial-item-container">
+                <div className="testimonial-item">
+                  <div className="testimonial-rating">
+                    {/* Replace 'rating' with the actual rating value */}
+                    <div className="stars" style={{ '--rating': 4.5 }}></div>
+                  </div>
+                  <div className="testimonial-text">
+                    <p>Had several tasks to be completed. Themba was fast, efficient and professional.</p>
+                    <p>- Thabang </p>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-item-container">
+                <div className="testimonial-item">
+                  <div className="testimonial-rating">
+                    {/* Replace 'rating' with the actual rating value */}
+                    <div className="stars" style={{ '--rating': 4.0 }}></div>
+                  </div>
+                  <div className="testimonial-text">
+                    <p>I hired Themba to install a couple sets of curtain rods and blackout curtains and he did an amazing job! Very friendly and efficient. Would recommend Austin to anyone </p>
+                    <p>- John Doe</p>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-item-container">
+                <div className="testimonial-item">
+                  <div className="testimonial-rating">
+                    {/* Replace 'rating' with the actual rating value */}
+                    <div className="stars" style={{ '--rating': 5.0 }}></div>
+                  </div>
+                  <div className="testimonial-text">
+                    <p>Themba was great! I would highly recommend him to anyone looking for efficient and extremely competent taskers!</p>
+                    <p>- Shaleen</p>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-item-container">
+                <div className="testimonial-item">
+                  <div className="testimonial-rating">
+                    {/* Replace 'rating' with the actual rating value */}
+                    <div className="stars" style={{ '--rating': 4.8 }}></div>
+                  </div>
+                  <div className="testimonial-text">
+                    <p>Themba is fantastic! Very professional and a great attention to detail. I will definitely hire him again</p>
+                    <p>- Retha</p>
+                  </div>
+                </div>
+              </div>
+              {/* Add more testimonials as needed */}
+            </div>
           </div>
-        )}
-
+        </div>
+      </div>
     </div>
-   )}
+  )}
+</div>
+       
+       <div>
+  {activeTab === 'accounts' && (
+    <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
+      <div>
+        <div className='countedorders'>
+          <div className='ordersummary_title'><h1>Total Earnings</h1></div>
+          <div className='ordersummary_number'>{numberOfDisplayedcurrentOrders}</div>
+          <button className="button">View Invoices</button>
+        </div>
 
-
+        <div className='orderslist'>
+          <div className="grid-container1">
+            <div className="item3">Client</div>
+            <div className="item3">Service</div>
+            <div className="item3">Transaction Type</div>
+            <div className="item3">Balance change</div>
+            <div className="item3">Order</div>
+            <div className="item3">Date</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+        
+        <div>
+  {activeTab === 'payments' && (
+    <div>
+      {/* Add content for the Payments tab here */}
+    </div>
+  )}
+</div>
+    </div>
+        )}
 
 {activeTab2 === 'profile' &&(
+   <div className='mainpage' style={{ height: '100vh', overflowY: 'auto' }}>
 <div>
-  
+
+
+      <Dashheader />
       <div></div>
       <div className='Profiletab'>
-   <div className='edit_pfp'>
+      <div className="edit_pfp">
    <h4>Profile Picture</h4>
             <div className='pfp'></div>
             <p className='Name_Surname'></p>
@@ -1227,7 +1077,7 @@ const handleLogout = () => {
                     id="pictureInput" 
                     style={{ display: 'none' }} 
                     accept="image/*" 
-           npm         onChange={handlePictureInputChange} 
+                    onChange={handlePictureInputChange} 
                 />
             </div>
    <div>
@@ -1340,6 +1190,7 @@ const handleLogout = () => {
 
    
   </div>
+  </div>
   )}
 
  
@@ -1348,19 +1199,18 @@ const handleLogout = () => {
   
   <div className='mainpage'>
    
-  
-    
+    <Dashheader/>
+    <div></div>
     <div className='orders_container'>
       <a href="#" onClick={() => handleTabChangeOrders('current')}>Current Orders</a>
       <a href="#" onClick={() => handleTabChangeOrders('pending')}>Pending Orders</a>
       <a href="#" onClick={() => handleTabChangeOrders('total')}>Total Orders</a>
 
-
       {activeTabOrders === 'current' && (
         <>
           <div className='countedorders'>
             <div className='ordersummary_title'><h1>Current Orders</h1></div>
-            <div className='ordersummary_number'>{serviceRequests.length}</div>
+            <div className='ordersummary_number'>{numberOfDisplayedcurrentOrders}</div>
           </div>
 
           <div className='orderslist'>
@@ -1368,19 +1218,13 @@ const handleLogout = () => {
               <div className="item1">Customer Name</div>
           <div className="item2">Service Description</div>
           <div className="item3">Service Information</div>
-          {serviceRequests.map((request,index) => (
-            <React.Fragment key={index}>
-          <div className="item1">{request.name}</div>
-          <div className="item2">{request.description}</div>
-          <div className="item3">
-          {`R${request.price}`}
-           <br/> 
-           {`${request.startDate} to ${request.endDate}`}
-           <br />
+          <div className="item1">Reggie</div>
+          <div className="item2">Repairing a Sumsung Refrigirator</div>
+          <div className="item3">R350<br></br>01|10|2023 to 31|12|2024<br>
+          </br> 
           <button className="contact-customer" onClick={handleContactCustomer}>
         Contact Customer
       </button>
-
       {showPopup && (
         <div className="popup-container">
           <div className="popup-content">
@@ -1393,11 +1237,13 @@ const handleLogout = () => {
           </div>
         </div>
       )}
-         </div>
-         </React.Fragment>
-          ))}        
-              </div>
-              
+          
+          </div>
+          
+          
+         
+          
+            </div>
 
             {currentorders.map((order, index) => (
               <div className='orders_container1' key={index}>
@@ -1519,15 +1365,15 @@ const handleLogout = () => {
       )}
     </div>
   </div>
-  </div>  
+  </div>
+
+ 
+  
 )}
-
-
-
 {activeTab2 === 'Customers' && (
   <div className='mainpage'>
     <div className='mainpage' style={{ height: '100vh', overflowY: 'auto' }}>
-
+    <Dashheader />
     <div>
       <a href="#" onClick={(event) => { event.preventDefault(); handleTabChangeCustomers('current1'); }}>
         Current Customers
@@ -1543,12 +1389,9 @@ const handleLogout = () => {
        
       <div className='customers-container current-container pink-border'>
        <div className='info'>
-        
           {/* Container for customer name */}
           <div className='info-item pink'>
-
             <p>Current Customer</p>
-            
             <img src="person_Icon1.png" alt="Picture Icon" className="icon1" />
             <p className="customer-name">Customer Name</p>
 
@@ -1601,30 +1444,79 @@ const handleLogout = () => {
           </div>  
         </div>
         <div className='small-containers-container'>
-    <div className='small-container'>
-      <div class='content'>
-        <div class='title'>Total Services 01</div>
-        <div class='line'></div>
-        <button className='container-button'>View Invoices</button>
-      </div>
-    </div>
+        <div className='small-container'>
+  <div class='content'>
+    <a href='#' className='title'>View Request Summary</a>
+    <div class='line'></div>
+    <button className='container-button' onClick={handleAcceptRequest}>Accept Request</button>
+  </div>
+</div>
 
-    <div className='small-container'>
-      <div class='content'>
-        <div class='title'>Total Services 02</div>
-        <div class='line'></div>
-        <button className='container-button'>View Invoices</button>
+{showPopuprequest && (
+  <div className='popup-container'>
+    <div className='popup-content'>
+      <p>Track the process:</p>
+      <div>
+        <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px', marginLeft: '15px', backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+        <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
       </div>
-    </div>
-
-    <div className='small-container'>
-      <div class='content'>
-        <div class='title'>Total Services 03</div>
-        <div class='line'></div>
-        <button className='container-button'>View Invoices</button>
-      </div>
+      <button onClick={handleClosePopup} style={{ marginTop: '20px', marginLeft: 'auto', marginRight: 'auto', display: 'block', padding: '20px' }}>Close</button>
     </div>
   </div>
+)}
+
+    <div className='small-container'>
+      <div class='content'>
+      <a href='#' className='title'>View Request Summary</a>
+        <div class='line'></div>
+        <button className='container-button' onClick={handleAcceptRequest}>Accept Request</button>
+      </div>
+    </div>
+    {showPopuprequest && (
+  <div className='popup-container'>
+    <div className='popup-content'>
+      <p>Track the process:</p>
+      <div>
+      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+      <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
+
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
+      </div>
+      <button onClick={handleClosePopup} style={{ marginRight: '60px' }}>Close</button>
+    </div>
+  </div>
+)}
+
+    <div className='small-container'>
+      <div class='content'>
+      <a href='#' className='title'>View Request Summary</a>
+        <div class='line'></div>
+        <button className='container-button' onClick={handleAcceptRequest}>Accept Request</button>
+      </div>
+    </div>
+    {showPopuprequest && (
+  <div className='popup-container'  style={{ width: '400px' }}>
+    <div className='popup-content'>
+      <p>Track the process:</p>
+      <div>
+      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+      <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
+
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
+      </div>
+      <button onClick={handleClosePopup} style={{ marginRight: '60px' }}>Close</button>
+    </div>
+  </div>
+)}
+  </div>
+
          <div className='customers1'>
           {Customers.map((customer, index) => (
             <div className='customer-card' key={index}>
@@ -1667,13 +1559,15 @@ const handleLogout = () => {
         )}
       </div>  
     )}
+    
   </div>
   </div>
-  
+   
 )}
 {activeTab2 === 'My Services' && (
   <div className='mainpage' style={{ height: '1000vh', overflowY: 'auto' }}>
     <div className='mainpage'>
+      <Dashheader/>
       <div className='myserviceheader'>
         <h3>My Services</h3>
         <button onClick={handleAddNewService}>Add New Service</button>
@@ -1831,7 +1725,7 @@ const handleLogout = () => {
   
  {activeTab2 === 'Analytics' && (
   <div className='mainpage' style={{ height: '100vh', overflowY: 'auto' }}>
-
+    <Dashheader/>
     <a href="#" onClick={() => handleTabChange('totalRequests')} className="tab-link">Total Requests</a>
 <a href="#" onClick={() => handleTabChange('successfulOrders')} className="tab-link">Successful Orders</a>
 <a href="#" onClick={() => handleTabChange('totalRevenue')} className="tab-link">Total Revenue</a>
@@ -1870,7 +1764,7 @@ const handleLogout = () => {
                  <div className="smallanalytics-container">November | R1000</div>
                  <div className="smallanalytics-container">December | R1000</div>
                </div>
-               <button onClick={handleDownloadpdf} style={{marginTop: '20px'}}>Download PDF</button>
+               <button onClick={handleDownloadpdf} style={{marginTop: '45px'}}>Download PDF</button>
              </div>
           )}
 
@@ -1934,311 +1828,641 @@ const handleLogout = () => {
          
         <button onClick={handleDownloadpdf} style={{marginTop: '20px'}}>Download PDF</button>
           </div>
-          )}    
+          )}
+
+        
+        
+   
+    
+    
+   
+  
+   
+    
+    
           
   </div>
 )}
-      </div>    
+
+  
+      </div>
+  
+    
       <style jsx>{`
 
-/* General container for the dashboard */
 
-.UserDashboard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background: azure;
-  padding: 10px;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
+.logsout{
 
-.dashboard-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #e83a69;
-  width: 200px;
-  padding: 20px;
-  color: white;
-  border: 5px solid #e83a69; /* Adjusted border color */
-  height: calc(100vh - 20px); /* Full height minus padding */
-  box-sizing: border-box; /* Ensure padding and border are included in the height */
-}
-
-.img-and-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: white;
-  color: #e83a69;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.username {
-  margin: 10px 0;
-}
-
-.dashcontent {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
-
-.dashboard-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 15px;
-  background-color: #343a40;
-  margin: 20px 0;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  height:30px;
-   border-radius: 5px;
-
-}
-
-.dashboard-section.active {
-  background-color: #e83a69;
-  color:#fff;
-  border: 2px solid #fff; /* Add a white border */
-  border-radius: 5px;
-}
-
-.dashboard-section-header {
-  display: flex;
-  align-items: center;
-   margin-left: 0px;
-}
-
-.dashboard-section-icon {
-  margin-right: 10px;
-}
-
-.dashboard-section-title {
-  font-size: 16px;
-}
-
-.active_Tab {
-  font-size: 18px;
-}
-
-.btn_logout {
-  margin-top: 20px;
-}
-
-.logsout {
-  padding: 10px 20px;
-  background-color: #fff;
-  border: none;
-  border-radius: 20px;
-  color: #000;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-left:40px;
-}
-
-.logsout:hover {
-  background-color: #ff0068;
-}
-  .maindash{
-    margin: 0;
-    margin-bottom: 10px;
-    width: 280px;
-    justify-content: space-between;
-    margin-right: 0;
-    padding: 6;
-    top :10px
-    
-  }
-.mainpage {
-  flex: 1;
-  padding: 20px;
-  width: 950px;
-      height: 100%;
-}
-
-.main-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    margin-left: 770px;
-  }
-  .search-link {
-    margin-left: 10px; /* Adjust spacing between "Account" and the search symbol */
-  }
-  .account-link a {
-    text-decoration: none;
-    color: #333; /* Set the color to your desired text color */
-  }
   
-
-   .search-symbol {
-    margin-left: 0px;
-    width: 10px; 
-    height: 20px;
-    cursor: pointer;
-    padding: 5px;
-  }
-  .search-symbol[contentEditable="true"] {
-    border: 1px solid #ccc; 
-    padding: 5px; 
-  }
-.expanded-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.loading-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.requestcard {
-  width: 100%;
-}
-
-.totalpendingreq {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.pendingrequests {
-  list-style: none;
-  padding: 0;
-}
-
-.pending-request {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f8f9fa;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.acceptrequest {
-  padding: 10px 20px;
-  background-color: #28a745;
+  
+  background-color: #fff;
+  color: #FF0066;
   border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.acceptrequest:hover {
-  background-color: #218838;
-}
-
-.no-pending-requests {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.ScrollableContainer {
-  height: 10000px;
-  overflow-y: auto;
-}
-
-.Dash-Container {
-  display: flex; 
-  flex-direction: row;
-  flex-wrap: wrap; 
-  padding: 10px;
-   border-radius: 5px;
-   width:800px;
-   margin-left:10px;
-}
-   .metrics{
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      width: 850px;
-      margin-bottom: 0px;
-      margin-left:10px;
-      padding: 0;
-    border: none; 
- }
-
- .progress-circle {
-  position: relative;
-  width: 60px;
-  height: 60px;
+  padding: 8px 18px;
+  
   margin: 0 auto;
   
-}
-
-.circle-progress {
-  width: 5%; /* Adjust the width to make the circle smaller */
-  height: 50%; /* Adjust the height accordingly */
-  border: 6px solid #fff; /* Adjust the border width and color */
-  border-top-color: ; /* Set the color for the progress */
-  border-radius: 50%;
-  background: transparent;
-  position: absolute;
-  top: -20px; /* Adjust the top position */
-  left: 35px; /* Adjust the left position */
-  padding: 30px; /* Adjust padding accordingly */
-  transform: rotate(0deg);
-  transform-origin: center;
-}
-
-.circle-progress::-webkit-progress-value {
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.circle-progress::-moz-progress-bar {
-  border-radius: 50%;
-  background-color: transparent; 
-}
-.progress-circle span {
-  position: absolute;
-  top: 30%;
-  left: 60px;
-  transform: translate(-50%, -50%);
+  font-size: 14px;
   font-weight: bold;
-  color: #fff;
- }
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
 
-  .Rewards,
-  .pendingServices,
- .servicesdone{
-   padding-left: 8px;
-height: 100px;
-width: 180px;
-font-size: 10px;
-color: azure;
-border-radius: 10px;
-background-color:#e83a69;
-cursor: pointer;
+}
+.UserDashboard{
+  display: flex;
+ justify-content: center;
+  width: 100%;
+  align-items: center;
+background: azure;
+padding: 10px;
+height: 100vh;
+position: fixed;
+left: 0;
+top: 0;
 
- }
+  
+ 
+}
+.UserDashboard{
+  margin: 0;
+  padding: 0;
+}
+.dashcontent{
+        
+  width: 150px;
+  padding: 0px;
+  margin-left: 0px;
+ 
+}
+
+
+
+
+.profile_information{
+  overflow: auto;
+ 
+}
+  .date-picker-container input{
+    visibility: hidden;
+    display: none;
+  }
+.info-item select{
+width: 173px;
+padding: 5px;
+
+}
+.info-item{
+margin-bottom: 5px;
+
+}
+ 
+  .AddingConatiner{
+    width: 940px;
+  }
+  .service1{
+    display: flex;
+    width: 100%
+    padding: 10px;
+    justify-content: space-between;
+margin-bottom: 30px;
+  }
+  .imgsev1{
+padding: 5px;
+border: 2px solid #ff0068;
+width: 200px;
+height: 200px;
+border-radius: 5px;
+
+  }
+  .descrip1{
+    border-radius: 5px;
+
+    width: 650px;
+    height: 200px;
+    padding: 5p;
+    border: 2px solid #ff0068;
+
+  }
+  .service2{
+    display: flex;
+    width: 100%
+    padding: 10px;
+    justify-content: space-between;
+
+  }
+  .imgsev2{
+padding: 5px;
+border: 2px solid #ff0068;
+width: 200px;
+height: 110px;
+border-radius: 5px;
+
+  }
+  .descrip2{
+    border-radius: 5px;
+    width: 650px;
+    height: 200px;
+    padding: 5p;
+    border: 2px solid #ff0068;
    
+    
+  }
+  .myserviceheader{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+width: 940px;
+  }
+  .myserviceheader button{
+    color: #fff;
+    font-weight: bold;
+
+    
+    background:  #21B6A8;
+  }
+  .profileimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .profileimagename{
+    width: 100%;
+    padding: 3px;
+    
+  }
+  .cusnameheading{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+
+
+  }
+  .contactcubutton button{
+    margin: 0;
+    padding: 10px;
+    background:  #21B6A8;
+    color: #fff;
+    font-weight: bold;
+    border-style: none;
+
+
+  }
+  .contactcubutton{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  
+  }
+  .firstsection{
+    border: 2px solid #ff0068;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 350px;
+    padding: 5px;
+    padding-top: 0;
+    box-shadow: 0 1px 4px #ff0068;
+    transition: box-shadow 0.3s ease;
+
+
+  }
+  .firstsection:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  }
+  .customers1 {
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    gap: 10px;
+
+    margin-top: 20px;
+  }
+  
+  /* Style for each customer card */
+  .customer_card {
+  
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+  
+  /* Style for profile images */
+  .profileimage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    
+  }
+  
+  .profileimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  /* Style for the customer email */
+  .cus_email {
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the invoice section */
+  .invoice_container {
+    border: 2px solid #ff0068;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #ff0068;
+    transition: box-shadow 0.3s ease;
+
+  }
+  .invoice_container:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .invoice {
+    height: 115px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+
+  .custotalinvoices{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    font-weight: bold;
+    border-bottom: 1px solid #ff0068;
+    padding-bottom: 8px;
+
+
+  }
+  .cuservices{
+display: flex;
+width: 100%;
+justify-content: space-between
+margin: 0;
+font-size: 14px;
+margin-bottom: 5px;
+font-weight: bold;
+border-bottom: 1px solid #ff0068;
+padding-bottom: 8px;
+padding-top: 8px;
+
+
+  }
+  .cuservices p{
+    margin: 0;
+    padding: 0;
+  }
+  .cusallinvoices{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-bottom: 8px;
+
+  }
+  .custotalinvoices p{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+  .custotalinvoices h4{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+  .cusallinvoices p{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+  .cusallinvoices button{
+    font-size: 14px;
+    padding: 10px;
+    margin: 0;
+    background:  #21B6A8;
+    color: #fff;
+    font-weight: bold;
+    border-style: none;
+
+  }
+
+  /* Style for pagination buttons */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color:  #ff0068;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .orders_container2{
+    border: 2px solid #ff0068;
+    display: block;
+    
+
+  }
+
+
+  .cus_email{
+  }
+
+.grid-container {
+padding: 10px;
+display: grid;
+grid-template-columns: repeat(3, 1fr); /* Three columns */
+grid-gap: 80px;
+overflow: hidden;
+font-weight: bold;
+
+}
+.item1 {
+padding: 5px;
+width: 250px;
+overflow: hidden;
+border-bottom: 2px solid #ff0068;
+font-weight: bold;
+    font-size: 18px;
+
+
+}
+.item2 {
+padding: 5px;
+width: 280px;
+overflow: hidden;
+border-bottom: 2px solid #ff0068;
+font-weight: bold;
+font-size: 18px;
+
+
+}
+.item3 {
+padding: 5px;
+width: 200px;
+overflow: hidden;
+border-bottom: 2px solid #ff0068;
+font-size: 18px;
+
+
+}
+  .orders_container1 {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 80px;
+    overflow: hidden;
+
+  }
+
+  .customerName {
+    padding: 5px;
+    width: 250px;
+    display:flex;
+    overflow: hidden;
+    border-bottom: 2px solid #ff0068;
+
+  }
+
+  .serviceDescription {
+    padding: 5px;
+
+    width: 280px;
+    display:flex;
+    overflow: hidden;
+    border-bottom: 2px solid #ff0068;
+
+
+  }
+  .input_servicephoto {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px;
+  color: #fff;
+  
+ 
+}
+.input_servicephoto img {
+  max-width: 100%; /* Ensure the image does not exceed its container's width */
+  max-height: 200px; /* Set the maximum height as needed */
+  margin-top: 10px; /* Add margin for spacing */
+}
+    
+    
+  }
+  .input_servicephoto button {
+    
+    width: 50px;
+    height: 50px; 
+    padding: 10px;
+    background-color: #40E0D0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 150px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%; /* Set border-radius to 50% for a circular shape */
+ 
+ 
+  }
+  
+  .input_servicephoto input[type="PNG"] {
+    /* Your styles for the file input */
+    display: none; /* Hide the file input */
+  }
+  
+  .input_servicephoto .uploaded-photo {
+    margin-top: 10px;
+  }
+  
+  .input_servicephoto .uploaded-image {
+    width: auto; /* Set your desired width */
+    height: auto; /* Set your desired height */
+   
+  }
+  
+  .current-container,
+  .pending-container {
+    /* Add specific styles for the current and pending containers if needed */
+  }
+  .customers1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+
+  }
+  
+  .customer-card {
+    width: 30%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  }
+  .container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute space between the containers */
+  }
+  
+  .pink {
+    display: flex;
+    background-color: #fff;
+    border: 3px solid #ff0068; /* Set the border color to dark pink */
+    width: 300px;
+    height: 330px;
+    flex-direction: row;
+    margin-top: 30px;
+    display: flex; /* Use flexbox */
+    border-radius: 10px;
+
+  }
+  .pink-border {
+    display: column; /* Use flexbox */
+    display: grid;
+    
+
+  }
+  .info {
+    display: flex;
+    justify-content: space-between; /* Optional: Adjust this based on your layout preferences */
+    
+    
+    
+  }
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+  
+  
+  
+  .info-item p {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .info-item img {
+      width: 80px; /* Set the desired width for the image */
+      height: 80px; /* Set the desired height for the image */
+      object-fit: cover; /* Adjust the object-fit property as needed (e.g., 'contain', 'fill') */
+      margin-right: 10px; /* Add some margin to separate the image from other content */
+      display: block; /* Ensure the image is a block element for centering */
+      margin-left: auto; /* Auto margin to center the image within its container */
+      margin-right: auto; /* Auto margin to center the image within its container */
+      margin-top: -30 px;
+    }
+    
+    .small-container {
+      background-color: #fff;
+      color: #000000;
+      font-weight: bold;
+      margin-top: 20px;
+      border: 3px solid #ff0068;
+      height: 100px;
+      width: 300px;
+      position: relative;
+      border-radius: 10px;
+      display: inline-block;
+      
+      
+    
+    }
+.small-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  border-top: 3px solid #ff0068;
+  transform: translateY(-50%);
+}
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+.small-containers-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.small-container {
+  flex: 1s;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+
+
+.small-button {
+  font-size: 14px;
+  
+  align-items: left; /* Center items vertically */
+  display: flex;
+  background-color: #027777; /* Set the background color to light green */
+ 
+  color: #fff;
+
+  
+  
+}
+.customer-name {
+  text-align: center;
+  margin-top: -10px;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+}
 .container {
   display: flex;
   justify-content: flex-start;
@@ -2258,7 +2482,7 @@ cursor: pointer;
   padding: 10px;
   margin: 5px;
   width: 280px; /* Adjust width */
-  height: 1500px; /* Adjust height */
+  height: 150px; /* Adjust height */
   margin-top: 30px;
   border-radius: 10px; /* Adjust the value to change the roundness */ 
   font-family: Arial, sans-serif; /* Set font family to Arial */
@@ -2268,6 +2492,19 @@ cursor: pointer;
   position: relative;
 }
 
+.updates-Container::before
+ {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 3px solid #ff0068;
+}
+
+
+.updates-Container::before {
+  bottom: 78%;
+}
 
 .set:nth-child(2) .updates-Container {
   width: 400px; /* Width of the containers in the middle */
@@ -2277,340 +2514,2345 @@ cursor: pointer;
 .set:nth-child(3) .updates-Container {
   width: 200px; /* Width of the containers on the left and right */
 }
- 
-.closemetric {
-  padding: 10px 20px;
-  background-color: #dc3545;
-  border: none;
-  border-radius: 5px;
-  color: white;
+.services-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  height: 385px;
+  border: 3px solid #ff0068;
+  height: 400px;
+  overflow: auto;
+  width: 900px;
+  padding: 30px;
+  margin-left: 40px;
+}
+.services-wrapper {
+  display: flex;
+}
+
+
+
+.days-container {
+  margin-left: 10px; /* Adjust as needed */
+}
+.days-container p {
+  margin: 5px 0;
+  color: #ff0068;
+}
+.analytics-container {
+  background-color: #fff;
+  padding: 20px; /* Adjust padding as needed */
+  height:430px;
+  border: 3px solid #ff0068;
+  border-radius: 10px;
+  margin-top: 30px;
+
+
+}
+
+.smallanalytics-container {
+  width: calc(50% - 10px); /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  width: 300px;
+  margin: 5px; /* Adjust margin as needed */
+  background-color: #fff;/* Adjust background color as needed */
+  border: 3px solid #40E0D0;
+  color: #ff0068;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  
+  
+}
+
+.totalrevenue-container {
+  background-color: #fff;
+  padding: 20px;
+  height: 200px;
+  width: 500px;
+  border: 3px solid #ff0068;
+  border-radius: 10px;
+  margin-left: 350px;
+  margin-top: -90px;
+}
+
+.tiny-container {
+  width: calc(35% - 5px); /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  margin: 5px; /* Adjust margin as needed */
+  background-color: #fff;
+  border: 3px solid #40E0D0;
+  color: #ff0068;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  
+}
+
+.set-of-containers {
+  display: flex;
+  flex-direction: row; /* Arrange items horizontally */
+}
+.year-dropdown {
+  width: 100%; /* Adjust width as needed */
+  padding: 5px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc; /* Add border as needed */
+  border-radius: 5px; /* Add border radius as needed */
+  background-color: pink; /* Add background color as needed */
+}
+.totals {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-family: Arial, sans-serif; /* Use Arial font */
+  font-weight: bold; /
+}
+.item {
+  flex: 1; /* Distributes available space equally among items */
+  margin: 5px; /* Adjust as needed for spacing between items */
+  front-weight: bold;
+}
+.item10,
+.item11,
+.item12,
+.item13,
+.item14,
+.item15,
+.item16 {
+  display: inline-block; /* Display items in a line */
+  margin: 20px; /* Adjust as needed for spacing between items */
+  font-weight: bold;
+  position: relative; 
+  
+}
+.item10::after,
+.item11::after,
+.item12::after,
+.item13::after,
+.item14::after,
+.item15::after,
+.item16::after {
+  content: ''; /* Empty content for pseudo-element */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px; /* Adjust the height of the line */
+  background-color: #ff0068; /* Set the color of the line */
+}
+
+
+
+
+.grid-container1 {
+  display: flex;
+}
+.button {
+  background-color: #40E0D0; /* Blue color, change as needed */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 5px 10px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Add cursor pointer on hover */
+  border-radius: 5px; /* Add border radius */
+  margin-top: 25px; /* Adjust margin top */
+  height: 40px;
+}
+.ScrollableContainer {
+  height: 500px; /* Adjust the height as needed */
+  overflow: auto;
+}
+.top-containers {
+  display: flex; /* Use flexbox for horizontal alignment */
+  
+
+}
+
+.pink-container {
+  background-color: #fff; /* Pink background color */
+  color: #00000 /* White text color for contrast */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Optional: Add border radius for rounded corners */
+  margin-right: 100px; /* Optional: Add margin for spacing between containers */
+  border: 3px solid #ff0068;
+  width: 250px;
+  height: 300px
+}
+
+.pink-container:last-child {
+  margin-right: 0; /* Remove right margin for the last container */
+}
+.edit-button{
+  font-size: 18px;
+  align-items: left; /* Center items vertically */
+  display: flex;
+  background-color: #027777; /* Set the background color to light green */
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  margin-top: 80px;
+  margin-left: 70px;
+}
+.service-name{
+  font-size: 25px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+.email-address{
+  font-size: 18px;
+}
+.price{
+  color: #ff0068;
+  font-weight: bold;
+  margin-left: 70px;
+}
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ff0068; /* You can change this to the desired color */
+  margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+.button:hover {
+  background-color: #ff0068; /* Darker blue color on hover */
+}
+
+.contact-customer {
+  background-color: #ff0068; /* Pink color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 8px 16px; /* Adjust padding */
+  font-size: 14px; /* Adjust font size */
+  cursor: pointer; /* Add cursor pointer on hover */
+  border-radius: 5px; /* Add border radius */
+  margin-top: 10px; /* Adjust margin top */
+  height: 40px;
+  font-size: 15px;
+}
+
+.contact-customer:hover {
+  background-color: #40E0D0; /* Darker pink color on hover */
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  color: #ff0068; /* Adjust the color as needed */
+  font-size: 18px; /* Adjust the font size as needed */
 }
 
-.closemetric:hover {
-  background-color: #c82333;
+.close-button:hover {
+  color: #027777; /* Adjust the hover color as needed */
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 767px) {
-  .dashboard-container {
+.title {
+  margin-bottom: 5px; /* Adjust the margin between title and line */
+}
+
+.line {
+  width: 100%;
+  border-top: 1px solid #ff0068;
+  margin: 10px 0; /* Adjust the margin above and below the line */
+}
+
+.container-button {
+  margin-top: 40px;
+  padding: 8px 16px;
+  background-color: #027777;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 85px;
+ 
+  
+  
+}
+.popup-container{
+  background-color: #fff;
+  border: 3px solid #ff0068;
+  height: 360px;
+  width: 300px; /* Adjust width as needed */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(80px); 
+
+}
+
+.container-button:hover {
+  background-color: #cc004d;
+}
+.documents-container{
+  background-color: #fff;
+  border: 2px solid #ff0068;
+  height: 200px;
+  width: 350px;
+
+}
+
+ .orderDate {
+  border-bottom: 2px solid #ff0068;
+  padding: 5px;
+
+    width: 200px;
+    justify-content: center;
+    overflow: hidden;
+
+  }
+  .orderdate_price{
+    width: 100%;
+    font-size: 16px;
+    color: #ff0068;
+    font-family: poppins;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding-bottom: 3px;
+  }
+  .orderdate_date{
+    font-size: 13px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 3px;
+  }
+  .orderdate_button{
+    width: 100%;
+    margin: 0 auto;
+    padding: 2px;
+  }
+
+  .orderdate_button button {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #21B6A8;
+    font-size: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .orders_container{
+    display: block;
+    padding: 5px;
+    width: 950px;
+    position: relative;
+    overflow: hidden;
+  }
+  .orderslist{
+ height: 350px;
+  border: 1.5px solid #ff0068;
+  box-shadow: 0 0 3px #ff0068;
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 5px;
+
+a
+  }
+   .ordersummary_number{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    font-size: 35px;
+    color: #ff0068;
+    font-weight: bold;
+    font-family: poppins;
+   }
+    .ordersummary_title h1{ 
+padding: 0;
+margin: 0;
+    }
+  .ordersummary_title{
+    width: 30%;
+    text-align: center;
+    padding-right: 8px;
+    border-right: 2px solid #333;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-right: 0;
+
+  }
+  
+  .maindash{
+
+    margin: 0;
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 280px;
+    justify-content: space-between;
+    margin-right: 0;
+    padding: 6;
+    top :10px
+    
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  .search-link {
+    margin-left: 10px; /* Adjust spacing between "Account" and the search symbol */
+  }
+  .account-link a {
+    text-decoration: none;
+    color: #333; /* Set the color to your desired text color */
+  }
+  
+  .search-symbol {
+    margin-left: 55px; /* Adjust spacing between "Account" and the search symbol */
+    width: 50px; /* Set the width of the image */
+    height: 20px; /* Set the height of the image */
+    cursor: pointer;
+    padding: 545px;
+  }
+  .search-symbol[contentEditable="true"] {
+    border: 1px solid #ccc; /* Add a border to indicate the active state */
+    padding: 5px; /* Adjust padding for better visual appearance */
+  }
+  .countedorders{
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 0 2px #ff0068;
+    height: 100px;
+    border: 1.5px solid #ff0068;
+
+  }
+  .back_arrow {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 0;
+    margin-right: 10px; /* Adjust margin as needed */
+  }
+  
+  .back_arrow:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .label {
+    color: grey; /* Styling for label */
+  }
+  
+  .data {
+    color: #21B6A8; /* Styling for fetched data */
+    font-weight: bold;
+  }
+/* Style for custom file input */
+.custom-file-upload {
+  display: inline-block;
+  border-bottom: 1px solid #ff0068;
+  border-radius: 0px;
+  padding: 10px;
+  width: 330px;
+
+  cursor: pointer;
+  color: #ff0068;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.custom-file-upload:hover {
+  background-color: #fffd;
+}
+
+/* Hide the original file input */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.popularservice_heading {
+  position: relative;
+  color: #ff0068;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: poppins;
+  margin: 0;
+  padding: -25px;
+  text-align: 50px;
+
+}
+.popularservice_heading:after {
+  content: '';
+  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  display: block;
+  width: 470%; /* Adjust the line width as needed */
+  position: absolute;
+  top: 50%;
+  text-align: 50px;
+}
+
+
+.popularservice_heading:before {
+  
+  width: 100%; /* Adjust the line width as needed */
+  
+  
+  
+}
+.popularservice_heading:after {
+  content: '';
+  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  display: block;
+  width: 470%; /* Adjust the line width as needed */
+  position: absolute;
+  top: 50%;
+  padding: 0px;
+}
+
+
+
+.popularservice_heading:after {
+  right: 0%;
+  margin-right: 0%;
+  top: 100%;
+  padding-top: 20px;
+  
+  
+  
+}
+
+  
+   
+
+  .fileheading{
+    font-family: poppins;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .uploadfiles{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+        .edit_container1{
+          width: 100%;
+          justify-content: center;
+          display: flex;
+        }
+        .edit_image{
+          background: #21B6A8;
+          color: #fff;
+          width: 60px;
+          font-weight:bold;
+          font-family: poppins;
+  
+  
+  
+        }
+        .pfp{
+          border-radius: 75px;
+          background: rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 0px;
+        
+        }
+       
+        .edit_personal{
+          margin: 0;
+          padding: 0;
+          padding: 8px;
+          background: #ff0068;
+          width: 80px;
+          color: #fff;
+          font-weight:bold;
+          font-family: poppins;
+        }
+        .personalinfo_heading{
+          margin: 0;
+          padding: 0;
+          width: 100%;
+        
+        }
+        .personalinfo_header{
+          display: flex;
+          align-items: center;
+          margin: 0;
+          margin-bottom: 25px;
+  
+  
+        }
+        .profile_information{
+          border: 2px solid #ff0068;
+          height: 500px;
+          width: 500px;
+          border-radius: 5px;
+          padding: 10px;
+          position: relative;
+          flex: 1;
+          
+        }
+        .Profiletab{
+          display: flex;
+         padding: 30px;
+         
+        }
+  
+        .edit_pfp{
+          padding: 10px;
+          margin-right: 50px;
+          width: 350px;
+          height: 500px;
+          border: 2px solid #ff0068;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          
+        }
+  .pfp{
+    border-radius: 75px;
+    background: rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 0px;
+  
+  }
+  .pfp_and_files{
+   
+  }
+  
+  .info_container{
+    padding: 10px;
+    display: flex;
+    max-width: 980px;
+  }
+
+.upload-form {
+display: flex;
+flex-direction: column;
+align-items: center;
+border: 2px solid #ff0068;
+border-radius: 5px;
+width: 350px;
+padding: 10px;
+align-items:center;
+}
+
+.file-name {
+
+}
+
+.upload-button {
+background-color: #007BFF;
+color: #fff;
+padding: 10px 20px;
+margin: 0;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+transition: background-color 0.2s;
+}
+
+.upload-button:disabled {
+background-color: #ccc;
+cursor: not-allowed;
+}
+
+
+.upload-button:hover {
+background-color: #0056b3;
+}
+
+
+   .file-label {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .User_info input[type="text"],
+.User_info input[type="email"],
+.User_info select,
+.User_info input[type="date"] {
     width: 100%;
     padding: 10px;
-  }
+    margin: 5px 0;
+    border: 1px solid #ff0068;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.upload-section {
+  margin-bottom: 10px;
+}
 
+/* Style for labels */
+.upload-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style for file input */
+.upload-section input[type="file"] {
+  display: block;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ff0068;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+
+/* Style for paragraph */
+.upload-section p {
+  font-weight: bold;
+ 
+}
+
+
+
+
+  #selectedFileName {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+     .img-and-title{
+      
+      display: flex;
+      width: 150px;
+      justify-content: space-around;
+      height: 100px;
+
+      margin-bottom: 10px;
+           
+      position: inherit;
+      top: 0;
+
+
+    }
+  .username{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    color: white;
+    font-family: poppins;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  width: 150px;
+  }
+  h4{
+  
+  
+  }
+  .username{
+    background: red;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+  width: 130px;
+  font-size: 12px;
+  display: none;
+ 
+  }
+  .Profile{
+  width: 100%;
+  
+  
+  }
   .profile-pic {
+    display: flex;
+    text-overflow: ellipsis;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+  text-align: center;
     width: 80px;
     height: 80px;
-    font-size: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #ff0068;
+    font-size: 36px;
+    font-family: poppins;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    margin-top: 10px;
+    white-space: nowrap;
+
+   
+  }
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust the object-fit property to control how the image fits within the container */
+  }
+  
+        .closemetric:hover{
+          background: red;
+          color: #fff;
+          transition: background 0.5s;
+        }
+        .alert-container {
+          
+          width: 100%;
+          height: 100%;
+          font-family: poppins;
+          font-size: px;
+          background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+         display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999; /* Ensure it's on top of other elements */
+        }
+        
+        .alert-box {
+          background-color: orange;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          text-align: center;
+         
+        }
+        
+        .close-alert {
+          background-color: #e74c3c;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        
+        .close-alert:hover {
+          background-color: #c0392b;
+        }
+        
+        .request-index {
+          .request-index {
+            /* Optional styles for the index */
+            font-weight: bold;
+            margin-left: 10px; 
+            float: right;
+            position: absolute;
+            right: 0;/* Adjust the margin as needed for spacing */
+          }
+        }
+        .totalpendingreq{
+          color: black;
+          text-decoration: none;
+          font-style: none;
+          text-align: center;
+        }
+        .totalpendingreq:before{
+  
+        }
+        .pending-requests-container {
+          max-height: 300px; /* Adjust the maximum height as needed */
+          overflow-y: auto; /* Add vertical scrollbar when content overflows */
+          margin: 8px;
+        }
+        
+        .pendingrequests {
+          list-style-type: none;
+          padding: 0;
+         
+          
+         
+          
+        }
+        .myserviceheader button {
+          font-size: 18px;
+          padding: 10px 20px;
+        }
+        .save-button {
+          /* Add any specific styles for the Save button */
+          font-size: 20px; /* You can adjust the font size as needed */
+          padding: 12px 24px; /* You can adjust the padding as needed */
+          width: 20px;
+          margin-top: 1000 px; /* Adjust the margin-top value to create space below the border */
+        }
+        .pending-request{
+          background: #f5f5f5;
+          margin: 5px;
+          padding: 8px;
+          border-radius: 10px;
+         
+          justify-content: space-between
+          align-items: center;
+        }
+        
+        .pendingrequests li {
+          margin-bottom: 10px; /* Add spacing between list items */
+        }
+        
+        .no-pending-requests {
+          font-style: italic;
+          color: #777; /* Adjust the color as needed */
+        }
+        
+        .close-button {
+          position: absolute;
+          top: 0;
+          right: 0px;
+        
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+        }
+  
+        @keyframes fallingBounce {
+          0% {
+            transform: translateY(-10%);
+          }
+          20% {
+            transform: translateY(5%);
+          }
+          40% {
+            transform: translateY(-2%);
+          }
+          60% {
+            transform: translateY(1%);
+          }
+          80% {
+            transform: translateY(-1%);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+        
+  .overlay-container {
+    position: absolute;
+    place-items: center;
+  
+  
+    width: 1100px;
+    height: 660px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2222; /* Set a high z-index to ensure it's on top */
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+    backdrop-filter: blur(10px);
+    /* Semi-transparent overlay background */
+    transition: backdropFilter 3s;
+  }
+  
+  .expanded-content.show {
+    opacity: 1;
+    /* Keep the final position as you like */
+    transform: translateY(0);
+  }
+  /* CSS styles for the expanded-content (the actual content inside the container) */
+  .expanded-content {
+    background-color: #fff; /* Background color for the content */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    /* Add other styling as needed */
+    animation: fallingBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  
+  }
+  
+  /* CSS styles for the "No " message */
+  .no-pending-requests {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    /* Add other styling as needed */
+  }
+  
+
+.provider-email {
+color: black;
+}
+
+
+
+
+
+
+}
+
+div::-webkit-scrollbar {
+width: 0.5em;
+}
+
+div::-webkit-scrollbar-track {
+background-color: transparent;
+}
+
+div::-webkit-scrollbar-thumb {
+background-color: transparent;
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+div {
+scrollbar-width: none;
+}
+}
+
+  h2{
+    font-family: sans-serif;
+margin: 30px auto;
+text-align: center;
+font-size: 20px;
+max-width: 600px;
+color: #fffdd0;
+position:relative;
   }
 
-  .dashboard-section {
+  h2:before{
+    content: "";
+display:block;
+width: 140px;
+height:2px;
+background: #fffdd0;
+position: absolute;
+left: 0;
+top: 50%;
+z-index: 1111;
+  }
+
+  h2:after{
+    content: "";
+display:block;
+width: 140px;
+height:2px;
+background: #fffdd0;
+position: absolute;
+right: 0;
+top: 50%;
+z-index: 1111;
+  }
+
+  
+
+  .contact_details{
+    background-color: #ff0066;
     padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 830px;
+    color: #fffdd0;
+  }
+  .screening_questions{
+    background-color: #ff0066;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    width: 830px;
+    color: #fffdd0;
   }
 
-  .dashboard-section-title {
+  .uploads{
+    background-color: #ff0066;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    width: 830px;
+    color: #fffdd0;
+  }
+  .profile{
+background-color: red;
+  }
+  select{
+    width:250px;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  textarea{
+width: 400px;
+padding: 10px;
+border-radius: 10px;
+  }
+ .registration-form {
+  
+  display: flex;
+  flex-direction: row;
+  
+  max-width: 850px;
+  height: 460px;
+  margin: 10px;
+  margin-left: 80px;
+  padding: 20px;
+  color: #fffdd0;
+  font-weight: bold;
+  background-color: #fffdd0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Add vertical scroll if content overflows */
+ 
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  
+  
+}
+
+.form-label select,
+.form-label textarea,
+.form-label input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-container {
+  padding: 15px;
+  background-color: #ff0068;
+  border: solid light-red 5px;
+  width: 180px;
+  height: 100%;
+  left: 0;
+
+ 
+  
+}
+
+@media (max-width: 768px){
+  .dashboard-container{
+    width: 80px;
+height: 100vh;
+  }
+}
+
+    .profile{
+      position: fixed;
+      left: 4%;
+      top: 3%;
+      display: block;
+      font-size: 12px;
+      width: 120px;
+      
+     
+    }
+
+    .name{
+      font-weight: bold;
+      margin-left: 19px;
+      font-family: cursive;
+      color: #fffdd0;
+   
+     
+      text-align: center;
+    
+    }
+
+    .profile-picture {
+     
+      background-color: #fff;
+      align-items: center;
+      width: 80px; 
+      height: 80px; /* Adjust the size as needed */
+      border-radius: 50%; /* Makes it a circle */
+      overflow: hidden; /* Clip the image to the circular boundary */
+      margin: 0 auto; /* Center horizontally */
+      margin-bottom: -10px;
+      margin-top: 15px;
+      margin-left: 25px;
+      border: 2px solid #fff; /* Add a border for styling */
+      box-shadow: 0 0 5px #fff;
+      
+    }
+    
+    .profile-picture img {
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Maintain aspect ratio and cover the circle */
+    }
+
+    nav{
+      height: 50px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin: auto;
+      margin-top: 10px;
+      margin-left: 50px;
+  }
+  a{
+      position: relative;
+      text-decoration: none;
+      font-family: 'Poppins',sans-serif;
+      color: #ff0068;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 0 10px;
+      margin-right: 20px;
+
+  }
+  a:after{
+      content: "";
+      position: absolute;
+      background-color: #ff3c78;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+  }
+  a:hover{
+     
+    
+  }
+  a:hover:after{
+      width: 100%;
+  }
+   
+
+ 
+    .logo{
+      height: 50px;
+      position: fixed;
+      top: 7%;
+      left: 3%;
+      border-radius: 50px;
+      width: auto;
+      background-color: none;
+   
+      
+
+    }
+    .img-and-title hr{
+      border-top: 2px solid #ff0068;
+      border-bottom: 2px solid #ff0068;
+      margin-bottom: 20px;
+      position: fixed;
+      top: 21%;
+      left: 0;
+      width: 100%;
+    }
+    .img-and-title{
+      width: 60px;
+      margin-bottom: 30px;
+      
+    }
+    .profile-pic {
+      background: #fff;
+      color: #ff0068;
+      width: 80px;
+      height: 80px;
+      margin-top: 25px;
+      font-size: 25px;
+      margin-left: 35px;
+      border-radius: 50%; /* Makes the element a circle */
+      overflow: hidden; /* Ensures content within the circle is clipped */
+    }
+
+
+
+
+    .dashboard-header {
+      text-align: center;
+      position: inherit;
+      width: 250x;
+      background-color: cream;
+
+      
+    }
+
+    .dashboard-title {
+      font-size: 14px;
+      color: white;
+      background-color: cream;
+      height: 100px;
+      margin-bottom: 20px;
+      
+    }
+
+    .dashcontent{
+      width: 100%;
+    }
+
+    .dashboard-content {
+      display: block;
+      width: 170px;
+      position: relative;
+      font-weight: bold;
+    margin: 0 auto;
+  
+    
+      
+    }
+
+   
+
+
+
+
+  
+
+
+
+    
+
+    
+
+    .mainpage{
+      width: 950px;
+      height: 100%;
+            padding: 15px;
+          
+             background-color: #fff;
+   margin-left: -19px;
+             z-index: 5555;
+             
+            
+          overflow: hidden;
+             display: block;
+      
+
+    }
+    .mainpage hr{
+      border-top: 2px solid #ff0068;
+      border-bottom: 2px solid #ff0068;
+      margin-bottom: 0px;
+      margin-top: 120px;
+      margin-left: 50px;
+      width: 0px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #21B6A8 , #FF0068);
+    }
+
+    .card{
+      width: 20%;
+      display: block;
+      box-shadow: 2px 2px 20px black;
+      border-radius: 5px; 
+      margin: 2%;
+      background-color: red;
+     
+     }
+ 
+ .image img{
+   width: 100%;
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+   
+ 
+  
+  }
+ 
+ .title{
+  
+   text-align: center;
+   padding: 10px;
+   
+  }
+ 
+ h1{
+   font-size: 20px;
+  }
+ 
+ .des{
+   padding: 3px;
+   text-align: center;
+   padding-top: 10px;
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+ }
+ button{
+   margin-top: 40px;
+   margin-bottom: 10px;
+   background-color: #454545;
+   color: pink;
+   border: 1px solid black;
+   border-radius: 5px;
+   padding:10px;
+ }
+ button:hover{
+   background-color: azure;
+   color: #454545;
+   transition: .5s;
+   cursor: pointer;
+ }
+
+ .contentcard{
+ 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-gap: 20px; /* Gap between cards */
+    margin-top: 20px; /* Adjust as needed */
+    padding: 30px; /* Adjust as needed */
+  background-color: #fffdd0;
+  width: 900px;
+  height: 300px;
+margin-top: 300px;
+margin-left: 60px;
+border-radius: 30px;
+  transition: 0.1s linear;
+  flex: 1;
+  overflow: auto;
+ }
+
+ .metrics{
+  
+ 
+      border-radius: 10px;
+      display: flex;
+     justify-content: space-between;
+      width: 850px;
+      margin-bottom: 0px;
+      margin-left: 90px;
+      padding: 0;
+    border: none;
+  
+  
+ }
+ .metrics hr{
+  display: none;
+ }
+
+ 
+
+ .progress-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.circle-progress {
+  width: 5%; /* Adjust the width to make the circle smaller */
+  height: 50%; /* Adjust the height accordingly */
+  border: 6px solid #fff; /* Adjust the border width and color */
+  border-top-color: ; /* Set the color for the progress */
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+  top: -50px; /* Adjust the top position */
+  left: 50px; /* Adjust the left position */
+  padding: 30px; /* Adjust padding accordingly */
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+.circle-progress::-webkit-progress-value {
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.circle-progress::-moz-progress-bar {
+  border-radius: 50%;
+  background-color: transparent; 
+}
+.progress-circle span {
+  position: absolute;
+  top: -20%;
+  left: 90px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #fff;
+  
+}
+.servicesdone{
+    
+  padding-left: 8px;
+height: 100px;
+width: 200px;
+font-size: 12px;
+color: azure;
+border-radius: 10px;
+background-color:#ff0068;
+cursor: pointer;
+margin-left: -90px
+
+
+
+
+ }
+
+
+
+ .pendingservices{
+ 
+  padding-left: 8px;
+  color: azure;
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+  background-color:#ff0068;
+  cursor: pointer;
+  
+
+
+}
+.Rewards{
+
+  padding-left: 8px;
+  color: azure;
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+  background-color:#ff0068;
+  cursor: pointer;
+  
+  
+
+}
+.popular_heading{
+  margin-left: -740px;
+  padding-top: -50px;
+  margin-top: -20px;
+  clear: both;
+  
+}
+
+
+
+.dashboard-section.active {
+  font-weight: bold;
+color: #ff0068;
+  background-color: #ff0068;
+ z-index: 99999;
+  text-decoration: none;
+  font-style: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  box-shadow: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+width: 170px;
+  .dashboard-section:hover{
+background: #ff0068;
+  }
+
+  .dashboard-section-header{
+    color:#fff;
+    padding: 10px;
+  width: 123px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    margin: 0;
+    
+    
+  }
+  .active_Tab{
+    display: block;
+right: 3px;
+
+ 
+
+
+  }
+  .dashboard-section-body{
+    color:#fff;
+  }
+  .dashboard-section-title{
+    color: #fff;
     font-size: 14px;
   }
 
-  .logsout {
-    padding: 10px;
-  }
+  transition: color 0.5s ease,  width 0.7s ease, border-radius 0.5s ease, border 0.5s ease, margin 0.5s ease;
 
-  .totalpendingreq {
-    font-size: 20px;
-  }
+}
 
-  .pending-request {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .acceptrequest, .closemetric {
-    padding: 5px 10px;
+.dashboard-section {
+  background-color: #454545;
+ cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  height: 15px;
+width: 125px;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 17px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 35px;
+  color:  #fff;
+}
+
+
+
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  height: 20px;
+width: 170px;
+ text-align: center;
+  position: inherit;
+
+  
+}
+
+
+
+.dashboard-section-title {
+  font-size: 15px;
+ margin-left: 18px;
+  color:  #fff;
+ 
+
+}
+
+.dashboard-section-body {
+ font-size: 12px;
+ margin: 0;
+
+
+position: relative;
+  color:  #fff;
+}
+.dashboard-section-body:hover{
+  color: white;
+}
+
+.btn_logout{
+  width: auto;
+  align-items: center;
+  display: flex;
+  width: 160px;
+  padding: 0;
+  position: absolute;
+  bottom: 20px;
+ 
+  
+}
+ 
+
+
+.active_Tab{
+  font-size: 22px;
+  color: #fff;
+  font-family: poppins;
+position: absolute;
+right: -30px;      
+  display: none;
+}
+.testimonial-item-container {
+  background-color: pink;
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 10px; /* Add margin for spacing between testimonial containers */
+  position: relative;
+}
+.testimonial-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.testimonial-content {
+  flex-grow: 1;
+}
+
+.stars {
+  --star-size: 20px;
+  --rating: 0; /* This should be replaced with the actual rating value */
+  display: inline-block;
+  font-size: var(--star-size);
+  background: linear-gradient(90deg, gold var(--rating), #ddd var(--rating));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #ff0068;
+}
+
+.stars::before {
+  content: '★★★★★';
+  position: absolute;
+}
+
+.stars::after {
+  content: '★★★★★';
+  position: absolute;
+  z-index: -1;
+}
+.testimonial-rating {
+  position: absolute;
+  top: 0;
+}
+
+.testimonial-text {
+  padding-top: 25px; /* Adjust as needed to provide space for the stars */
+}
+/* Responsive design adjustments for the provider dashboard */
+@media (max-width: 600px) {
+  .maindash {
+    width: auto; /* Take full width on smaller screens */
+    max-width: none; /* Remove maximum width limit */
+    margin-top: -80px; /* Adjust margin top for smaller screens */
   }
 }
 
-@media (max-width: 480px) {
-  .profile-pic {
-    width: 60px;
-    height: 60px;
-    font-size: 20px;
+/* Responsive design adjustments for dashboard in the provider dashboard */
+@media (max-width: 600px) {
+  
+ .progress-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.circle-progress {
+  width: 5%; /* Adjust the width to make the circle smaller */
+  height: 5%; /* Adjust the height accordingly */
+  border: 6px solid #fff; /* Adjust the border width and color */
+  border-top-color: ; /* Set the color for the progress */
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+  top: -50px; /* Adjust the top position */
+  left: 50px; /* Adjust the left position */
+  padding: 30px; /* Adjust padding accordingly */
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+.circle-progress::-webkit-progress-value {
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.circle-progress::-moz-progress-bar {
+  border-radius: 50%;
+  background-color: transparent; 
+}
+.progress-circle span {
+  position: absolute;
+  top: -20%;
+  left: 90px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #fff;
+  
+}
+.servicesdone{
+    padding-left: 8px;
+height: 70px;
+width: 60px;
+font-size: 12px;
+color: azure;
+border-radius: 10px;
+background-color:#ff0068;
+cursor: pointer;
+margin-left: -90px
+ }
+
+
+
+ .pendingservices{
+  color: azure;
+  height: 70px;
+  width: 60px;
+  border-radius: 10px;
+  background-color:#ff0068;
+  cursor: pointer;
+  margin-right: 750px;
+}
+.Rewards{
+ color: azure;
+  height: 100px;
+  width: 20px;
+  border-radius: 10px;
+  background-color:#ff0068;
+  cursor: pointer;
+}
+.popular_heading{
+  margin-left: -740px;
+  padding-top: -50px;
+  margin-top: -20px;
+  clear: both;
+  
+}
+
+
+.set {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-color: #fff;
+  margin-right: auto; /* Push updates container to the left */
+}
+
+.updates-Container {
+  border: 3px solid #ff0068;
+  padding: 10px;
+  margin: 5px;
+  width: 280px; /* Adjust width */
+  height: 150px; /* Adjust height */
+  margin-top: 30px;
+  border-radius: 10px; /* Adjust the value to change the roundness */ 
+  font-family: Arial, sans-serif; /* Set font family to Arial */
+  font-weight: bold; /* Set font weight to bold */
+  color: black; /* Set text color to black */
+  font-size: 13px; /* Set font size to 20 pixels */
+  position: relative;
+}
+
+.updates-Container::before
+ {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 3px solid #ff0068;
+}
+
+
+.updates-Container::before {
+  bottom: 78%;
+}
+
+.set:nth-child(2) .updates-Container {
+  width: 80px; /* Width of the containers in the middle */
+}
+
+.set:nth-child(1) .updates-Container,
+.set:nth-child(3) .updates-Container {
+  width: 50px; /* Width of the containers on the left and right */
+}
+}
+
+
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+  .dashboard-section {
+    max-width: none; /* Remove maximum width limit */
+    margin-bottom: 20px; /* Adjust margin bottom for spacing */
+  }
+}
+
+/* Mobile view for service provider profile */
+@media (max-width: 768px) {
+  .Profiletab {
+    padding: 10px;
+    flex-direction: column; 
+    
   }
 
-  .dashboard-section-title {
+  .edit_container1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile_information {
+    margin-top: 10px;
+  }
+
+  .User_info {
+    grid-template-columns: 1fr;
+  }
+
+  .edit_pfp h4, .upload-section label {
+    font-size: 14px;
+  }
+
+  .personalinfo_header h4, .User_info strong label {
     font-size: 12px;
   }
 
-  .logsout {
-    padding: 5px;
+  .edit_personal, .edit_personal1, .edit_personal2 {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 
-  .totalpendingreq {
+  .edit_container1 button {
+    margin-bottom: 10px;
+  }
+  .profile_information{
+    border: 2px solid #ff0068;
+    height: 300px;
+    width: 250px;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    flex: 1;
+    
+  }
+  .edit_pfp{
+    padding: 10px;
+    margin-right: 50px;
+    width: 250px;
+    height: 470px;
+    border: 2px solid #ff0068;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
+  }
+  .upload-section {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for labels */
+  .upload-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Style for file input */
+  .upload-section input[type="file"] {
+    display: block;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ff0068;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 200px;
+  
+  
+  /* Style for paragraph */
+  .upload-section p {
+    font-weight: bold;
+   
+  }
+  
+}
+
+/* Mobile view for service provider orders*/
+@media (max-width: 768px) {
+  .orders_container {
+    padding: 10px;
+    width: 280px;
+    padding-top: 30px;
+    
+    
+   
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .item1, .item2, .item3 {
+    font-size: 16px;
+  }
+
+  .ordersummary_title h1 {
     font-size: 18px;
   }
 
-  .pending-request {
-    padding: 5px;
+  .ordersummary_number {
+    font-size: 16px;
   }
 
-  .acceptrequest, .closemetric {
-    padding: 5px 5px;
+  .contact-customer {
+    font-size: 12px;
+    padding: 5px 10px;
   }
-}
 
- /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Sidebar Styles */
-.sidebar {
-    width: 250px;
-    background-color: #FF0068;
-    color: white;
-    position: fixed;
-    height: 100%;
-    padding: 20px 0;
-}
-
-.sidebar .profile {
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-.sidebar .profile img {
-    width: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.sidebar .profile h3 {
-    margin: 0;
-}
-
-.sidebar .profile p {
-    margin: 0;
+  .popup-content p {
     font-size: 14px;
-}
+  }
 
-.sidebar nav {
+  .close-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  .orders_container a {
+    color: ff0068;
+    flex-direction: row;
+    margin: 0 2px; /* Adjust this value as needed */
+    padding: 2px 0; /* Adjust this value as needed */
+    font-size: 12px; 
+    margin-bottom: 20px;
+  }
+
+  .orderslist {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    gap: 10px; /* Gap between grid items */
+  }
+
+  .orders_container1 {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    gap: 10px; /* Gap between grid items */
+    background-color: #f0f0f0; /* Example background color */
+    padding: 10px; /* Padding around each item */
+    border-radius: 8px; /* Rounded corners for each item */
+  }
+
+  .orders_container1 .serviceInfo {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
+  }
 
-.sidebar nav a {
-    width: 80%;
-    padding: 15px;
-    margin: 5px 0;
-    text-align: center;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
+  .orders_container1 .serviceInfo button {
+    margin-top: 10px; /* Adjust spacing as needed */
+  }
+    
+    
+    
+  }
+
+/* Media query for mobile view for service provider customers*/
+@media (max-width: 768px) {
+  .customers-container {
+    padding: 10px;
+  }
+
+
+  .small-container {
+    background-color: #fff;
+    color: #000000;
     font-weight: bold;
-    transition: background-color 0.3s;
+    margin-top: 20px;
+    border: 3px solid #ff0068;
+    height: 100px;
+    width: 260px;
+    position: relative;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px;
+
+    
+    
+  
+  }
+
+  .container-button {
+    width: 100%; /* Full width buttons */
+  }
+  .pink {
+    display: flex;
+    background-color: #fff;
+    border: 3px solid #ff0068; /* Set the border color to dark pink */
+    width: 260px;
+    height: 300px;
+    flex-direction: row;
+    margin-top: 30px;
+    display: flex; /* Use flexbox */
+    border-radius: 10px;
+    padding: 5px;
+
+  }
+  .small-containers-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .customers1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+
+  }
+  .info {
+    display: flex;
+    flex-direction: row;
+  
+  }
+  .container-button {
+    margin-top: 40px;
+    padding: 8px 16px;
+    background-color: #027777;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 85px;
+    width: 100px;
+    height: 40px;
+   
+    
+    
+  }
+  .customer-name {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Arial', sans-serif;
+    margin-right: 100px;
+  
+ 
+  
+  }
+  .info-item p {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    font-family: 'Arial', sans-serif;
+    margin-bottom:250px;
+    margin-left: 80px;
+  }
+ 
+
+    
+  
+  
+ 
 }
 
-.sidebar nav a:hover {
-    background-color: #444;
+/* Media query for mobile view for service provider analytics */
+@media (max-width: 768px) {
+  .mainpage {
+    padding: 10px;
+  }
+
+  .analytics-container {
+    padding: 10px;
+  }
+
+  .set-of-containers {
+    flex-direction: column;
+  }
+
+  .smallanalytics-container, .tiny-container, .totalrevenue-container, .item10, .item11, .item12, .item13 {
+    width: 250px;
+    margin: 5px 0;
+  }
+
+  .tab-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100px;
+    padding: 10px;
+  }
+  .analytics-container {
+    background-color: #fff;
+    padding: 20px; /* Adjust padding as needed */
+    height:500px;
+    border: 3px solid #ff0068;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 250px
+  
+  
+  }
+  
+
+.totalrevenue-container {
+  background-color: #fff;
+  padding: 20px;
+  height: 200px;
+  width: 300px;
+  border: 3px solid #ff0068;
+  border-radius: 10px;
+  margin-left: 350px;
+  margin-top: -90px;
 }
 
-.sidebar .logout {
+.tiny-container {
+  width: 245px;
+  height: 80px; /* Adjust height as needed */
+  margin: 5px; /* Adjust margin as needed */
+  background-color: #fff;
+  border: 3px solid #40E0D0;
+  color: #ff0068;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  
+}
+  .months-scrollable-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: block;
+  } 
+
+  .set-of-containers {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+/* Media query for mobile view for service provider services */
+@media (max-width: 768px) {
+  .myserviceheader {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    
+  }
+
+  .myserviceheader h3 {
+    margin-top: 10px;
+    margin-left: 100px;
+   
+  }
+
+  .service1, .service2 {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .imgsev1 {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .top-containers {
+    flex-direction: column;
+  }
+
+  .pink-container {
+    width: 240px;
+   margin-left: 40px;
+   padding: 10px;
+
+  }
+  .myserviceheader button{
+    color: #fff;
+    font-weight: bold;
+    width: 80px;
+    margin-left: 200px;
+ 
+    background:  #21B6A8;
+  }
+  .input_servicephoto button {
+    
+    width: 60px;
+    height: 60px; 
+    padding: 10px;
+    background-color: #40E0D0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%; /* Set border-radius to 50% for a circular shape */
+    margin-top: -90px;
+ 
+ 
+  }
+  .AddingConatiner{
+    width: 100px;
+  }
+  .service1{
+    display: flex;
+    width: 100%
+    padding: 10px;
+    justify-content: space-between;
+margin-bottom: 30px;
+  }
+  .imgsev1{
+padding: 5px;
+border: 2px solid #ff0068;
+width: 100px;
+height: 100px;
+border-radius: 5px;
+
+  }
+  .descrip1{
+    border-radius: 5px;
+
+    width: 280px;
+    height: 200px;
+    padding: 5px;
+    border: 2px solid #ff0068;
+
+  }
+  .service2{
+    display: flex;
+    width: 100%
+    padding: 10px;
+    justify-content: space-between;
+
+  }
+  .imgsev2{
+    padding: 5px;
+    border: 2px solid #ff0068;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+
+  }
+  .descrip2{
+    border-radius: 5px;
+
+    width: 280px;
+    height: 200px;
+    padding: 5px;
+    border: 2px solid #ff0068;
+   
+    
+  }
+ 
+}
+@media (max-width: 768px) {
+  
+  .dashboard-section-header{
+    color:#fff;
+    padding: 10px;
+  width: 40px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    margin: 0;
+    margin-right: 20px;
+    
+    
+  }
+  .btn_logout{
+    width: auto;
+    align-items: center;
+    display: flex;
+    width: 40px;
+    padding: 0;
     position: absolute;
     bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Main Content Styles */
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
-}
-
-.main-content .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main-content .nav a {
-    color: #FF0068;
-    font-weight: bold;
-    margin: 0 10px;
-}
-
-.main-content .nav .search-container {
-    display: flex;
-    align-items: center;
-}
-
-.main-content .nav .search-container input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.main-content .overview {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.main-content .overview .card {
-    width: 30%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: white;
-    text-align: center;
-}
-
-.main-content .overview .card h3 {
-    margin-bottom: 10px;
-}
-
-.main-content .overview .card .progress-circle {
-    position: relative;
-    width: 80px;
-    height: 80px;
+   
+    
+  }
+  
+    .dashboard-content {
+      display: block;
+      width: 170px;
+      position: relative;
+      font-weight: bold;
     margin: 0 auto;
-}
-
-.main-content .overview .card .progress-circle progress {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    appearance: none;
-}
-
-.main-content .overview .card .progress-circle progress::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-.main-content .overview .card .progress-circle progress::-webkit-progress-value {
-    background-color: #FF0068;
-    border-radius: 50%;
-}
-
-.main-content .overview .card .progress-circle span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-}
-
-.main-content .service-description {
-    margin-top: 40px;
-}
-
-.main-content .service-description h2 {
-    color: #FF0068;
-}
-
-.main-content .service-description .service {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.main-content .service-description .service .details {
-    width: 48%;
-}
-
-.main-content .service-description .service .details h3 {
-    margin-bottom: 10px;
-}
-
-.main-content .service-description .service .details p {
-    margin: 5px 0;
-}
-
-.main-content .service-description .service .details .price {
-    color: #FF0068;
-    font-weight: bold;
-}
-
-.main-content .service-description .service .stars {
-    text-align: right;
-}
-
-.main-content .service-description .service .stars .star {
-    font-size: 20px;
-    color: #FFD700;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+  
+    
+      
     }
+   
 
-    .sidebar nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .sidebar .profile,
-    .sidebar .logout {
-        display: none;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .main-content .nav {
-        flex-direction: column;
-    }
-
-    .main-content .overview {
-        flex-direction: column;
-    }
-
-    .main-content .overview .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .main-content .service-description .service {
-        flex-direction: column;
-    }
-
-    .main-content .service-description .service .details,
-    .main-content .service-description .service .stars {
-        width: 100%;
-        text-align: center;
-    }
 }
 
-@media (max-width: 480px) {
-    .main-content .nav .search-container input {
-        width: 100%;
-    }
+ 
 
-    .main-content .overview .card .progress-circle {
-        width: 60px;
-        height: 60px;
-    }
-}
+
 
   `}</style>
 </div>
@@ -2618,6 +4860,5 @@ a {
 };
 
 export default UserDashboard;
-
 
 //pink colours: #FF0040,#FF0066, #FF0078, #FA3980, #ffeba7, #ff3c78, #21B6A8,#007bff, #0056b3
