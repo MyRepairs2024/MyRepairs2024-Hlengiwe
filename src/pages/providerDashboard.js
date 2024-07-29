@@ -833,7 +833,7 @@ const handleProcessDone = () => {
 
         </nav>
         {activeTab === 'overview' && (
-          <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
+          <div className='ScrollableContainer0'> {/* Add a class or style for a fixed height */}
           
           <div className='Dash-Container'>
          <div className="metrics">
@@ -932,7 +932,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
        
        <div>
   {activeTab === 'services' && (
-    <div className='ScrollableContainer'> {/* Add a class or style for a fixed height */}
+    <div className='ScrollableContainer3'> {/* Add a class or style for a fixed height */}
       <div className="services-wrapper">
         <div className="services-container">
           {/* Testimonial reviews */}
@@ -1363,7 +1363,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
     
 
     {activeTabCustomers === 'current1' && (
-         <div className='ScrollableContainer'>
+         <div className='ScrollableContainer4'>
       <div className='customers-container current-container pink-border'>
        <div className='info'>
           {/* Container for customer name */}
@@ -1413,11 +1413,6 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
              <button className='small-button' onClick={handleContactCustomer}>
           Contact Customer
           </button>
-          
-           
-            
-           
-            
           </div>  
         </div>
         <div className='small-containers-container'>
@@ -1547,6 +1542,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
     <div className='mainpage'>
       <Dashheader/>
       <div className='myserviceheader'>
+
         <h3>My Services</h3>
         <button onClick={handleAddNewService}>Add New Service</button>
       </div>
@@ -1635,6 +1631,11 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
         </div>
       </div>
       )}
+
+
+
+      <div className='ScrollableContainer2'> {/* Add a class or style for a fixed height */}
+        
       <div className="top-containers" style={{ marginTop: '20px' }}>
   <div className="pink-container">
   <span className="service-name">Cleaning</span>
@@ -1696,6 +1697,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
       </div>
       
     </div>
+    </div>
   </div>
 )}
  
@@ -1712,7 +1714,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
 
 {activeTab === 'totalRequests' && (
              <div className='analytics-container'>
-             <select>
+                <select>
                <option value="2022">2020</option>
                <option value="2023">2021</option>
                <option value="2024">2022</option>
@@ -1721,7 +1723,8 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
                <option value="2024">2025</option>
                {/* Add more options as needed */}
              </select>
-           
+
+            
                <div className="set-of-containers">
                  <div className="smallanalytics-container">January | R1000</div>
                  <div className="smallanalytics-container">February | R2500</div>
@@ -1742,8 +1745,10 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
                  <div className="smallanalytics-container">November | R1000</div>
                  <div className="smallanalytics-container">December | R1000</div>
                </div>
+               
                <button onClick={handleDownloadpdf} style={{marginTop: '45px'}}>Download PDF</button>
              </div>
+             
           )}
 
           {activeTab === 'successfulOrders' && (
@@ -1869,30 +1874,115 @@ top: 0;
   width: 150px;
   padding: 0px;
   margin-left: 0px;
- 
-}
-
-
-
+  }
 
 .profile_information{
   overflow: auto;
- 
 }
+
   .date-picker-container input{
     visibility: hidden;
     display: none;
   }
+
 .info-item select{
 width: 173px;
 padding: 5px;
-
 }
-.info-item{
-margin-bottom: 5px;
 
+.info-item{
+  padding: 10px;
+  margin: 30px 100px; /* Reduced margin to decrease spacing */
+  border-radius: 5px;
+  margin-left:10px;
+  text-align: center;
+  border: 3px solid #ff0066; /* Adding a border */ 
 }
  
+
+@media (max-width: 600px) {
+  .info-item {
+  background-color: #ffcccb;
+  padding: 10px;
+  margin: 30px 100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-align: center;
+  border: 3px solid #ff0066; /* Adding a border */
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+}
+
+ .info-item.pink {
+   padding: 15px; /* Adjust padding for mobile */
+  margin: 10px 0; /* Reduced margin for mobile */
+  border-radius: 5px;
+  border: 3px solid #ff0066; /* Pink border */
+  text-align: center; /* Center content horizontally */
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally within the container */
+  justify-content: center; /* Center items vertically within the container */
+}
+@media (max-width: 600px) {
+  .info-item.pink {
+    padding: 10px; /* Adjust padding for very small screens */
+    margin-right: 105px ; /* Further reduce margin */
+  }
+
+  .info-item.pink p {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  .icon1 {
+    width: 30px; /* Further reduce icon size */
+    height: 30px; /* Further reduce icon size */
+  }
+
+  .customer-name {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  .small-button {
+    padding: 6px 12px; /* Further adjust button padding */
+    font-size: 12px; /* Adjust button font size */
+  }
+}
+.info-item.pink p {
+  color: black;
+  font-size: 16px; /* Adjust font size for mobile */
+  font-weight: bold;
+  text-align: center; /* Center text */
+  font-family: 'Arial', sans-serif;
+  margin: 5px 0; /* Adjust margin for mobile */
+}
+
+  .icon1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .customer-name {
+    font-size: 16px;
+  }
+
+  .small-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .close-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
   .AddingConatiner{
     width: 940px;
   }
@@ -1943,6 +2033,31 @@ border-radius: 5px;
     border: 2px solid #ff0066;
    
     
+  } 
+  
+   .ScrollableContainer0 {
+  height: 610px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Optional: Add padding */
+  }
+     .ScrollableContainer3 {
+  height: 1000px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Optional: Add padding */
+
+  }
+    .ScrollableContainer2 {
+  height: 600px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Optional: Add padding */
+
+  }
+
+     .ScrollableContainer4 {
+  height: 650px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Optional: Add padding */
+
   }
   .myserviceheader{
     display: flex;
@@ -2253,9 +2368,7 @@ font-size: 18px;
     grid-gap: 10px;
   }
 
-  .item1, .item2 {
-    width: 100%;
-  }
+ 
 
   .customer_card {
     padding: 5px;
@@ -2292,12 +2405,10 @@ font-size: 18px;
 
 .item3 {
 padding: 5px;
-width: 200px;
+width: 150px;
 overflow: hidden;
 border-bottom: 2px solid #ff0066;
-font-size: 18px;
-
-
+font-size: 14px;
 }
   .orders_container1 {
     padding: 10px;
@@ -2419,10 +2530,7 @@ font-size: 18px;
   }
   .info {
     display: flex;
-    justify-content: space-between; /* Optional: Adjust this based on your layout preferences */
-    
-    
-    
+    justify-content: space-between; /* Optional: Adjust this based on your layout preferences */   
   }
   .info-item {
     display: flex;
@@ -2430,13 +2538,11 @@ font-size: 18px;
     align-items: center;
   }
   
-  
-  
   .info-item p {
     color: black;
     font-size: 20px;
     font-weight: bold;
-    text-align: right;
+    text-align: center;
     font-family: 'Arial', sans-serif;
   }
   
@@ -2453,21 +2559,18 @@ font-size: 18px;
     
     .small-container {
       background-color: #fff;
-      color: #000000;
+      color: #000;
       font-weight: bold;
       margin-top: 20px;
       border: 3px solid #ff0066;
       height: 100px;
-      width: 300px;
+      width: 270px;
       position: relative;
       border-radius: 10px;
       display: inline-block;
-      
-      
-    
     }
       @media (max-width: 600px) {
-  .orders_container1 {
+   .orders_container1 {
     grid-template-columns: repeat(1, 1fr); 
     grid-gap: 10px;
   }
@@ -2505,12 +2608,13 @@ font-size: 18px;
   }
 
   .info {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .info-item {
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally within the container */
+  justify-content: center; /* Center items vertically within the container */
+  /* Optional: Adjust margin or padding if needed */
+  margin-left: -510px; /* Adjust based on your layout preferences */
+  padding: 20px; /* Adjust based on your layout preferences */
   }
 
   .small-container {
@@ -2518,6 +2622,8 @@ font-size: 18px;
     margin-top: 10px;
   }
 }
+
+
 
 .small-container::before {
   content: '';
@@ -2528,10 +2634,7 @@ font-size: 18px;
   border-top: 3px solid #ff0066;
   transform: translateY(-50%);
 }
-.info {
-  display: flex;
-  flex-direction: row;
-}
+
 
 .small-containers-container {
   display: flex;
@@ -2617,9 +2720,8 @@ font-size: 18px;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  height: 385px;
+  height: 500px;
   border: 3px solid #ff0066;
-  height: 400px;
   overflow: auto;
   width: 900px;
   padding: 30px;
@@ -2740,9 +2842,6 @@ font-size: 18px;
   background-color: #ff0066; 
   }
 
-
-
-
 .grid-container1 {
   display: flex;
 }
@@ -2751,11 +2850,12 @@ font-size: 18px;
   color: white; /* Text color */
   border: none; /* Remove border */
   padding: 5px 10px; /* Adjust padding */
-  font-size: 16px; /* Adjust font size */
+  font-size: 14px; /* Adjust font size */
   cursor: pointer; /* Add cursor pointer on hover */
   border-radius: 5px; /* Add border radius */
-  margin-top: 25px; /* Adjust margin top */
-  height: 40px;
+  margin-top: 40px; /* Adjust margin top */
+  height: 30px;
+  margin-right:5px;
 }
 .ScrollableContainer {
   height: 700px; /* Adjust the height as needed */
@@ -2786,10 +2886,7 @@ font-size: 18px;
     margin-top: 10px; 
   }
 
-  .info {
-    flex-direction: column; 
-  }
-
+ 
   .info-item img {
     width: 60px; 
     height: 60px; 
@@ -2804,7 +2901,8 @@ font-size: 18px;
   .services-container {
     width: 100%; /* Full width */
     margin-left: 0; /* Remove margin left */
-  }
+  height:530px;
+    }
 
   .analytics-container,
   .totalrevenue-container {
@@ -2874,7 +2972,7 @@ font-size: 18px;
   font-weight: bold;
 }
 .email-address{
-  font-size: 18px;
+  font-size: 14px;
 }
 .price{
   color: #ff0066;
@@ -3021,8 +3119,6 @@ font-size: 18px;
   padding: 5px;
   margin: 0 auto;
   border-radius: 5px;
-
-a
   }
    .ordersummary_number{
     text-align: center;
@@ -3077,11 +3173,11 @@ margin: 0;
   }
   
   .search-symbol {
-    margin-left: 55px; /* Adjust spacing between "Account" and the search symbol */
+    margin-left: 505px; /* Adjust spacing between "Account" and the search symbol */
     width: 50px; /* Set the width of the image */
-    height: 20px; /* Set the height of the image */
+    height: 10px; /* Set the height of the image */
     cursor: pointer;
-    padding: 545px;
+    padding: 5px;
   }
   .search-symbol[contentEditable="true"] {
     border: 1px solid #ccc; /* Add a border to indicate the active state */
@@ -3118,11 +3214,6 @@ margin: 0;
     gap: 10px;
   }
   
-  .info-item {
-    display: flex;
-    justify-content: space-between;
-  }
-  
   .label {
     color: grey; /* Styling for label */
   }
@@ -3154,6 +3245,7 @@ margin: 0;
     width: 100%; /* Full width */
     margin-right: 0; /* Remove right margin */
     padding: 10px; /* Adjust padding */
+    margin-bottom:20px;
   }
 
   .edit-button {
@@ -3172,8 +3264,8 @@ margin: 0;
   }
 
   .button {
-    width: 100%; /* Full width */
-    margin-top: 10px; /* Adjust margin top */
+    width: 50%; /* Full width */
+    margin-top: 40px; /* Adjust margin top */
   }
 
   .orders_container {
@@ -4838,12 +4930,6 @@ right: -30px;
     margin-bottom: 20px;
   }
 
-  .orderslist {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 10px; 
-    width:220px;
-  }
 
   .orders_container1 {
     display: grid;
@@ -4861,19 +4947,47 @@ right: -30px;
 
   .orders_container1 .serviceInfo button {
     margin-top: 10px; /* Adjust spacing as needed */
+  }    
   }
-    
-    
-    
+
+  @media (max-width: 768px) {
+  .orderslist {
+    height: 400px; 
   }
+
+  .grid-container {
+    display: block; /* Stack items vertically */
+  }
+
+ .grid-container .item1,
+  .grid-container .item2{
+    width: 100%; /* Full width for each item */
+    margin-bottom: 10px; /* Space between items */
+  }
+
+  .grid-container .item3 {
+    width: 100%; /* Full width for each item */
+    margin-bottom: 10px; /* Space between items */
+    font-size: 10px;
+
+  }
+
+  .contact-customer {
+    width: 100%; /* Full width button */
+    margin-top: 10px; /* Space above the button */
+  }
+
+  .popup-container {
+    width: 90%; /* Responsive width */
+  }
+}
 
 /* Media query for mobile view for service provider customers*/
 @media (max-width: 768px) {
   .customers-container {
     padding: 10px;
+    margin-left:-20px;
   }
-
-
   .small-container {
     background-color: #fff;
     color: #000000;
@@ -4881,15 +4995,11 @@ right: -30px;
     margin-top: 20px;
     border: 3px solid #ff0066;
     height: 100px;
-    width: 260px;
+    width: 250px;
     position: relative;
     border-radius: 10px;
     display: inline-block;
-    padding: 10px;
-
-    
-    
-  
+    padding: 10px;  
   }
 
   .container-button {
@@ -4909,8 +5019,10 @@ right: -30px;
 
   }
   .small-containers-container {
-    display: flex;
-    flex-direction: row;
+  flex-direction: column; /* Corrected spelling and stack items vertically */
+  margin-left: -10px; /* Adjust based on your layout preferences */
+  margin-top:30px;
+  padding: 20px; /* Adjust based on your layout preferences */
   }
   .customers1 {
     display: flex;
@@ -4919,11 +5031,7 @@ right: -30px;
     flex-direction: column;
 
   }
-  .info {
-    display: flex;
-    flex-direction: row;
-  
-  }
+ 
   .container-button {
     margin-top: 40px;
     padding: 8px 16px;
@@ -4956,12 +5064,6 @@ right: -30px;
     margin-bottom:250px;
     margin-left: 80px;
   }
- 
-
-    
-  
-  
- 
 }
 
 /* Media query for mobile view for service provider analytics */
@@ -5045,13 +5147,14 @@ right: -30px;
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
-    
+    hight:10px;
+    margin:0;
   }
 
+ 
   .myserviceheader h3 {
-    margin-top: 10px;
-    margin-left: 100px;
-   
+margin-top:10px;
+margin-left:100px;
   }
 
   .service1, .service2 {
@@ -5069,7 +5172,7 @@ right: -30px;
   }
 
   .pink-container {
-    width: 240px;
+    width: 200px;
    margin-left: 40px;
    padding: 10px;
 
@@ -5077,9 +5180,10 @@ right: -30px;
   .myserviceheader button{
     color: #fff;
     font-weight: bold;
-    width: 80px;
-    margin-left: 200px;
- 
+    width: 250px;
+    height:40px;
+    margin-left: 40px;
+    margin-top:0px;
     background:  #21B6A8;
   }
   .input_servicephoto button {
