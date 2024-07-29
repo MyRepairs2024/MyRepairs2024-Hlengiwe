@@ -268,7 +268,7 @@ const ServiceDetail = ({ service, onClose, username }) => {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
 
   transition: background-color 0.3s, transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
@@ -321,7 +321,7 @@ textarea{
     
       .close-button {
         background-color: #fff;
-        border: 2px solid #ff0068;
+        border: 2px solid #ff0066;
         cursor: pointer;
         padding: 0;
         display: flex;
@@ -329,7 +329,7 @@ textarea{
         justify-content: center;
         align-items: center;
         width: 30px;
-        color: #ff0068;
+        color: #ff0066;
         height: 30px;
 
         border-radius: 50%;
@@ -403,7 +403,7 @@ textarea{
         
         .service-detail-modal {
           width: 500px;
-          background: #ff0068;
+          background: #ff0066;
           border-radius: 10px;
           box-shadow: 0 0 5px white;
           color: white;

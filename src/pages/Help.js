@@ -190,7 +190,7 @@ const Settings = () => {
 
       .faq-answer p {
         margin: 0;
-        background-color:  #ff0068;
+        background-color:  #ff0066;
       }
       
 
@@ -206,7 +206,7 @@ const Settings = () => {
   border:  1px solid #e0e0e0;
     border-radius: 5px;
     line-height: 1.6;
-    background-color:  #ff0068;
+    background-color:  #ff0066;
   }
 
       .help-content li {
@@ -264,7 +264,7 @@ const Settings = () => {
 
 .sidebar {
   width: 250px;
-  background-color: #ff0068;
+  background-color: #ff0066;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -304,7 +304,7 @@ const Settings = () => {
 
       .logout-button {
         background-color: #fff;
-        color: #ff0068;
+        color: #ff0066;
         border: none;
         padding: 10px 20px;
         border-radius: 20px;
@@ -332,7 +332,7 @@ const Settings = () => {
       
       .nav-links a {
         margin: 0 10px;
-        color: #ff0068;
+        color: #ff0066;
         text-decoration: none;
       }
       
@@ -358,7 +358,7 @@ const Settings = () => {
       }
       
       .Dash-Container button {
-        background-color: #ff0068;
+        background-color: #ff0066;
         color: #fff;
         border: none;
         padding: 10px 20px;
@@ -373,7 +373,7 @@ const Settings = () => {
       
       .maindash a {
         margin-right: 15px;
-        color: #ff0068;
+        color: #ff0066;
         text-decoration: none;
       }
       

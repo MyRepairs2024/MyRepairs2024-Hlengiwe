@@ -987,7 +987,7 @@ p {
       
       .sidebar {
         width: 250px;
-        background-color: #ff0068;
+        background-color: #ff0066;
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -1026,7 +1026,7 @@ p {
       
       .logout-button {
         background-color: #fff;
-        color: #ff0068;
+        color: #ff0066;
         border: none;
         padding: 10px 20px;
         border-radius: 20px;
@@ -1054,7 +1054,7 @@ p {
       
       .nav-links a {
         margin: 0 10px;
-        color: #ff0068;
+        color: #ff0066;
         text-decoration: none;
       }
       
@@ -1064,7 +1064,7 @@ p {
       
       .maindash a {
         margin-right: 15px;
-        color: #ff0068;
+        color: #ff0066;
         text-decoration: none;
       }
       

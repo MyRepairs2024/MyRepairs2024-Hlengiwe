@@ -184,7 +184,7 @@ const HowItWorksContent = () => {
 
         .step h3 {
           font-size: 20px;
-          color: #ff0068;
+          color: #ff0066;
           margin-bottom: 10px;
         }
 
@@ -288,7 +288,7 @@ const styles = {
     width: '170px', // £djusted logo width
     height: 'auto', // Adjusted logo height to maintain aspect ratio
     borderRadius: '50%',
-    backgroundColor: '#ff0068'
+    backgroundColor: '#ff0066'
   },
   }
 

@@ -837,87 +837,22 @@ const handleProcessDone = () => {
           
           <div className='Dash-Container'>
          <div className="metrics">
-         <div
-  className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
+         <div className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
   onClick={() => {
     setExpandedPendingServices(!expandedPendingServices);
     // Perform the database search here
-    
- 
   }}
 >
  <br/>
- 
-
     <h3>Pending Requests</h3>
   
     <div className="progress-circle">
       <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
       <span>{pendingServicesProgress}%</span>
     </div>
-    <div className="container">
-      {/* First Set of Containers */}
-      <div className="set">
-        <div className='updates-Container'>Service Description
-        <h2>Service Description</h2>
-        <p style={{ fontWeight: 'normal' }}>Repairing a Samsung fridge</p>
-        
-        </div>
-        <div className='updates-Container'>Service Description
-        <h2>Service Description</h2>
-        <p style={{ fontWeight: 'normal' }}>Repairing a Microwave</p>
-        
-        </div>
-        
-        
-      </div>
-
-      {/* Second Set of Containers */}
-      <div className="set">
-        <div className='updates-Container'>Client
-        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
-    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
-    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
-        </div>
-        <div className='updates-Container'>Client
-        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: '#40E0D0' }}>Jane Smith</span></p>
-    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: '#40E0D0' }}>456 Oak Avenue</span></p>
-    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: '#40E0D0' }}>20|05|2024</span></p>
-        </div>
-        
-      </div>
-
-
-      <div className="set">
-      <div className='updates-Container'>Services Rating
-      <div class="stars">
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
-      </div>
-      </div>
-      <div className='updates-Container'>Services Rating
-      <div class="stars">
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <span class="star">&#9733;</span>
-        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0068' }}>R350</span></p>
-      </div>
-      </div>
-
-      </div>
-      </div>
-       
-    
-</div>
-
-
-<div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`} onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
+    </div>
+    <div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`} 
+onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
     <h3>Expenses</h3>
     <div className="progress-circle">
       <progress className="circle-progress" value={pendingServicesProgress} max="100"></progress>
@@ -925,32 +860,74 @@ const handleProcessDone = () => {
     </div>
   </div>
 
-  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`} onClick={() => setExpandedRewards(!expandedRewards)}>
+  <div className={`Rewards ${expandedRewards ? 'expanded' : ''}`} 
+  onClick={() => setExpandedRewards(!expandedRewards)}>
     <h3>Points</h3>
     <div className="progress-circle">
       <progress className="circle-progress" value={rewardsProgress} max="100"></progress>
       <span>{rewardsProgress}%</span>
     </div>
-    <div className='popularservice_heading'>
-    <p className='popular_heading'>Current Services</p>
-       </div>
-       
-      
-     
   </div>
 </div>
-  
 
 
- 
-  
-  
+    <div className='metrics2'>
+    <div className="container">
+      {/* First Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Service Description
+        <p style={{ fontWeight: 'normal' }}>Repairing a Samsung fridge</p>
+        
+        </div>
+        <div className='updates-Container'>Service Description
+        <p style={{ fontWeight: 'normal' }}>Repairing a Microwave</p>
+        
+        </div>
+      </div>
+
+      {/* Second Set of Containers */}
+      <div className="set">
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: ' #00008B' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: ' #00008B' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: ' #00008B' }}>20|05|2024</span></p>
+        </div>
+        <div className='updates-Container'>Client
+        <p style={{ fontWeight: 'normal', color: 'black' }}>Name: <span style={{ color: ' #00008B' }}>Jane Smith</span></p>
+    <p style={{ fontWeight: 'normal',color: 'black'  }}>Address: <span style={{ color: ' #00008B' }}>456 Oak Avenue</span></p>
+    <p style={{ fontWeight: 'normal' ,color: 'black' }}>Service Date: <span style={{ color: ' #00008B' }}>20|05|2024</span></p>
+        </div>
+        
+      </div>
+
+
+      <div className="set">
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0066' }}>R350</span></p>
+      </div>
+      </div>
+      <div className='updates-Container'>Services Rating
+      <div class="stars">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <p style={{ fontWeight: 'bold' ,color: 'black' }}>Service Price:<br></br><span style={{ color: '#ff0066' }}>R350</span></p>
+      </div>
+      </div>
+
+      </div>
+      </div>
+</div>  
 </div>
-
-   
-          </div>
-
-          
+    </div>         
         )}
        
        <div>
@@ -1386,7 +1363,7 @@ const handleProcessDone = () => {
     
 
     {activeTabCustomers === 'current1' && (
-       
+         <div className='ScrollableContainer'>
       <div className='customers-container current-container pink-border'>
        <div className='info'>
           {/* Container for customer name */}
@@ -1457,11 +1434,11 @@ const handleProcessDone = () => {
     <div className='popup-content'>
       <p>Track the process:</p>
       <div>
-        <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px', marginLeft: '15px', backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+        <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px', marginLeft: '15px', backgroundColor: '#ff0066', padding: '10px' }}>Start Process</button>
         <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
-        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>In Progress</button>
         <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
-        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>Process Done</button>
       </div>
       <button onClick={handleClosePopup} style={{ marginTop: '20px', marginLeft: 'auto', marginRight: 'auto', display: 'block', padding: '20px' }}>Close</button>
     </div>
@@ -1480,12 +1457,12 @@ const handleProcessDone = () => {
     <div className='popup-content'>
       <p>Track the process:</p>
       <div>
-      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0066', padding: '10px' }}>Start Process</button>
       <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
-        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>In Progress</button>
         <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
 
-        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>Process Done</button>
       </div>
       <button onClick={handleClosePopup} style={{ marginRight: '60px' }}>Close</button>
     </div>
@@ -1504,12 +1481,12 @@ const handleProcessDone = () => {
     <div className='popup-content'>
       <p>Track the process:</p>
       <div>
-      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0068', padding: '10px' }}>Start Process</button>
+      <button onClick={handleStartProcess} style={{ marginRight: '20px', width: '75px',marginLeft: '15px',  backgroundColor: '#ff0066', padding: '10px' }}>Start Process</button>
       <span style={{ margin: '0 1px' }}>➔</span> {/* Unicode arrow character */}
-        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>In Progress</button>
+        <button onClick={handleInProgress} style={{ marginRight: '20px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>In Progress</button>
         <span style={{ margin: '0 0px' }}>➔</span> {/* Unicode arrow character */}
 
-        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0068', padding: '10px' }}>Process Done</button>
+        <button onClick={handleProcessDone} style={{ marginLeft: '25px', width: '75px', backgroundColor: '#ff0066', padding: '10px' }}>Process Done</button>
       </div>
       <button onClick={handleClosePopup} style={{ marginRight: '60px' }}>Close</button>
     </div>
@@ -1534,6 +1511,7 @@ const handleProcessDone = () => {
             </button>
           </div>
         )}
+      </div>
       </div>
     )}
 
@@ -1852,9 +1830,6 @@ const handleProcessDone = () => {
 
 
 .logsout{
-
-  
-  
   background-color: #fff;
   color: #FF0066;
   border: none;
@@ -1930,7 +1905,7 @@ margin-bottom: 30px;
   }
   .imgsev1{
 padding: 5px;
-border: 2px solid #ff0068;
+border: 2px solid #ff0066;
 width: 200px;
 height: 200px;
 border-radius: 5px;
@@ -1942,7 +1917,7 @@ border-radius: 5px;
     width: 650px;
     height: 200px;
     padding: 5p;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
 
   }
   .service2{
@@ -1954,7 +1929,7 @@ border-radius: 5px;
   }
   .imgsev2{
 padding: 5px;
-border: 2px solid #ff0068;
+border: 2px solid #ff0066;
 width: 200px;
 height: 110px;
 border-radius: 5px;
@@ -1965,7 +1940,7 @@ border-radius: 5px;
     width: 650px;
     height: 200px;
     padding: 5p;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
    
     
   }
@@ -2019,14 +1994,14 @@ width: 940px;
   
   }
   .firstsection{
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     border-radius: 10px;
     margin-bottom: 10px;
     width: 250px;
     height: 350px;
     padding: 5px;
     padding-top: 0;
-    box-shadow: 0 1px 4px #ff0068;
+    box-shadow: 0 1px 4px #ff0066;
     transition: box-shadow 0.3s ease;
 
 
@@ -2042,7 +2017,43 @@ width: 940px;
 
     margin-top: 20px;
   }
-  
+  @media (max-width: 600px) {
+  .AddingConatiner, .myserviceheader {
+    width: 100%;
+  }
+
+  .service1, .service2, .myserviceheader {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgsev1, .imgsev2, .descrip1, .descrip2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .imgsev1, .imgsev2 {
+    height: auto;
+  }
+
+  .profile_information, .cusnameheading, .contactcubutton {
+    width: 100%;
+  }
+
+  .firstsection {
+    width: 100%;
+    height: auto;
+  }
+
+  .customers1 {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .info-item select {
+    width: 100%;
+  }
+}
   /* Style for each customer card */
   .customer_card {
   
@@ -2085,11 +2096,11 @@ width: 940px;
   
   /* Style for the invoice section */
   .invoice_container {
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     width: 100%;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 1px 4px #ff0068;
+    box-shadow: 0 1px 4px #ff0066;
     transition: box-shadow 0.3s ease;
 
   }
@@ -2116,7 +2127,7 @@ width: 940px;
     margin-bottom: 5px;
     margin-top: 8px;
     font-weight: bold;
-    border-bottom: 1px solid #ff0068;
+    border-bottom: 1px solid #ff0066;
     padding-bottom: 8px;
 
 
@@ -2129,7 +2140,7 @@ margin: 0;
 font-size: 14px;
 margin-bottom: 5px;
 font-weight: bold;
-border-bottom: 1px solid #ff0068;
+border-bottom: 1px solid #ff0066;
 padding-bottom: 8px;
 padding-top: 8px;
 
@@ -2188,7 +2199,7 @@ padding-top: 8px;
     margin: 0 5px;
     border: none;
     background-color: #007bff;
-    color:  #ff0068;
+    color:  #ff0066;
     cursor: pointer;
     border-radius: 5px;
   }
@@ -2198,7 +2209,7 @@ padding-top: 8px;
     cursor: not-allowed;
   }
   .orders_container2{
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     display: block;
     
 
@@ -2221,7 +2232,7 @@ font-weight: bold;
 padding: 5px;
 width: 250px;
 overflow: hidden;
-border-bottom: 2px solid #ff0068;
+border-bottom: 2px solid #ff0066;
 font-weight: bold;
     font-size: 18px;
 
@@ -2231,17 +2242,59 @@ font-weight: bold;
 padding: 5px;
 width: 280px;
 overflow: hidden;
-border-bottom: 2px solid #ff0068;
+border-bottom: 2px solid #ff0066;
 font-weight: bold;
 font-size: 18px;
-
-
 }
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* One column */
+    grid-gap: 10px;
+  }
+
+  .item1, .item2 {
+    width: 100%;
+  }
+
+  .customer_card {
+    padding: 5px;
+  }
+
+  .profileimage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cus_email {
+    font-size: 12px;
+  }
+
+  .invoice_container {
+    width: 100%;
+  }
+
+  .invoice {
+    height: auto;
+    padding: 10px;
+  }
+
+  .custotalinvoices, .cuservices, .cusallinvoices {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pagination button {
+    padding: 5px 10px;
+  }
+}
+
 .item3 {
 padding: 5px;
 width: 200px;
 overflow: hidden;
-border-bottom: 2px solid #ff0068;
+border-bottom: 2px solid #ff0066;
 font-size: 18px;
 
 
@@ -2260,7 +2313,7 @@ font-size: 18px;
     width: 250px;
     display:flex;
     overflow: hidden;
-    border-bottom: 2px solid #ff0068;
+    border-bottom: 2px solid #ff0066;
 
   }
 
@@ -2270,7 +2323,7 @@ font-size: 18px;
     width: 280px;
     display:flex;
     overflow: hidden;
-    border-bottom: 2px solid #ff0068;
+    border-bottom: 2px solid #ff0066;
 
 
   }
@@ -2344,15 +2397,12 @@ font-size: 18px;
   }
   
   }
-  .container {
-    display: flex; /* Use flexbox */
-    justify-content: space-between; /* Distribute space between the containers */
-  }
+
   
   .pink {
     display: flex;
     background-color: #fff;
-    border: 3px solid #ff0068; /* Set the border color to dark pink */
+    border: 3px solid #ff0066; /* Set the border color to dark pink */
     width: 300px;
     height: 330px;
     flex-direction: row;
@@ -2378,8 +2428,6 @@ font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    
   }
   
   
@@ -2393,13 +2441,13 @@ font-size: 18px;
   }
   
   .info-item img {
-      width: 80px; /* Set the desired width for the image */
-      height: 80px; /* Set the desired height for the image */
-      object-fit: cover; /* Adjust the object-fit property as needed (e.g., 'contain', 'fill') */
-      margin-right: 10px; /* Add some margin to separate the image from other content */
-      display: block; /* Ensure the image is a block element for centering */
-      margin-left: auto; /* Auto margin to center the image within its container */
-      margin-right: auto; /* Auto margin to center the image within its container */
+      width: 80px;
+      height: 80px; 
+      object-fit: cover; 
+      margin-right: 10px; 
+      display: block; 
+      margin-left: auto; 
+      margin-right: auto; 
       margin-top: -30 px;
     }
     
@@ -2408,7 +2456,7 @@ font-size: 18px;
       color: #000000;
       font-weight: bold;
       margin-top: 20px;
-      border: 3px solid #ff0068;
+      border: 3px solid #ff0066;
       height: 100px;
       width: 300px;
       position: relative;
@@ -2418,13 +2466,66 @@ font-size: 18px;
       
     
     }
+      @media (max-width: 600px) {
+  .orders_container1 {
+    grid-template-columns: repeat(1, 1fr); 
+    grid-gap: 10px;
+  }
+
+  .customerName,
+  .serviceDescription {
+    width: 100%;
+    border-bottom: 2px solid #ff0066;
+  }
+
+  .input_servicephoto {
+    margin-top: 20px;
+  }
+
+  .input_servicephoto button {
+    margin-top: 20px;
+  }
+
+  .customers1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .customer-card {
+    width: 90%;
+    margin: 5px;
+  }
+
+
+
+  .pink {
+    width: 90%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-item {
+    margin-bottom: 10px;
+  }
+
+  .small-container {
+    width: 90%;
+    margin-top: 10px;
+  }
+}
+
 .small-container::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   width: 100%;
-  border-top: 3px solid #ff0068;
+  border-top: 3px solid #ff0066;
   transform: translateY(-50%);
 }
 .info {
@@ -2447,79 +2548,77 @@ font-size: 18px;
 .small-button {
   font-size: 14px;
   
-  align-items: left; /* Center items vertically */
+  align-items: left; 
   display: flex;
-  background-color: #027777; /* Set the background color to light green */
- 
-  color: #fff;
-
-  
-  
+  background-color: #027777; 
+  color: #fff;  
 }
 .customer-name {
   text-align: center;
   margin-top: -10px;
   font-family: 'Arial', sans-serif;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box; 
+}
 
-}
-.container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: left;
-  
-}
 .set {
   display: flex;
   flex-direction: column;
   align-items: left;
   background-color: #fff;
-  margin-right: auto; /* Push updates container to the left */
+  margin-right: auto;
+   color: black;
+}
+  .container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .updates-Container {
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   padding: 10px;
   margin: 5px;
-  width: 280px; /* Adjust width */
-  height: 150px; /* Adjust height */
+  width: 280px; 
+  height: 150px; 
   margin-top: 30px;
-  border-radius: 10px; /* Adjust the value to change the roundness */ 
-  font-family: Arial, sans-serif; /* Set font family to Arial */
-  font-weight: bold; /* Set font weight to bold */
-  color: black; /* Set text color to black */
-  font-size: 20px; /* Set font size to 20 pixels */
+  border-radius: 10px;  
+  font-family: Arial, sans-serif; 
+  font-weight: bold; 
+  color: black; 
+  font-size: 20px; 
   position: relative;
 }
 
 .updates-Container::before
  {
+ color: black;
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 3px solid #ff0068;
+  border-top: 3px solid #ff0066;
 }
 
 
 .updates-Container::before {
   bottom: 78%;
+   color: black;
 }
 
 .set:nth-child(2) .updates-Container {
-  width: 400px; /* Width of the containers in the middle */
+  width: 400px; 
 }
 
 .set:nth-child(1) .updates-Container,
 .set:nth-child(3) .updates-Container {
-  width: 200px; /* Width of the containers on the left and right */
+  width: 200px; 
 }
 .services-container {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   height: 385px;
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   height: 400px;
   overflow: auto;
   width: 900px;
@@ -2533,17 +2632,17 @@ font-size: 18px;
 
 
 .days-container {
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px; 
 }
 .days-container p {
   margin: 5px 0;
-  color: #ff0068;
+  color: #ff0066;
 }
 .analytics-container {
   background-color: #fff;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px; 
   height:430px;
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   border-radius: 10px;
   margin-top: 30px;
 
@@ -2551,13 +2650,13 @@ font-size: 18px;
 }
 
 .smallanalytics-container {
-  width: calc(50% - 10px); /* Adjust width as needed */
-  height: 80px; /* Adjust height as needed */
+  width: calc(50% - 10px); 
+  height: 80px; 
   width: 300px;
-  margin: 5px; /* Adjust margin as needed */
-  background-color: #fff;/* Adjust background color as needed */
+  margin: 5px; 
+  background-color: #fff;
   border: 3px solid #40E0D0;
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
   font-family: Arial, sans-serif;
   
@@ -2569,19 +2668,19 @@ font-size: 18px;
   padding: 20px;
   height: 200px;
   width: 500px;
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   border-radius: 10px;
   margin-left: 350px;
   margin-top: -90px;
 }
 
 .tiny-container {
-  width: calc(35% - 5px); /* Adjust width as needed */
-  height: 80px; /* Adjust height as needed */
-  margin: 5px; /* Adjust margin as needed */
+  width: calc(35% - 5px); 
+  height: 80px; 
+  margin: 5px; 
   background-color: #fff;
   border: 3px solid #40E0D0;
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
   font-family: Arial, sans-serif;
   border-radius: 10px;
@@ -2590,26 +2689,26 @@ font-size: 18px;
 
 .set-of-containers {
   display: flex;
-  flex-direction: row; /* Arrange items horizontally */
+  flex-direction: row; 
 }
 .year-dropdown {
-  width: 100%; /* Adjust width as needed */
-  padding: 5px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
-  border: 1px solid #ccc; /* Add border as needed */
-  border-radius: 5px; /* Add border radius as needed */
-  background-color: pink; /* Add background color as needed */
+  width: 100%; 
+  padding: 5px; 
+  font-size: 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  background-color: pink; 
 }
 .totals {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  font-family: Arial, sans-serif; /* Use Arial font */
+  font-family: Arial, sans-serif; 
   font-weight: bold; /
 }
 .item {
-  flex: 1; /* Distributes available space equally among items */
-  margin: 5px; /* Adjust as needed for spacing between items */
+  flex: 1; 
+  margin: 5px; 
   front-weight: bold;
 }
 .item10,
@@ -2619,8 +2718,8 @@ font-size: 18px;
 .item14,
 .item15,
 .item16 {
-  display: inline-block; /* Display items in a line */
-  margin: 20px; /* Adjust as needed for spacing between items */
+  display: inline-block; 
+  margin: 20px;
   font-weight: bold;
   position: relative; 
   
@@ -2632,14 +2731,14 @@ font-size: 18px;
 .item14::after,
 .item15::after,
 .item16::after {
-  content: ''; /* Empty content for pseudo-element */
+  content: ''; 
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 2px; /* Adjust the height of the line */
-  background-color: #ff0068; /* Set the color of the line */
-}
+  height: 2px;
+  background-color: #ff0066; 
+  }
 
 
 
@@ -2659,13 +2758,89 @@ font-size: 18px;
   height: 40px;
 }
 .ScrollableContainer {
-  height: 500px; /* Adjust the height as needed */
+  height: 700px; /* Adjust the height as needed */
   overflow: auto;
 }
 .top-containers {
   display: flex; /* Use flexbox for horizontal alignment */
-  
+}
 
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .orders_container1 {
+    grid-template-columns: 1fr; 
+    grid-gap: 10px; 
+  }
+
+  .customerName,
+  .serviceDescription,
+  .item3 {
+    width: 100%; 
+  }
+
+
+  .pink {
+    width: 100%; 
+    margin-top: 10px; 
+  }
+
+  .info {
+    flex-direction: column; 
+  }
+
+  .info-item img {
+    width: 60px; 
+    height: 60px; 
+    margin-top: 0;
+  }
+
+  .small-container {
+    width: 100%; 
+    margin-bottom: 10px; /* Adjust margin bottom */
+  }
+
+  .services-container {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Remove margin left */
+  }
+
+  .analytics-container,
+  .totalrevenue-container {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Remove margin left */
+    margin-top: 20px; /* Adjust margin top */
+  }
+
+  .tiny-container,
+  .smallanalytics-container {
+    width: 100%; /* Full width */
+    margin: 10px 0; /* Adjust margin */
+  }
+
+  .year-dropdown {
+    font-size: 14px; /* Smaller font size */
+    padding: 3px; /* Smaller padding */
+  }
+
+  .totals {
+    flex-direction: column; /* Stack totals vertically */
+    font-size: 18px; /* Smaller font size */
+  }
+
+  .item {
+    margin: 5px 0; /* Adjust margin */
+  }
+
+  .button {
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Adjust margin top */
+  }
+
+  .top-containers {
+    flex-direction: column; /* Stack top containers vertically */
+  }
 }
 
 .pink-container {
@@ -2674,7 +2849,7 @@ font-size: 18px;
   padding: 20px; /* Adjust padding as needed */
   border-radius: 10px; /* Optional: Add border radius for rounded corners */
   margin-right: 100px; /* Optional: Add margin for spacing between containers */
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   width: 250px;
   height: 300px
 }
@@ -2702,7 +2877,7 @@ font-size: 18px;
   font-size: 18px;
 }
 .price{
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
   margin-left: 70px;
 }
@@ -2710,16 +2885,16 @@ font-size: 18px;
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #ff0068; /* You can change this to the desired color */
+  background-color: #ff0066; /* You can change this to the desired color */
   margin-bottom: 5px; /* Adjust the margin as needed */
 }
 
 .button:hover {
-  background-color: #ff0068; /* Darker blue color on hover */
+  background-color: #ff0066; /* Darker blue color on hover */
 }
 
 .contact-customer {
-  background-color: #ff0068; /* Pink color */
+  background-color: #ff0066; /* Pink color */
   color: white; /* Text color */
   border: none; /* Remove border */
   padding: 8px 16px; /* Adjust padding */
@@ -2739,7 +2914,7 @@ font-size: 18px;
   top: 10px;
   right: 10px;
   cursor: pointer;
-  color: #ff0068; /* Adjust the color as needed */
+  color: #ff0066; /* Adjust the color as needed */
   font-size: 18px; /* Adjust the font size as needed */
 }
 
@@ -2753,7 +2928,7 @@ font-size: 18px;
 
 .line {
   width: 100%;
-  border-top: 1px solid #ff0068;
+  border-top: 1px solid #ff0066;
   margin: 10px 0; /* Adjust the margin above and below the line */
 }
 
@@ -2771,7 +2946,7 @@ font-size: 18px;
 }
 .popup-container{
   background-color: #fff;
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   height: 360px;
   width: 300px; /* Adjust width as needed */
   position: fixed;
@@ -2786,14 +2961,14 @@ font-size: 18px;
 }
 .documents-container{
   background-color: #fff;
-  border: 2px solid #ff0068;
+  border: 2px solid #ff0066;
   height: 200px;
   width: 350px;
 
 }
 
  .orderDate {
-  border-bottom: 2px solid #ff0068;
+  border-bottom: 2px solid #ff0066;
   padding: 5px;
 
     width: 200px;
@@ -2804,7 +2979,7 @@ font-size: 18px;
   .orderdate_price{
     width: 100%;
     font-size: 16px;
-    color: #ff0068;
+    color: #ff0066;
     font-family: poppins;
     font-size: 18px;
     font-weight: bold;
@@ -2841,8 +3016,8 @@ font-size: 18px;
   }
   .orderslist{
  height: 350px;
-  border: 1.5px solid #ff0068;
-  box-shadow: 0 0 3px #ff0068;
+  border: 1.5px solid #ff0066;
+  box-shadow: 0 0 3px #ff0066;
   padding: 5px;
   margin: 0 auto;
   border-radius: 5px;
@@ -2856,7 +3031,7 @@ a
     flex-direction: column;
     margin: auto;
     font-size: 35px;
-    color: #ff0068;
+    color: #ff0066;
     font-weight: bold;
     font-family: poppins;
    }
@@ -2918,9 +3093,9 @@ margin: 0;
     margin-bottom: 50px;
     border-radius: 5px;
     width: 250px;
-    box-shadow: 0 0 2px #ff0068;
+    box-shadow: 0 0 2px #ff0066;
     height: 100px;
-    border: 1.5px solid #ff0068;
+    border: 1.5px solid #ff0066;
 
   }
   .back_arrow {
@@ -2959,13 +3134,13 @@ margin: 0;
 /* Style for custom file input */
 .custom-file-upload {
   display: inline-block;
-  border-bottom: 1px solid #ff0068;
+  border-bottom: 1px solid #ff0066;
   border-radius: 0px;
   padding: 10px;
   width: 330px;
 
   cursor: pointer;
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
   font-size: 16px;
 }
@@ -2973,7 +3148,43 @@ margin: 0;
 .custom-file-upload:hover {
   background-color: #fffd;
 }
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .pink-container {
+    width: 100%; /* Full width */
+    margin-right: 0; /* Remove right margin */
+    padding: 10px; /* Adjust padding */
+  }
 
+  .edit-button {
+    margin-left: 0; /* Adjust margin */
+    margin-top: 10px; /* Adjust margin top */
+  }
+
+  .service-name {
+    font-size: 20px; /* Smaller font size */
+    margin-left: 10px; /* Adjust margin */
+  }
+
+  .price {
+    margin-left: 0; /* Adjust margin */
+    font-size: 16px; /* Smaller font size */
+  }
+
+  .button {
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Adjust margin top */
+  }
+
+  .orders_container {
+    width: 100%; /* Full width */
+  }
+
+  .countedorders {
+    width: 90%; 
+    margin-top: 10px; 
+  }
+}
 /* Hide the original file input */
 .visually-hidden {
   position: absolute;
@@ -2987,7 +3198,7 @@ margin: 0;
 }
 .popularservice_heading {
   position: relative;
-  color: #ff0068;
+  color: #ff0066;
   font-size: 17px;
   font-weight: bold;
   font-family: poppins;
@@ -2998,7 +3209,7 @@ margin: 0;
 }
 .popularservice_heading:after {
   content: '';
-  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  border-top: 2px solid #ff0066; /* Adjust the style and color as needed */
   display: block;
   width: 470%; /* Adjust the line width as needed */
   position: absolute;
@@ -3016,7 +3227,7 @@ margin: 0;
 }
 .popularservice_heading:after {
   content: '';
-  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  border-top: 2px solid #ff0066; /* Adjust the style and color as needed */
   display: block;
   width: 470%; /* Adjust the line width as needed */
   position: absolute;
@@ -3079,7 +3290,7 @@ margin: 0;
           margin: 0;
           padding: 0;
           padding: 8px;
-          background: #ff0068;
+          background: #ff0066;
           width: 80px;
           color: #fff;
           font-weight:bold;
@@ -3100,7 +3311,7 @@ margin: 0;
   
         }
         .profile_information{
-          border: 2px solid #ff0068;
+          border: 2px solid #ff0066;
           height: 500px;
           width: 500px;
           border-radius: 5px;
@@ -3120,7 +3331,7 @@ margin: 0;
           margin-right: 50px;
           width: 350px;
           height: 500px;
-          border: 2px solid #ff0068;
+          border: 2px solid #ff0066;
           border-radius: 5px;
           margin-bottom: 10px;
           
@@ -3148,7 +3359,7 @@ margin: 0;
 display: flex;
 flex-direction: column;
 align-items: center;
-border: 2px solid #ff0068;
+border: 2px solid #ff0066;
 border-radius: 5px;
 width: 350px;
 padding: 10px;
@@ -3196,7 +3407,7 @@ background-color: #0056b3;
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ff0068;
+    border: 1px solid #ff0066;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -3216,7 +3427,7 @@ background-color: #0056b3;
   display: block;
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ff0068;
+  border: 1px solid #ff0066;
   border-radius: 4px;
   box-sizing: border-box;
 
@@ -3263,10 +3474,7 @@ background-color: #0056b3;
     text-overflow: ellipsis;
   width: 150px;
   }
-  h4{
-  
-  
-  }
+
   .username{
     background: red;
   margin: 0;
@@ -3282,6 +3490,84 @@ background-color: #0056b3;
   
   
   }
+
+  /* Mobile styles */
+@media (max-width: 780px) {
+  .popularservice_heading {
+    font-size: 15px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .popularservice_heading:after {
+    width: 100%;
+    top: 60%;
+  }
+
+  .uploadfiles {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit_image {
+    width: 50px;
+    font-size: 14px;
+  }
+
+  .pfp {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile_information,
+  .edit_pfp {
+    width: 100%;
+    height: auto;
+  }
+
+  .Profiletab {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .info_container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .upload-form {
+    width: 100%;
+  }
+
+  .upload-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .file-label {
+    width: 100%;
+    text-align: center;
+  }
+
+  .User_info input[type="text"],
+  .User_info input[type="email"],
+  .User_info select,
+  .User_info input[type="date"] {
+    width: 100%;
+  }
+
+  .img-and-title {
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+
+  .username {
+    width: 100%;
+    font-size: 10px;
+    margin-top: -10px;
+  }
+}
   .profile-pic {
     display: flex;
     text-overflow: ellipsis;
@@ -3292,7 +3578,7 @@ background-color: #0056b3;
     height: 80px;
     border-radius: 50%;
     background-color: #fff;
-    color: #ff0068;
+    color: #ff0066;
     font-size: 36px;
     font-family: poppins;
     font-weight: bold;
@@ -3515,41 +3801,6 @@ scrollbar-width: none;
 }
 }
 
-  h2{
-    font-family: sans-serif;
-margin: 30px auto;
-text-align: center;
-font-size: 20px;
-max-width: 600px;
-color: #fffdd0;
-position:relative;
-  }
-
-  h2:before{
-    content: "";
-display:block;
-width: 140px;
-height:2px;
-background: #fffdd0;
-position: absolute;
-left: 0;
-top: 50%;
-z-index: 1111;
-  }
-
-  h2:after{
-    content: "";
-display:block;
-width: 140px;
-height:2px;
-background: #fffdd0;
-position: absolute;
-right: 0;
-top: 50%;
-z-index: 1111;
-  }
-
-  
 
   .contact_details{
     background-color: #ff0066;
@@ -3643,7 +3894,7 @@ border-radius: 10px;
 
 .dashboard-container {
   padding: 15px;
-  background-color: #ff0068;
+  background-color: #ff0066;
   border: solid light-red 5px;
   width: 180px;
   height: 100%;
@@ -3653,12 +3904,6 @@ border-radius: 10px;
   
 }
 
-@media (max-width: 768px){
-  .dashboard-container{
-    width: 80px;
-height: 100vh;
-  }
-}
 
     .profile{
       position: fixed;
@@ -3720,7 +3965,7 @@ height: 100vh;
       position: relative;
       text-decoration: none;
       font-family: 'Poppins',sans-serif;
-      color: #ff0068;
+      color: #ff0066;
       font-weight: bold;
       font-size: 14px;
       letter-spacing: 0.5px;
@@ -3761,8 +4006,8 @@ height: 100vh;
 
     }
     .img-and-title hr{
-      border-top: 2px solid #ff0068;
-      border-bottom: 2px solid #ff0068;
+      border-top: 2px solid #ff0066;
+      border-bottom: 2px solid #ff0066;
       margin-bottom: 20px;
       position: fixed;
       top: 21%;
@@ -3776,7 +4021,7 @@ height: 100vh;
     }
     .profile-pic {
       background: #fff;
-      color: #ff0068;
+      color: #ff0066;
       width: 80px;
       height: 80px;
       margin-top: 25px;
@@ -3851,14 +4096,14 @@ height: 100vh;
 
     }
     .mainpage hr{
-      border-top: 2px solid #ff0068;
-      border-bottom: 2px solid #ff0068;
+      border-top: 2px solid #ff0066;
+      border-bottom: 2px solid #ff0066;
       margin-bottom: 0px;
       margin-top: 120px;
       margin-left: 50px;
       width: 0px;
       border-radius: 10px;
-      background: linear-gradient(to right, #21B6A8 , #FF0068);
+      background: linear-gradient(to right, #21B6A8 , #ff0066);
     }
 
     .card{
@@ -3891,6 +4136,74 @@ height: 100vh;
    font-size: 20px;
   }
  
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 330px;
+        height: 100vh;
+    }
+
+    .dashboard-title{
+        font-size: 12px;
+        width: 60px;
+        margin: 0;
+    }
+
+    .profile {
+        font-size: 10px;
+        width: 60px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin: 0 auto 10px;
+        margin-top: 5px;
+    }
+
+    .profile-pic img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .alert-box {
+        padding: 15px;
+    }
+
+    .close-alert {
+        padding: 8px 16px;
+    }
+
+    .registration-form {
+        flex-direction: column;
+        margin: 0;
+        padding: 10px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .form-label select,
+    .form-label textarea,
+    .form-label input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .submit-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+        max-width: 100%;
+    }
+
+    h2:before,
+    h2:after {
+        width: 100px;
+    }
+}
  .des{
    padding: 3px;
    text-align: center;
@@ -3931,10 +4244,17 @@ border-radius: 30px;
   flex: 1;
   overflow: auto;
  }
-
+ .metrics2{
+      border-radius: 10px;
+      display: flex;
+     justify-content: space-between;
+      width: 850px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      padding: 0;
+    border: none;
+ }
  .metrics{
-  
- 
       border-radius: 10px;
       display: flex;
      justify-content: space-between;
@@ -3943,8 +4263,6 @@ border-radius: 30px;
       margin-left: 90px;
       padding: 0;
     border: none;
-  
-  
  }
  .metrics hr{
   display: none;
@@ -3993,64 +4311,47 @@ border-radius: 30px;
   
 }
 .servicesdone{
-    
-  padding-left: 8px;
+padding-left: 8px;
 height: 100px;
 width: 200px;
 font-size: 12px;
 color: azure;
 border-radius: 10px;
-background-color:#ff0068;
+background-color:#FF0066;
 cursor: pointer;
 margin-left: -90px
-
-
-
-
  }
 
-
-
  .pendingservices{
- 
   padding-left: 8px;
   color: azure;
   height: 100px;
   width: 200px;
   border-radius: 10px;
-  background-color:#ff0068;
+  background-color:#ff0066;
   cursor: pointer;
-  
-
-
 }
 .Rewards{
-
   padding-left: 8px;
   color: azure;
   height: 100px;
   width: 200px;
   border-radius: 10px;
-  background-color:#ff0068;
+  background-color:#ff0066;
   cursor: pointer;
-  
-  
-
 }
 .popular_heading{
   margin-left: -740px;
   padding-top: -50px;
   margin-top: -20px;
   clear: both;
-  
 }
-
 
 
 .dashboard-section.active {
   font-weight: bold;
-color: #ff0068;
-  background-color: #ff0068;
+color: #ff0066;
+  background-color: #ff0066;
  z-index: 99999;
   text-decoration: none;
   font-style: none;
@@ -4062,18 +4363,17 @@ color: #ff0068;
   padding-bottom: 20px;
 width: 170px;
   .dashboard-section:hover{
-background: #ff0068;
+background: #ff0066;
   }
 
   .dashboard-section-header{
     color:#fff;
     padding: 10px;
-  width: 123px;
+    width: 123px;
     border-radius: 5px;
     border: 2px solid #fff;
     margin: 0;
-    
-    
+
   }
   .active_Tab{
     display: block;
@@ -4112,6 +4412,11 @@ width: 125px;
   color:  #fff;
 }
 
+.dashboard-section-icon {
+  font-size: 24px;            /* Adjust icon size */
+  color: #ff0066;             /* Set icon color */
+  margin-right: 10px;         /* Space between icon and title */
+}
 
 
 
@@ -4147,7 +4452,20 @@ position: relative;
 .dashboard-section-body:hover{
   color: white;
 }
+@media only screen and (min-width: 768px) {
+  /* Adjustments for tablets and larger screens */
+  .contentcard {
+    width: 700px; /* Example adjustment for tablets */
+  }
 
+  .dashboard-section-header {
+    width: 150px; 
+  }
+    .dashboard-section-icon {
+    font-size: 20px;          /* Adjust icon size for smaller screens */
+    margin-right: 8px;        /* Reduce space between icon and title */
+  }
+}
 .btn_logout{
   width: auto;
   align-items: center;
@@ -4193,7 +4511,7 @@ right: -30px;
   background: linear-gradient(90deg, gold var(--rating), #ddd var(--rating));
   background-clip: text;
   -webkit-background-clip: text;
-  color: #ff0068;
+  color: #ff0066;
 }
 
 .stars::before {
@@ -4214,108 +4532,79 @@ right: -30px;
 .testimonial-text {
   padding-top: 25px; /* Adjust as needed to provide space for the stars */
 }
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+  .btn_logout {
+    width: 100%; /* Full width on mobile */
+    position: relative;
+    bottom: 0;
+  }
+
+  .active_Tab {
+    font-size: 18px;
+    right: 0;
+  }
+
+  .testimonial-item-container {
+    padding: 8px; /* Slightly reduced padding for mobile */
+    margin-bottom: 8px; /* Slightly reduced margin for mobile */
+  }
+
+  .testimonial-item {
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: flex-start;
+  }
+
+  .stars {
+    font-size: 16px; /* Smaller star size for mobile */
+  }
+
+  .testimonial-text {
+    padding-top: 20px; /* Adjust as needed for mobile */
+  }
+}
 /* Responsive design adjustments for the provider dashboard */
 @media (max-width: 600px) {
   .maindash {
-    width: auto; /* Take full width on smaller screens */
-    max-width: none; /* Remove maximum width limit */
-    margin-top: -80px; /* Adjust margin top for smaller screens */
+    width: auto; 
+    max-width: none; 
+    margin-top: -80px; 
+    padding: 10px; /* Add padding for internal spacing */
+  }
+
+  .maindash > * { /* Direct child elements of .maindash */
+    margin-bottom: 15px; /* Add margin to create space between elements */
+  }
+
+  .maindash > *:last-child { /* Remove bottom margin for the last child */
+    margin-bottom: 0;
   }
 }
 
-/* Responsive design adjustments for dashboard in the provider dashboard */
 @media (max-width: 600px) {
-  
- .progress-circle {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
-}
 
-.circle-progress {
-  width: 5%; /* Adjust the width to make the circle smaller */
-  height: 5%; /* Adjust the height accordingly */
-  border: 6px solid #fff; /* Adjust the border width and color */
-  border-top-color: ; /* Set the color for the progress */
-  border-radius: 50%;
-  background: transparent;
-  position: absolute;
-  top: -50px; /* Adjust the top position */
-  left: 50px; /* Adjust the left position */
-  padding: 30px; /* Adjust padding accordingly */
-  transform: rotate(0deg);
-  transform-origin: center;
+.container {
+  display: flex;
+  flex-direction: row;
+  gap:0px;
 }
-
-.circle-progress::-webkit-progress-value {
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.circle-progress::-moz-progress-bar {
-  border-radius: 50%;
-  background-color: transparent; 
-}
-.progress-circle span {
-  position: absolute;
-  top: -20%;
-  left: 90px;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-  color: #fff;
-  
-}
-.servicesdone{
-    padding-left: 8px;
-height: 70px;
-width: 60px;
-font-size: 12px;
-color: azure;
-border-radius: 10px;
-background-color:#ff0068;
-cursor: pointer;
-margin-left: -90px
- }
-
-
-
- .pendingservices{
-  color: azure;
-  height: 70px;
-  width: 60px;
-  border-radius: 10px;
-  background-color:#ff0068;
-  cursor: pointer;
-  margin-right: 750px;
-}
-.Rewards{
- color: azure;
-  height: 100px;
-  width: 20px;
-  border-radius: 10px;
-  background-color:#ff0068;
-  cursor: pointer;
-}
-.popular_heading{
-  margin-left: -740px;
-  padding-top: -50px;
-  margin-top: -20px;
-  clear: both;
-  
-}
-
-
 .set {
   display: flex;
   flex-direction: column;
   align-items: left;
   background-color: #fff;
-  margin-right: auto; /* Push updates container to the left */
+  margin-right: auto; 
 }
-
+.updates-Container p {
+  font-size: 13px;           /* Set the font size */
+  font-weight: normal;       /* Set the font weight */
+  color: black;              /* Set the text color */
+  margin: 15px -3px;             /* Reduce the spacing above and below the paragraph */
+  padding: -10px;                            
+}
 .updates-Container {
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   padding: 10px;
   margin: 5px;
   width: 280px; /* Adjust width */
@@ -4325,7 +4614,7 @@ margin-left: -90px
   font-family: Arial, sans-serif; /* Set font family to Arial */
   font-weight: bold; /* Set font weight to bold */
   color: black; /* Set text color to black */
-  font-size: 13px; /* Set font size to 20 pixels */
+  font-size: 12px; /* Set font size to 20 pixels */
   position: relative;
 }
 
@@ -4335,7 +4624,7 @@ margin-left: -90px
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 3px solid #ff0068;
+  border-top: 3px solid #ff0066;
 }
 
 
@@ -4355,12 +4644,61 @@ margin-left: -90px
 
 
 
+
+
+@media screen and (max-width: 600px) {
+  .metrics {
+    flex-direction: column;
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .servicesdone, .pendingservices, .Rewards {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+    height:80px;
+  }
+
+
+  .progress-circle {
+    top: 0; /* Adjust the top position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    margin-top: -5px; /* Adjust margin for spacing */
+    margin-left:10px;
+  }
+
+  .progress-circle span {
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left:50px;
+    margin-top:-40px;
+  }
+
+  .popular_heading {
+    margin-left: 0;
+    margin-top: 10px;
+    padding-top: 0;
+  }
+}
+
+
+
 /* Responsive design adjustments */
 @media (max-width: 600px) {
   .dashboard-section {
-    max-width: none; /* Remove maximum width limit */
+    width:80px; 
     margin-bottom: 20px; /* Adjust margin bottom for spacing */
   }
+      .dashboard-section.active {
+    width: 80px;                /* Adjust width for smaller screens */
+    padding-top: 15px;          /* Reduce padding for smaller screens */
+    padding-bottom: 15px;       /* Reduce padding for smaller screens */
+    font-size: 14px;            /* Adjust font size for smaller screens */
+  }
+
 }
 
 /* Mobile view for service provider profile */
@@ -4401,9 +4739,9 @@ margin-left: -90px
     margin-bottom: 10px;
   }
   .profile_information{
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     height: 300px;
-    width: 250px;
+    width: 220px;
     border-radius: 5px;
     padding: 10px;
     position: relative;
@@ -4413,9 +4751,9 @@ margin-left: -90px
   .edit_pfp{
     padding: 10px;
     margin-right: 50px;
-    width: 250px;
+    width: 220px;
     height: 470px;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     border-radius: 5px;
     margin-bottom: 10px;
     
@@ -4436,7 +4774,7 @@ margin-left: -90px
     display: block;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ff0068;
+    border: 1px solid #ff0066;
     border-radius: 4px;
     box-sizing: border-box;
     width: 200px;
@@ -4492,7 +4830,7 @@ margin-left: -90px
     padding: 5px 10px;
   }
   .orders_container a {
-    color: ff0068;
+    color: ff0066;
     flex-direction: row;
     margin: 0 2px; /* Adjust this value as needed */
     padding: 2px 0; /* Adjust this value as needed */
@@ -4502,8 +4840,9 @@ margin-left: -90px
 
   .orderslist {
     display: grid;
-    grid-template-columns: 1fr; /* Single column layout for mobile */
-    gap: 10px; /* Gap between grid items */
+    grid-template-columns: 1fr; 
+    gap: 10px; 
+    width:220px;
   }
 
   .orders_container1 {
@@ -4540,7 +4879,7 @@ margin-left: -90px
     color: #000000;
     font-weight: bold;
     margin-top: 20px;
-    border: 3px solid #ff0068;
+    border: 3px solid #ff0066;
     height: 100px;
     width: 260px;
     position: relative;
@@ -4559,7 +4898,7 @@ margin-left: -90px
   .pink {
     display: flex;
     background-color: #fff;
-    border: 3px solid #ff0068; /* Set the border color to dark pink */
+    border: 3px solid #ff0066; /* Set the border color to dark pink */
     width: 260px;
     height: 300px;
     flex-direction: row;
@@ -4657,7 +4996,7 @@ margin-left: -90px
     background-color: #fff;
     padding: 20px; /* Adjust padding as needed */
     height:500px;
-    border: 3px solid #ff0068;
+    border: 3px solid #ff0066;
     border-radius: 10px;
     margin-top: 30px;
     width: 250px
@@ -4671,7 +5010,7 @@ margin-left: -90px
   padding: 20px;
   height: 200px;
   width: 300px;
-  border: 3px solid #ff0068;
+  border: 3px solid #ff0066;
   border-radius: 10px;
   margin-left: 350px;
   margin-top: -90px;
@@ -4683,7 +5022,7 @@ margin-left: -90px
   margin: 5px; /* Adjust margin as needed */
   background-color: #fff;
   border: 3px solid #40E0D0;
-  color: #ff0068;
+  color: #ff0066;
   font-weight: bold;
   font-family: Arial, sans-serif;
   border-radius: 10px;
@@ -4769,7 +5108,7 @@ margin-bottom: 30px;
   }
   .imgsev1{
 padding: 5px;
-border: 2px solid #ff0068;
+border: 2px solid #ff0066;
 width: 100px;
 height: 100px;
 border-radius: 5px;
@@ -4781,7 +5120,7 @@ border-radius: 5px;
     width: 280px;
     height: 200px;
     padding: 5px;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
 
   }
   .service2{
@@ -4793,7 +5132,7 @@ border-radius: 5px;
   }
   .imgsev2{
     padding: 5px;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
     width: 100px;
     height: 100px;
     border-radius: 5px;
@@ -4805,7 +5144,7 @@ border-radius: 5px;
     width: 280px;
     height: 200px;
     padding: 5px;
-    border: 2px solid #ff0068;
+    border: 2px solid #ff0066;
    
     
   }
@@ -4816,35 +5155,29 @@ border-radius: 5px;
   .dashboard-section-header{
     color:#fff;
     padding: 10px;
-  width: 40px;
+    width: 40px;
     border-radius: 5px;
-    border: 2px solid #fff;
-    margin: 0;
-    margin-right: 20px;
-    
-    
+    margin-left: -16px;  
+    margin-top:-10px;
   }
   .btn_logout{
     width: auto;
     align-items: center;
     display: flex;
-    width: 40px;
+    width: 90px;
     padding: 0;
     position: absolute;
     bottom: 20px;
-   
-    
+   margin-left:-10px;
+ 
   }
   
     .dashboard-content {
       display: block;
-      width: 170px;
+      width: 80px;
       position: relative;
       font-weight: bold;
-    margin: 0 auto;
-  
-    
-      
+    margin-left:-10px;     
     }
    
 

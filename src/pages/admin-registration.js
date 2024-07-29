@@ -15,7 +15,7 @@ const styles = {
   container: {
     textAlign: 'center',
     marginTop: '50px',
-    backgroundColor: '#ff0068',
+    backgroundColor: '#ff0066',
     color: '#fff',
     fontSize: '14px',
     fontFamily: 'Arial',
@@ -573,7 +573,7 @@ button {
    
     color: azure;
     border-radius: 10px;
-    background-color:#ff0068;
+    background-color:#ff0066;
     cursor: pointer;
 }
 

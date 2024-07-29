@@ -659,12 +659,12 @@ theme="light"
   background-color: none;
 }
 header{
-  background: #ff0068;
+  background: #ff0066;
 }
 .container {
 
    align-items: center;
-   background-color:  #ff0068;
+   background-color:  #ff0066;
    height: 90px;
    display: flex;
    
@@ -962,9 +962,9 @@ display: none;
   border-image-source: conic-gradient(
     from 0deg,
     #21B6A8,
-    #ff0068,
+    #ff0066,
     #21B6A8,
-   #ff0068,
+   #ff0066,
     #21B6A8
   );
   border-image-slice: 1;
@@ -976,9 +976,9 @@ display: none;
     border-image-source: conic-gradient(
       from 0deg,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8
     );
   }
@@ -986,9 +986,9 @@ display: none;
     border-image-source: conic-gradient(
       from 90deg,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8
     );
   }
@@ -996,9 +996,9 @@ display: none;
     border-image-source: conic-gradient(
       from 180deg,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8,
-      #ff0068,
+      #ff0066,
       #21B6A8
     );
   }
@@ -1006,9 +1006,9 @@ display: none;
     border-image-source: conic-gradient(
       from 270deg,
       #21B6A8,
-      #ff0068,
+      #ff0066,
       #21B6A8,
-      #ff0068,
+      #ff0066,
       #21B6A8
     );
   }
@@ -1016,9 +1016,9 @@ display: none;
     border-image-source: conic-gradient(
       from 360deg,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8,
-     #ff0068,
+     #ff0066,
       #21B6A8
     );
   }

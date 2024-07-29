@@ -2437,18 +2437,18 @@ const subFaultsLocksmith = {
       {/*for  Electrical Repairs */}
         <div className="container">
          <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-         <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+         <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
    
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Peter</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Repair</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Peter</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Repair</p>
          
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> peter@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> peter@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price:R 900</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price:R 900</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2476,16 +2476,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2515,19 +2515,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2577,16 +2577,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2616,19 +2616,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2675,16 +2675,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2714,19 +2714,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2770,16 +2770,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2809,19 +2809,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2864,16 +2864,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2903,19 +2903,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -2958,16 +2958,16 @@ const subFaultsLocksmith = {
            {/* Container 2 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px'}}>Angel</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Upgrades</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px'}}>Angel</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Upgrades</p>
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> angel@yahoo.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> angel@yahoo.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 1200</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 1200</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
 
@@ -2997,19 +2997,19 @@ const subFaultsLocksmith = {
            {/* Container 3 */}
            <div className="container">
            <img src="person_Icon1.png" alt="Picture Icon" className="icon1" style={{ width: '60px', height: '60px' }} />
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
-           <p style={{ fontWeight: 'bold', color: '#ff0068',fontSize: '25px' }}>John</p>
-           <hr style={{ color: '#ff0068', backgroundColor: '#ff0068', height: '1px', border: 'none' }} />
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
+           <p style={{ fontWeight: 'bold', color: '#ff0066',fontSize: '25px' }}>John</p>
+           <hr style={{ color: '#ff0066', backgroundColor: '#ff0066', height: '1px', border: 'none' }} />
            
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> Electrical Installation</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> Electrical Installation</p>
    
            
            {/* Email address */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}> refiloem@gmail.com</p>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}> refiloem@gmail.com</p>
            
            {/* Price */}
-           <p style={{ fontWeight: 'bold', color: '#ff0068' }}>Price: R 700</p>
-           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0068', marginTop: '10px', textDecoration: 'underline' }}>
+           <p style={{ fontWeight: 'bold', color: '#ff0066' }}>Price: R 700</p>
+           <a href="#" onClick={() => handleViewProfile(profileInfo)} style={{ fontWeight: 'bold', color: '#ff0066', marginTop: '10px', textDecoration: 'underline' }}>
           View Profile
         </a>
         {showProfilePopup && (
@@ -3052,8 +3052,8 @@ const subFaultsLocksmith = {
               <img src='/foldedman.png' alt='JoinUs'style={{width: "500px", height:'500px'}}/>
             </div>
             <div className='pictureinfo' >
-              <h1 style={{color: '#ff0068', fontWeight: 'bold', fontFamily: 'poppins', fontSize: '40px', marginBottom: '40px'}}>Become a partner and enjoy many benefits</h1>
-              <h2 style={{color: '#ff0068', float: 'right',   fontWeight: 'bold', fontFamily: 'poppins', padding: "8px",  marginRight: '40px'}}>
+              <h1 style={{color: '#ff0066', fontWeight: 'bold', fontFamily: 'poppins', fontSize: '40px', marginBottom: '40px'}}>Become a partner and enjoy many benefits</h1>
+              <h2 style={{color: '#ff0066', float: 'right',   fontWeight: 'bold', fontFamily: 'poppins', padding: "8px",  marginRight: '40px'}}>
   Register Now
 </h2>
                <PDFLink/>
@@ -3215,7 +3215,7 @@ Opposite Grand Central International Airport<br/>
     .expanded-content {
       font-size: 20px;
       position: relative;
-      color: #ff0068;
+      color: #ff0066;
       font-weight: bold;
       font-family:  Courier New;
       box-shadow: 0 0 10px rgba(255, 0, 104, 0.7);
@@ -3297,13 +3297,13 @@ Opposite Grand Central International Airport<br/>
       .finalsection{
         width: 100%;
         width: 100vw;
-        background-color: #ff0068;
+        background-color: #ff0066;
 
       }
       .homefooter{
         width: 970px;
         margin: 0 auto;
-        background-color: #ff0068;
+        background-color: #ff0066;
 
   
       }
@@ -3381,7 +3381,7 @@ Opposite Grand Central International Airport<br/>
         margin-top: -10px;
         justify-content: space-around;
         margin-left: 5px;
-        color: #ff0068;
+        color: #ff0066;
        
         
 
@@ -3575,7 +3575,7 @@ body {
       }
 
       .scroll-to-top:hover{
-        background: #ff0068;
+        background: #ff0066;
         transition: background 0.3s;
       }
       
@@ -3630,7 +3630,7 @@ body {
       }
       .card:hover{
         .card-title{
-          color: #ff0068;
+          color: #ff0066;
           
         }
       }
@@ -3736,13 +3736,13 @@ margin-top: -30px;
 
       .pdf{
         margin-left: 930px;
-        background-color: #ff0068;
+        background-color: #ff0066;
         color:fff;
       }
 
       .filler{
         margin-left: 930px;
-        background-color: #ff0068;
+        background-color: #ff0066;
         color:fff;
       }
 .intro{
@@ -3755,7 +3755,7 @@ margin-top: -30px;
   align-items: center;
   width: 970px;
       
-        background: #ff0068;
+        background: #ff0066;
         padding-top: 100px;
         color: white;
         margin: 0 auto;
@@ -3771,7 +3771,7 @@ margin-top: -30px;
       .banner{
         width: 100%;
         height: 350px;
-        background: #ff0068;
+        background: #ff0066;
         width: 100vw;
         margin: 0 auto;
       }
@@ -3791,7 +3791,7 @@ margin-top: -30px;
       .paragraph1{
         padding-top: 5px;
        font-weight: bold;
-       color: #ff0068;
+       color: #ff0066;
         margin-top: 10px;
         font-family: Arial;
         font-size: 20px;
@@ -3812,7 +3812,7 @@ line-height: 5px;
         background: #fff;
         
         font-weight: bold;
-        color: #ff0068;
+        color: #ff0066;
 
      
        
@@ -3874,7 +3874,7 @@ line-height: 5px;
         text-align: center; /* Center the content */
         font-size: 20px; /* Adjust the font size */
         margin: 15px; /* Added margin to create space between containers */
-        border: 2px solid #ff0068;
+        border: 2px solid #ff0066;
       }
       .infoContainer{
         width: 600px; /* Adjust the width as per your layout */
@@ -3882,12 +3882,12 @@ line-height: 5px;
         padding: 20px;
         border-radius: 10px;
         box-sizing: border-box;
-        background-color: #ff0068; /* Pink background color */
+        background-color: #ff0066; /* Pink background color */
         color: #fff; /* Text color */
         text-align: center; /* Center the content */
         font-size: 20px; /* Adjust the font size */
         margin: 15px; /* Added margin to create space between containers */
-        border: 2px solid #ff0068;
+        border: 2px solid #ff0066;
 
       }
       .custom-datepicker {
@@ -3909,7 +3909,7 @@ line-height: 5px;
 }
 
 .popup-content {
-  background-color: #ff0068;
+  background-color: #ff0066;
   padding: 20px;
   border-radius: 10px;
   

@@ -120,7 +120,7 @@ const Dashheader= () =>{
   .btn-register {
     background-color:white ;
     
-    color: #ff0068;
+    color: #ff0066;
     border: none;
     padding: 8px 16px;
     font-size: 14px;
@@ -132,7 +132,7 @@ const Dashheader= () =>{
   }
 
   .btn-login {
-    background-color:#ff0068 ;
+    background-color:#ff0066 ;
     color: white;
     
     border: none;
@@ -146,7 +146,7 @@ const Dashheader= () =>{
 
   .btn-help {
     background-color: white;
-    color: #ff0068;
+    color: #ff0066;
     border: none;
     padding: 8px 16px;
     font-size: 14px;
@@ -167,12 +167,12 @@ const Dashheader= () =>{
     border: none;
     border-radius: 20px;
     margin-right: 10px;
-    box-shadow: 0px 0px 10px #ff0068;
+    box-shadow: 0px 0px 10px #ff0066;
 
   }
 
   .btn-search {
-    background-color: #ff0068;
+    background-color: #ff0066;
     color: white;
     border: none;
     padding: 8px 16px;

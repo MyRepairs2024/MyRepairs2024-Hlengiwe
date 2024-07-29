@@ -91,7 +91,7 @@ export function Products({service}) {
           margin-bottom: 10px;
           border-radius: 10px;
         color: #ff0066;
-        border: 2px solid #ff0068;
+        border: 2px solid #ff0066;
      
           
       

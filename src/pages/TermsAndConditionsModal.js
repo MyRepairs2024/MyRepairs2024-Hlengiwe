@@ -4,7 +4,7 @@ const styles = {
   container: {
     textAlign: 'center',
     marginTop: '50px',
-    backgroundColor: '#ff0068',
+    backgroundColor: '#ff0066',
     color: '#fff',
     fontSize: '14px',
     fontFamily: 'Arial',
@@ -100,8 +100,7 @@ function TermsAndConditionsModal() {
           <img src="/logo-w.png" alt="My Repairs" style={styles.logo} />
         </div>
             </div>
-            
-            <div onClick={toggleTerms} style={{ cursor: 'pointer', textDecoration: 'underline', height: '100vh' }}>
+            <div  style={{ cursor: 'pointer', textDecoration: 'underline', height: '100vh' }}>
       {/* Your entire page content */}
       <div className='terms-container'>
         <h1>Tearms And Conditions</h1>

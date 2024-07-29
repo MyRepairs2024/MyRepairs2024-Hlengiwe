@@ -68,7 +68,8 @@ const [requests, setRequests] = useState([]);
 
  
   const [isSubmitting, setIsSubmitting] = useState(false);
- 
+  const [requestSubmitted, setRequestSubmitted] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -90,6 +91,7 @@ return(
       </div>
   );
 }
+
 
 const handleButtonClick = (service) => {
   switch (service) {
@@ -158,9 +160,8 @@ const handleCloseAlert = () => {
     experience: '',
     insurance: '',
     workquality: '',
-
-  });
-
+    });
+  
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
     const [selectedFile, setSelectedFile] = useState([]);
@@ -309,6 +310,56 @@ const handleCloseAlert = () => {
     setShowPopupElectrician(false); // Assuming this is a state that controls the popup visibility
   };
 
+  const handleBack = () => {
+    setRequestSubmitted(false); // Go back to the form
+  };
+  const handlePayNow = () => {
+    // Add your payment logic here
+    alert('Redirecting to payment...');
+  };
+
+  const predefinedPrice = "R350"; // Set your predefined service price here
+  const providerEmail = "provider@example.com"; // Set the predefined provider email here
+
+const [formData1, setFormData1] = useState({
+  servicePrice: predefinedPrice,
+  providerEmail: providerEmail 
+});
+
+  const handleGetLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setFormData((prevData) => ({
+            ...prevData,
+            location: `${latitude}, ${longitude}`
+          }));
+        },
+        (error) => {
+          console.error("Error getting location: ", error);
+          alert("Unable to retrieve location. Please enter it manually.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+  
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setRequestSubmitted(true);
+    }, 2000);
+  };
+  const handleClose2 = () => {
+    setShowPopupCleaning(false);
+    setRequestSubmitted(false); // Reset the request status
+  };
 
 
   const handleFilter = () => {
@@ -545,16 +596,12 @@ const handleCloseAlert = () => {
           <p>Loading ...</p>
         </div>
       ) : pendingRequests.length > 0 ? (
-        
         <div className='requestcard'>
           <h2 className='totalpendingreq'>Awaiting Approval ({pendingRequests.length})</h2>
           {pendingRequest && pendingRequests.length > 0 &&(
-            <div className="alert-box">
-            
-       
+            <div className="alert-box">      
           </div>
           )}
-
 
           <div className='pending_containers'>
             <div className='p_container1'>
@@ -723,8 +770,8 @@ const handleCloseAlert = () => {
     </div>
     </div>
   
-    <div className={`servicesdone ${expandedServicesDone ? 'expanded' : ''}`}
-            onClick={() => setExpandedServicesDone(!expandedServicesDone)}>
+    <div className={`pendingservices ${expandedPendingServices ? 'expanded' : ''}`}
+            onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
    <div className='naming'>
     <h3>Pending Services</h3>
     </div>
@@ -823,20 +870,22 @@ const handleCloseAlert = () => {
         </button>
       
 
+
+
  {/* Popup content electrician */}
- {showPopupElectrician && (
-        <div className="popup-container">
-          <div className="popup-content">
+ {showPopupElectrician && !requestSubmitted && (
+       <div className='overlay-container3'>
+          <div className="popup-content3">
             <h2>Request Electrician Service</h2>
-            <form onSubmit={buttonText === 'Submit' ? handleSubmit : handleClose}>
+            <form onSubmit={ handleSubmit2}>
       <label>
                 Name:
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
+                  onChange={handleChange }
+                      required
                 />
               </label>
               <label>
@@ -845,7 +894,7 @@ const handleCloseAlert = () => {
                   type="email"
                   name="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={handleChange }
                   required
                 />
               </label>
@@ -855,27 +904,77 @@ const handleCloseAlert = () => {
                   type="date"
                   name="serviceDate"
                   value={formData.serviceDate}
-                  onChange={(e) => setFormData({ ...formData, serviceDate: e.target.value })}
-                  required
+                  onChange={handleChange }
+                    required
                 />
               </label>
+              <label>
+                Provider Email:
+                <input
+                  type="email"
+                  name="providerEmail"
+                  value={formData1.providerEmail}
+                  readOnly
+                />
+              </label>
+              <label>
+          Service Price:
+          <input
+            type="text"
+            name="servicePrice"
+            value={formData1.servicePrice}
+            readOnly
+          />
+        </label>
+        <label>
+          Location:
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+          <button type="button" onClick={handleGetLocation}>Get Location</button>
+        </label>
+        
               <label>
                 Description:
                 <textarea
                   name="description"
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  required
+                  onChange={handleChange }
+                   required
                 ></textarea>
               </label>
               <button type="submit" disabled={isSubmitting}>
-              {buttonText}
+              {isSubmitting ? 'Submitting...' : 'Submit Request'}
               </button>
             </form>
-            <button onClick={() => setShowPopupElectrician(false)}>Close</button>
+            <button onClick={handleClose}>Close</button>
           </div>
         </div>
       )}
+
+ {/* Request summary */}
+ {requestSubmitted && (
+        <div className="overlay-container5">
+          <div className="popup-content5">
+            <h2>Request Submitted</h2>
+            <p><strong>Name:</strong> {formData.name}</p>
+            <p><strong>Email:</strong> {formData.email}</p>
+            <p><strong>Provider Email:</strong> {formData1.providerEmail}</p>
+            <p><strong>Service Date:</strong> {formData.serviceDate}</p>
+            <p><strong>Description:</strong> {formData.description}</p>
+            <p><strong>servicePrice:</strong> {formData1.servicePrice}</p>
+            <p><strong>Location:</strong> {formData.location}</p>
+            <button className="pay-now-button" onClick={handlePayNow}>Pay Now</button>
+            <button className="back-button" onClick={handleBack}>Back</button>
+           </div>
+        </div>
+      )}
+
+
 </div>
          </div>
     </div>
@@ -954,11 +1053,11 @@ const handleCloseAlert = () => {
 </div>
         
  {/* Popup content cleaning */}
- {showPopupCleaning && (
-        <div className="popup-container">
+ {showPopupCleaning && !requestSubmitted &&(
+        <div className='overlay-container2'>
           <div className="popup-content">
             <h2>Request Cleaning Service</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ handleSubmit2}>
               <label>
                 Name:
                 <input
@@ -980,6 +1079,15 @@ const handleCloseAlert = () => {
                 />
               </label>
               <label>
+                Provider Email:
+                <input
+                  type="email"
+                  name="providerEmail"
+                  value={formData1.providerEmail}
+                  readOnly
+                />
+              </label>
+              <label>
                 Service Date:
                 <input
                   type="date"
@@ -989,6 +1097,28 @@ const handleCloseAlert = () => {
                   required
                 />
               </label>
+
+              <label>
+          Service Price:
+          <input
+            type="text"
+            name="servicePrice"
+            value={formData1.servicePrice}
+            readOnly
+          />
+        </label>
+        <label>
+          Location:
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+          <button type="button" onClick={handleGetLocation}>Get Location</button>
+        </label>
+
               <label>
                 Description:
                 <textarea
@@ -1003,6 +1133,24 @@ const handleCloseAlert = () => {
               </button>
               </form>
             <button onClick={() => setShowPopupCleaning(false)}>Close Popup</button>
+          </div>
+        </div>
+      )}
+
+      {/* Request summary */}
+ {requestSubmitted && (
+        <div className="overlay-container5">
+          <div className="popup-content5">
+            <h2>Request Submitted</h2>
+            <p><strong>Name:</strong> {formData.name}</p>
+            <p><strong>Email:</strong> {formData.email}</p>
+            <p><strong>Provider Email:</strong> {formData1.providerEmail}</p>
+            <p><strong>Service Date:</strong> {formData.serviceDate}</p>
+            <p><strong>Description:</strong> {formData.description}</p>
+            <p><strong>servicePrice:</strong> {formData1.servicePrice}</p>
+            <p><strong>Location:</strong> {formData.location}</p>
+            <button className="pay-now-button" onClick={handlePayNow}>Pay Now</button>
+            <button className="back-button" onClick={handleBack}>Back</button>
           </div>
         </div>
       )}
@@ -1078,11 +1226,11 @@ const handleCloseAlert = () => {
 
          
  {/* Popup content painting */}
- {showPopupPainting && (
-         <div className="popup-container">
-         <div className="popup-content">
-           <h2>Request Electrician Service</h2>
-           <form onSubmit={handleSubmit}>
+ {showPopupPainting && !requestSubmitted && (
+        <div className='overlay-container4'>
+          <div className="popup-content4">
+           <h2>Request Painting Services</h2>
+           <form onSubmit={ handleSubmit2}>
              <label>
                Name:
                <input
@@ -1104,6 +1252,15 @@ const handleCloseAlert = () => {
                />
              </label>
              <label>
+                Provider Email:
+                <input
+                  type="email"
+                  name="providerEmail"
+                  value={formData1.providerEmail}
+                  readOnly
+                />
+              </label>
+             <label>
                Service Date:
                <input
                  type="date"
@@ -1113,6 +1270,26 @@ const handleCloseAlert = () => {
                  required
                />
              </label>
+             <label>
+          Service Price:
+          <input
+            type="text"
+            name="servicePrice"
+            value={formData1.servicePrice}
+            readOnly
+          />
+        </label>
+        <label>
+          Location:
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+          <button type="button" onClick={handleGetLocation}>Get Location</button>
+        </label>
              <label>
                Description:
                <textarea
@@ -1132,6 +1309,24 @@ const handleCloseAlert = () => {
          </div>
        </div>
      )}
+
+           {/* Request summary */}
+ {requestSubmitted && (
+        <div className="overlay-container5">
+          <div className="popup-content5">
+            <h2>Request Submitted</h2>
+            <p><strong>Name:</strong> {formData.name}</p>
+            <p><strong>Email:</strong> {formData.email}</p>
+            <p><strong>Provider Email:</strong> {formData1.providerEmail}</p>
+            <p><strong>Service Date:</strong> {formData.serviceDate}</p>
+            <p><strong>Description:</strong> {formData.description}</p>
+            <p><strong>servicePrice:</strong> {formData1.servicePrice}</p>
+            <p><strong>Location:</strong> {formData.location}</p>
+            <button className="pay-now-button" onClick={handlePayNow}>Pay Now</button>
+            <button className="back-button" onClick={handleBack}>Back</button>
+          </div>
+        </div>
+      )}
      </div>
    </div>
    </div>
@@ -1646,6 +1841,284 @@ const handleCloseAlert = () => {
         box-sizing: border-box;
       }
 
+
+    /* Pay Now and Back buttons styling */
+.pay-now-button, .back-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Pay Now button styling */
+.pay-now-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.pay-now-button:hover {
+  background: #45a049;
+}
+
+/* Back button styling */
+.back-button {
+  background: #f0ad4e;
+  color: white;
+  margin-left: 10px;
+}
+
+.back-button:hover {
+  background: #ec9c3d;
+}
+
+/* Shared styling for all buttons */
+button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+  
+
+.overlay-container {
+  position: absolute;
+  place-items: center;
+  width: 1000px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  /* Semi-transparent overlay background */
+  transition: backdropFilter 3s;
+}
+
+.overlay-container2 {
+  position: absolute;
+  place-items: center;
+  width: 1500px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  margin-top:-600px;
+  margin-left:-700px;
+  transition: backdropFilter 3s;
+}
+
+.overlay-container3 {
+  position: absolute;
+  place-items: center;
+  width: 1500px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  margin-top:-600px;
+  margin-left:-100px;
+  transition: backdropFilter 3s;
+}
+.overlay-container4 {
+  position: absolute;
+  place-items: center;
+  width: 1500px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  margin-top:-600px;
+  margin-left:-700px;
+  transition: backdropFilter 3s;
+}
+.overlay-container5 {
+  position: absolute;
+  place-items: center;
+  width: 1500px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2222; /* Set a high z-index to ensure it's on top */
+  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  backdrop-filter: blur(10px);
+  margin-top:-600px;
+  margin-left:400px;
+  transition: backdropFilter 3s;
+}
+
+/* Styles for the close button */
+.close-button {
+  background-color: #ff0066;
+  color: white; 
+  border: none; 
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  transition: background-color 0.3s ease; 
+}
+
+
+.popup-content5 {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-top:-100px;
+  margin-left:100px;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-top:-100px;
+  margin-left:150px;
+}
+  .popup-content3 {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+   margin-top:-50px;
+  margin-left:580px;
+}
+  
+.popup-content4 {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+   margin-top:-100px;
+  margin-left:-300px;
+}
+  .popup-content form {
+  display: flex;
+  flex-direction: column;
+}
+ .popup-content3 form {
+  display: flex;
+  flex-direction: column;
+}
+  
+.popup-content4 form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-content label {
+  margin-bottom: 10px;
+}
+
+.popup-content3 label {
+  margin-bottom: 10px;
+}
+  .popup-content4 label {
+  margin-bottom: 10px;
+}
+.popup-content input,
+.popup-content3 input,
+.popup-content4 input,
+.popup-content textarea,
+.popup-content3 textarea,
+.popup-content4 textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+  .popup-content button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #ff0066;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+ .popup-content3 button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #ff0066;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+   .popup-content4 button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #ff0066;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.popup-content button:hover {
+  background: #e6005c;
+}
+
+.popup-content3 button:hover {
+  background: #e6005c;
+}
+
+.popup-content4 button:hover {
+  background: #e6005c;
+}
+  .popup-content button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+  .popup-content3 button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.popup-content4 button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+
 .ScrollableContainer {
    overflow: auto;
   margin-left:200px;
@@ -1661,7 +2134,7 @@ const handleCloseAlert = () => {
  
 .dashboard-container {
   padding: 15px;
-  background-color: #ff0068;
+  background-color: #ff0066;
   width: 150px;
   height: 100%;
   position: fixed
@@ -1884,7 +2357,7 @@ display: block;
 .maindash a {
   padding: 0px 0px;
   font-size: 12px; 
-  color: #ff0068;
+  color: #ff0066;
   text-decoration: none;
   transition: color 0.3s, transform 0.3s;
 }
@@ -2079,17 +2552,16 @@ display: block;
       width: 200px;
        color: azure;
        border-radius: 10px;
-      background-color:#ff0068;
+      background-color:#ff0066;
      cursor: pointer;
 }
 .pendingservices{
- 
   padding-left: 8px;
   color: azure;
   height: 100px;
   width: 200px;
   border-radius: 10px;
-  background-color:#ff0068;
+  background-color:#ff0066;
   cursor: pointer;
 }
 .servicesdone:hover,
@@ -2097,6 +2569,7 @@ display: block;
   transform: scale(1.10);
   background-color:#FFB6C1;
 }
+
 .naming h3 {
   margin: 15px;
   padding: 0;
@@ -2202,7 +2675,7 @@ display: block;
 
 .circle-progress::-webkit-progress-value {
   border-radius: 50%;
-  background-color: #ff0068; 
+  background-color: #ff0066; 
 }
 /* Media query for screens with a maximum width of 480px (typical smartphones) */
 @media (max-width: 480px) {
@@ -2268,7 +2741,7 @@ a:hover {
 
 .updates-Container {
   margin-bottom: 20px;
-  border: 3px solid #ff0068; 
+  border: 3px solid #ff0066; 
   margin: 1px;
   box-shadow: 0 0 15px rgba(255, 0, 104, 0.5);
   width: 300px; /* Adjust width */
@@ -2277,7 +2750,7 @@ a:hover {
   margin-left: -15px;
   font-family: Arial, sans-serif; /* Set font family to Arial */
   font-weight: bold; /* Set font weight to bold */
-  color:#ff0068; /* Set text color to black */
+  color:#ff0066; /* Set text color to black */
   font-size: 20px; /* Set font size to 20 pixels */
   position: relative;
   }
@@ -2294,7 +2767,7 @@ a:hover {
 }
 .updates-Container2 {
   margin-bottom: 20px;
-  border: 3px solid #ff0068; 
+  border: 3px solid #ff0066; 
   margin: 1px;
   box-shadow: 0 0 15px rgba(255, 0, 104, 0.5);
   width: 300px;
@@ -2303,7 +2776,7 @@ a:hover {
   margin-left: -15px;
   font-family: Arial, sans-serif; 
   font-weight: bold;
-  color:#ff0068; 
+  color:#ff0066; 
   font-size: 20px;
   position: relative;
   }
@@ -2482,7 +2955,7 @@ body {
  .payments_container{
         height: 400px;
         width: 700px;
-       border: 1px solid #ff0068;
+       border: 1px solid #ff0066;
         padding: 10px;
 border-radius:5px;
       }
@@ -2530,7 +3003,7 @@ border-radius:5px;
 
 
       .receipts {
-  border: 2px solid #ff0068;
+  border: 2px solid #ff0066;
   border-radius: 5px;
   padding: 10px;
   width: 650px;
@@ -2545,7 +3018,7 @@ border-radius:5px;
   width: 16.67%; 
   padding: 8px;
   text-align: left;
-  border-bottom: 2px solid #ff0068;
+  border-bottom: 2px solid #ff0066;
 }
 .receipts th:last-child,
 .receipts td:last-child {
@@ -2673,7 +3146,7 @@ button {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 10px;
-   border: 3px solid #ff0068; 
+   border: 3px solid #ff0066; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -2707,7 +3180,7 @@ button {
 }
 
 .edit_personal1 {
-  background-color: ##ff0068;
+  background-color: ##ff0066;
   margin-left:-10px;
 }
 
@@ -2783,7 +3256,7 @@ button {
 
       .current_msg{
         width: 500px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         height: 280px;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -2793,7 +3266,7 @@ button {
       .condition_msg{
         width: 500px;
         margin-bottom: 10px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         height: 80px;
         border-radius: 5px;
         text-align: center;
@@ -2822,21 +3295,21 @@ button {
         width: 500px;
         height: 70px;
         border-radius: 5px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
 
 
       }
       .condition_msg{
         width: 500px;
         margin-bottom: 10px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         height: 80px;
         border-radius: 5px;
         text-align: center;
       }
       .current_msg{
         width: 500px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         height: 280px;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -2852,12 +3325,12 @@ button {
 
         width: 500px;
         margin-bottom: 10px;
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         height: 140px;
         border-radius: 5px;
       }
       .all_msg{
-        border: 1px solid #ff0068;
+        border: 1px solid #ff0066;
         width: 350px;
         border-radius: 5px;
         margin-right: 30px;
@@ -2905,14 +3378,14 @@ display: flex;
       }
       .fav_services1{
         width: 100%;
-        border-bottom: 1px solid #ff0068;
+        border-bottom: 1px solid #ff0066;
         height: 450px;
         padding: 10px;
 
       }
       .heading_fav{
         width: 100%;
-        border-bottom: 1px solid #ff0068;
+        border-bottom: 1px solid #ff0066;
 
       }
 .Add_fav {
@@ -3000,7 +3473,7 @@ display: flex;
       }
 
   .filteremail:focus {
-  border-color: #ff0068; /* Focus color */
+  border-color: #ff0066; /* Focus color */
   outline: none;
 }
       .radiofilters{
@@ -3021,7 +3494,7 @@ display: flex;
       .filters-search{
         display: flex;
         position: relative;
-       background: #ff0068;
+       background: #ff0066;
        color: #fff;
        font-weight: bold;
        padding: 10px;
@@ -3042,7 +3515,7 @@ body {
 
 
 .filteremail:focus {
-  border-color: #ff0068; /* Focus color */
+  border-color: #ff0066; /* Focus color */
   outline: none;
 }
 
@@ -3137,7 +3610,7 @@ body {
   border-radius: 5px;
   max-width: 600px;
   margin: 0 auto;
-    border: 3px solid #ff0068; 
+    border: 3px solid #ff0066; 
 }
 .editinfo_header1 {
   display: flex;
@@ -3149,7 +3622,7 @@ body {
   color: #333;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-    color:#ff0068;
+    color:#ff0066;
       }
   .editbuttons {
   display: flex;
@@ -3165,7 +3638,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
   .edit_personal1 {
-  background-color: #ff0068;
+  background-color: #ff0066;
   color: white;
 }
 
@@ -3232,7 +3705,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  border: 2px solid #ff0068;
+  border: 2px solid #ff0066;
   border-radius:5px;
   width:170px;
   height:100px;
@@ -3246,7 +3719,7 @@ body {
 
 .balance-amount {
   font-size: 10px;
-  color: #ff0068;
+  color: #ff0066;
   margin: 10px 0;
 }
 
@@ -3266,7 +3739,7 @@ body {
 .transaction-table {
   width: 100%;
   overflow-x: auto;
-  border: 2px solid #ff0068;
+  border: 2px solid #ff0066;
   border-radius:5px;
 }
 
@@ -3353,7 +3826,7 @@ body {
 @media (max-width: 480px) {
   .balance-amount {
     font-size: 1.2em;
-    color:#ff0068;
+    color:#ff0066;
   }
 
   .purchase-button {

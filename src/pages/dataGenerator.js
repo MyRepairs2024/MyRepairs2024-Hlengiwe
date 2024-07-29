@@ -70,9 +70,9 @@ const MyComponent = ({ selectedDate, handlePreviousMonth, handleNextMonth }) => 
   padding: 20px;
   border-radius: 10px;
   height: 35px;
-  border: 5px solid #ff0068;
+  border: 5px solid #ff0066;
   height: 320px;
-  color: #ff0068;
+  color: #ff0066;
   overflow: auto;
   width: 850px;
   padding: 30px;

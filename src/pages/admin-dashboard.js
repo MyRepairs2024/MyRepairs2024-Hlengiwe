@@ -623,7 +623,7 @@ table {
   border-radius: 20px;
   margin-top: 20px;
   background-color: white;
-  color: #ff0068;
+  color: #ff0066;
   font-family: cursive;
 }
 th, td {
@@ -633,7 +633,7 @@ th, td {
   height: 20px;
 }
 th {
-  background-color: #ff0068;
+  background-color: #ff0066;
   color: white;
 
 }
@@ -651,7 +651,7 @@ caption {
 
 .dashboard-section.active {
   font-weight: bold;
-color: #ff0068;
+color: #ff0066;
   background-color:white;
  width: 220px;
  z-index: 99999;
@@ -661,13 +661,13 @@ color: #ff0068;
   
 
   .dashboard-section-header{
-    color:#ff0068;
+    color:#ff0066;
   }
   .dashboard-section-body{
     color:#fffdd0;
   }
   .dashboard-section-title{
-    color: #ff0068;
+    color: #ff0066;
   }
 
   
@@ -728,7 +728,7 @@ z-index: 1111;
       }
 
       h4{
-        color: #ff0068;
+        color: #ff0066;
         font-weight: bold;
         font-family: cursive;
         position:relative;
@@ -742,7 +742,7 @@ z-index: 1111;
 display:block;
 width: 100px;
 height:2px;
-background: #ff0068;
+background: #ff0066;
 position: absolute;
 right: 10px;
 top: 50%;
@@ -752,7 +752,7 @@ z-index: 1111;
       
 
       .contact_details{
-        background-color: #ff0068;
+        background-color: #ff0066;
         padding: 10px;
         border-radius: 10px;
         margin-top: 10px;
@@ -760,7 +760,7 @@ z-index: 1111;
         color: white;
       }
       .screening_questions{
-        background-color: #ff0068;
+        background-color: #ff0066;
         padding: 10px;
         border-radius: 10px;
         margin-top: 15px;
@@ -769,7 +769,7 @@ z-index: 1111;
       }
 
       .uploads{
-        background-color: #ff0068;
+        background-color: #ff0066;
         padding: 10px;
         border-radius: 10px;
         margin-top: 15px;
@@ -805,7 +805,7 @@ border-radius: 10px;
       margin: 10px;
       margin-left: 80px;
       padding: 20px;
-      color: #ff0068;
+      color: #ff0066;
       font-weight: bold;
       background-color: white;
     
@@ -918,7 +918,7 @@ border-radius: 10px;
           position: relative;
           text-decoration: none;
           font-family: 'Poppins',sans-serif;
-          color: #ff0068;
+          color: #ff0066;
           font-weight: bold;
           font-size: 14px;
           letter-spacing: 0.5px;
@@ -1016,7 +1016,7 @@ border-radius: 10px;
        
 
         .dashboard-section {
-          background-color: #ff0068;
+          background-color: #ff0066;
           border-radius: 8px;
           display: block;
           height: 11px;
@@ -1031,18 +1031,18 @@ border-radius: 10px;
           margin-right: 11px;
           box-shadow: 0px 0px 10px black;
           background-color: white;
-         color: #ff0068;
+         color: #ff0066;
           cursor: pointer;
           transition: background-color margin-right 1s;
 
           .dashboard-section-header{
-            color:#ff0068;
+            color:#ff0066;
           }
           .dashboard-section-body{
             color:#fffdd0;
           }
           .dashboard-section-title{
-            color: #ff0068;
+            color: #ff0066;
           }
 
         }
@@ -1091,14 +1091,14 @@ position: relative;
 
         }
         .mainpage hr{
-          border-top: 2px solid #ff0068;
-          border-bottom: 2px solid #ff0068;
+          border-top: 2px solid #ff0066;
+          border-bottom: 2px solid #ff0066;
           margin-bottom: 0px;
           margin-top: 120px;
           margin-left: 100px;
           width: 850px;
           border-radius: 10px;
-          background: linear-gradient(to right, #21B6A8 , #FF0068);
+          background: linear-gradient(to right, #21B6A8 , #ff0066);
         }
 
         .card{
@@ -1238,7 +1238,7 @@ position: relative;
 font-weight: bold;
     color: white;
     border-radius: 20px;
-    background-color:#ff0068;
+    background-color:#ff0066;
 box-shadow: 0px 0px 10px #454545;
 
      }
@@ -1251,7 +1251,7 @@ box-shadow: 0px 0px 10px #454545;
 
   width: 230px;
   border-radius: 20px;
-  background-color:#ff0068;
+  background-color:#ff0066;
 box-shadow: 0px 0px 10px #454545;
 }
 .Rewards{
@@ -1262,7 +1262,7 @@ box-shadow: 0px 0px 10px #454545;
   height: 100px;
   width: 230px;
   border-radius: 20px;
-  background-color:#ff0068;
+  background-color:#ff0066;
   box-shadow: 0px 0px 10px #454545;
 }
 

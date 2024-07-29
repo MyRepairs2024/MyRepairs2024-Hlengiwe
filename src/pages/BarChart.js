@@ -27,7 +27,7 @@ const BarChart = ({ servicePerformanceData,months }) => {
               label: months[currentMonthIndex],
               data: serviceCounts,
               backgroundColor:[
-                '#ff0068',
+                '#ff0066',
                 '#148F77',
                 '#17202A',
               '#909497',

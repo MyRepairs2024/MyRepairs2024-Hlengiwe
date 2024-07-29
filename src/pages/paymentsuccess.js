@@ -89,7 +89,7 @@ const styles = {
     marginBottom: '5px',
   },
   button: {
-    backgroundColor: '#ff0068',
+    backgroundColor: '#ff0066',
     color: '#fff',
     padding: '10px 20px',
     borderRadius: '5px',

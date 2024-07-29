@@ -636,7 +636,7 @@ display: none;
 
     .pdf{
       margin-left: 200px;
-      background-color:#ff0068;
+      background-color:#ff0066;
     }
 
     

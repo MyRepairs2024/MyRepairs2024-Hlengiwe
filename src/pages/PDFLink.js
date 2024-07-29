@@ -27,7 +27,7 @@ const PDFLink = () => {
     style={{
       color: '#fff', 
       float: 'right', 
-      background: '#ff0068', 
+      background: '#ff0066', 
       borderStyle: 'none', 
       fontWeight: 'bold', 
       fontFamily: 'poppins', 
@@ -44,7 +44,7 @@ const PDFLink = () => {
     style={{
       color: '#fff', 
       float: 'right', 
-      background: '#ff0068', 
+      background: '#ff0066', 
       borderStyle: 'none', 
       fontWeight: 'bold', 
       fontFamily: 'poppins', 
@@ -75,13 +75,13 @@ export default PDFLink;
         <style>{`
         .pdf{
           margin-left: 930px;
-          background-color: #ff0068;
+          background-color: #ff0066;
           color:fff;
         }
 
         .filler{
           margin-left: 930px;
-          background-color: #ff0068;
+          background-color: #ff0066;
           color:fff;
         }
 

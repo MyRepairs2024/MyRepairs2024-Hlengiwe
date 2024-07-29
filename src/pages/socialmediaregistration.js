@@ -58,7 +58,7 @@ const socialmediaregistration = () => {
           align-items: center;
           justify-content: center;
           height: 100vh;
-          background-color: #ff0068;
+          background-color: #ff0066;
           text-align: center;
         }
 
@@ -114,7 +114,7 @@ const socialmediaregistration = () => {
         }
 
         button:hover {
-          background-color: #ff0068;
+          background-color: #ff0066;
         }
       `}</style>
     </div>

@@ -85,7 +85,7 @@ const Footer = () => {
   }
   
   .ft-1 span {
-    color: #ff0068;
+    color: #ff0066;
   }
   
   .ft-1 p {
@@ -139,7 +139,7 @@ const Footer = () => {
   }
   
   .Last-footer {
-    background: #ff0068;
+    background: #ff0066;
     text-align: center;
     padding: 1rem 0;
   }

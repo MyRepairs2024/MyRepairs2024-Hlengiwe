@@ -6,7 +6,7 @@ import { GoogleLogin } from 'react-google-login';
     container: {
       textAlign: 'center',
       marginTop: '50px',
-      backgroundColor: '#ff0068',
+      backgroundColor: '#ff0066',
       color: '#fff',
       fontSize: '14px',
       fontFamily: 'Arial',
