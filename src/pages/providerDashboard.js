@@ -838,7 +838,7 @@ const handleProcessDone = () => {
           <div className='Dash-Container'>
          <div className="metrics">
          <div className={`servicesdone ${expandedPendingServices ? 'expanded' : ''}`}
-  onClick={() => {
+     onClick={() => {
     setExpandedPendingServices(!expandedPendingServices);
     // Perform the database search here
   }}
@@ -1038,7 +1038,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
 
 
       <Dashheader />
-      <div></div>
+      <div className='ScrollableContainer6'>
       <div className='Profiletab'>
       <div className="edit_pfp">
    <h4>Profile Picture</h4>
@@ -1165,7 +1165,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
       
     </div>
 
-   
+   </div>
   </div>
   </div>
   )}
@@ -1570,7 +1570,6 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
                 <option value="Fridge Repairs">Fridge Repairs </option>
                 {/* Add more options as needed */}
               </select>
-              <button onClick={handleSave}>Save</button>
             </div>
             <div className='input_servicedescrip'>
               <label htmlFor="description">Description:</label>
@@ -1586,6 +1585,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
               </select>
               <label htmlFor="hourlyRate">Hourly Rate:</label>
               <input type="text" id="hourlyRate" name="hourlyRate" />
+              <button onClick={handleSave}>Save</button>
             </div>
           </div>
         </div>
@@ -1610,7 +1610,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
                 <option value="Apliance Services">Apliance Services</option>
                 {/* Add more options as needed */}
               </select>
-              <button onClick={handleSave}>Save</button>
+              
             </div>
             <div className='input_servicedescrip'>
               <label htmlFor="description">Description:</label>
@@ -1626,6 +1626,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
               </select>
               <label htmlFor="hourlyRate">Hourly Rate:</label>
               <input type="text" id="hourlyRate" name="hourlyRate" />
+              <button onClick={handleSave}>Save</button>
             </div>
           </div>
         </div>
@@ -1745,7 +1746,6 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
                  <div className="smallanalytics-container">November | R1000</div>
                  <div className="smallanalytics-container">December | R1000</div>
                </div>
-               
                <button onClick={handleDownloadpdf} style={{marginTop: '45px'}}>Download PDF</button>
              </div>
              
@@ -1839,9 +1839,7 @@ onClick={() => setExpandedPendingServices(!expandedPendingServices)}>
   color: #FF0066;
   border: none;
   padding: 8px 18px;
-  
   margin: 0 auto;
-  
   font-size: 14px;
   font-weight: bold;
   border-radius: 5px;
@@ -1861,16 +1859,12 @@ height: 100vh;
 position: fixed;
 left: 0;
 top: 0;
-
-  
- 
 }
 .UserDashboard{
   margin: 0;
   padding: 0;
 }
 .dashcontent{
-        
   width: 150px;
   padding: 0px;
   margin-left: 0px;
@@ -1983,9 +1977,114 @@ padding: 5px;
     font-size: 14px;
   }
 }
-  .AddingConatiner{
-    width: 940px;
+ .AddingContainer {
+  width: 940px; /* Initial width for larger screens */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+  .AddingContainer .input_serviceavail button {
+  width: 100px; /* Set the width of the button */
+  height: 40px; /* Set the height of the button */
+  background-color: #ff0066; /* Set the background color */
+  color: white; /* Set the text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer */
+  font-size: 16px; /* Set font size */
+  margin-top: 10px; /* Add margin for spacing */
+  align-self: flex-start; /* Align button to the start (left) */
+  padding: 0; /* Remove padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddingContainer .input_serviceavail button:hover {
+  background-color: #e6005c; /* Darker background color on hover */
+}
+
+.AddingContainer .input_serviceavail button:active {
+  background-color: #cc0052; /* Even darker background color on active */
+}
+
+.AddingContainer .service1, .AddingContainer .service2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.AddingContainer .imgsev1 {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.AddingContainer .descrip1 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.AddingContainer .input_servicephoto button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.AddingContainer .input_servicephoto button i {
+  margin-right: 10px;
+  background-color:#ff0066;
+}
+
+@media screen and (max-width: 600px) {
+  .AddingContainer {
+    width: 100%; /* Full width for mobile screens */
+    padding: 10px; /* Adjust padding for mobile screens */
   }
+
+  .AddingContainer .service1, .AddingContainer .service2 {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .AddingContainer .imgsev1 {
+    margin: 0 0 20px 0; /* Adjust margin for mobile screens */
+  }
+
+  .AddingContainer .descrip1 {
+    width: 100%; /* Full width for description */
+  }
+
+  .AddingContainer .input_servicephoto button {
+    width: 100%; /* Full width button for mobile screens */
+    padding: 15px; /* Adjust padding for mobile screens */
+  }
+
+  .AddingContainer .input_servicename, .AddingContainer .input_servicedescrip, .AddingContainer .input_serviceavail {
+    width: 100%; /* Full width for inputs */
+    margin-bottom: 20px; /* Add margin for spacing */
+  }
+
+  .AddingContainer label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .AddingContainer select, .AddingContainer textarea, .AddingContainer input[type="text"] {
+    width: 100%; /* Full width inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
   .service1{
     display: flex;
     width: 100%
@@ -2034,11 +2133,15 @@ border-radius: 5px;
    
     
   } 
-  
+  .ScrollableContainer6{ 
+  height: 790px; 
+  overflow-y: auto; 
+    padding: 10px;
+    }
    .ScrollableContainer0 {
-  height: 610px; /* Set a fixed height */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 10px; /* Optional: Add padding */
+  height: 610px; 
+  overflow-y: auto; 
+    padding: 10px; 
   }
      .ScrollableContainer3 {
   height: 1000px; /* Set a fixed height */
@@ -2047,7 +2150,7 @@ border-radius: 5px;
 
   }
     .ScrollableContainer2 {
-  height: 600px; /* Set a fixed height */
+  height: 650px; /* Set a fixed height */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px; /* Optional: Add padding */
 
@@ -2133,7 +2236,7 @@ width: 940px;
     margin-top: 20px;
   }
   @media (max-width: 600px) {
-  .AddingConatiner, .myserviceheader {
+ .myserviceheader {
     width: 100%;
   }
 
@@ -3991,9 +4094,6 @@ border-radius: 10px;
   width: 180px;
   height: 100%;
   left: 0;
-
- 
-  
 }
 
 
@@ -4021,7 +4121,7 @@ border-radius: 10px;
 
     .profile-picture {
      
-      background-color: #fff;
+      background-color: #fff;s
       align-items: center;
       width: 80px; 
       height: 80px; /* Adjust the size as needed */
@@ -4360,7 +4460,151 @@ border-radius: 30px;
   display: none;
  }
 
- 
+
+@media (min-width: 601px) and (max-width: 1024px) {
+.totalrevenue-container {
+    height: auto; /* Adjust height for iPads */
+    width: 500px; /* Adjust width to fit the screen */
+    padding: 15px; /* Adjust padding for iPads */
+    margin-left: 0; /* Reset margin-left for better alignment on iPads */
+    margin-top: 20px; /* Adjust margin-top for iPads */
+  }
+
+ .analytics-container {
+    height: auto; /* Adjust height for iPads */
+    width: 700px; /* Adjust width to fit the screen */
+    padding: 15px; /* Adjust padding for iPads */
+    margin-top: 20px; /* Adjust margin-top for iPads */
+  }
+
+ .top-containers {
+    flex-direction: row; /* Stack items vertically on iPads */
+    align-items: center; /* Center items horizontally */
+    gap: 15px; /* Add space between items */
+    width:200px;
+  }
+
+ .myserviceheader {
+    width: 700px; /* Adjust width for iPads */
+    height: auto; /* Adjust height for content */
+    align-items: center; /* Center items on iPads */
+  }
+
+
+.customers-container {
+    padding: 15px;
+    margin-left: 0; /* Adjust margin for better alignment on iPads */
+
+  }
+  .info {
+    margin-left: 0; /* Reset margin for better alignment on iPads */
+    padding: 15px; /* Adjust padding for iPads */
+  }
+    
+  .small-containers-container {
+    flex-direction: row; /* Stack items vertically on iPads */
+    gap: 10px; /* Add space between items */
+    width:800px;
+  }
+    .small-container {
+    height: 80px; /* Adjust height for iPads */
+    font-size: 14px; /* Adjust font size for readability */
+    padding: 8px; /* Adjust padding for iPads */
+  }
+
+
+ .orderslist {
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    width:750px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .grid-container .item1,
+  .grid-container .item2,
+  .grid-container .item3 {
+    width:400px;
+    margin-bottom: 0; /* Remove margin-bottom for grid layout */
+  }
+
+
+.Profiletab {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .Dash-Container {
+    padding: 15px;
+  }
+.metrics2{
+    flex-direction: row;
+    gap: 10px;
+    }
+
+  .metrics  {
+    flex-direction: row;
+    gap: 10px;
+    width:580px;
+  }
+
+  .servicesdone, .pendingservices, .Rewards {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
+  .progress-circle {
+    width: 100%;
+  }
+
+  .circle-progress {
+    width: 45px;
+    height: 45px;
+  }
+
+  .container {
+    gap: 10px;
+    
+  }
+
+  .set {
+    flex-direction: column;
+    gap: 5px;
+   
+  }
+
+  .set:nth-child(2) .updates-Container {
+    width: 250px; /* Width of the containers in the middle */
+  }
+  
+  .set:nth-child(1) .updates-Container,
+  .set:nth-child(3) .updates-Container {
+    width: 150px; /* Width of the containers on the left and right */
+  }
+  .updates-Container {
+    width: 100px;
+  }
+
+  .star {
+    font-size: 18px;
+  }
+
+
+  .services-container {
+    width: 80%;
+    padding: 20px;
+    margin-left: 20px;
+    height:700px;
+  }
+
+  .services-wrapper {
+    flex-direction: column;
+  }
+}
 
  .progress-circle {
   position: relative;
@@ -4725,7 +4969,7 @@ right: -30px;
 }
 
 .set:nth-child(2) .updates-Container {
-  width: 80px; /* Width of the containers in the middle */
+  width: 70px; /* Width of the containers in the middle */
 }
 
 .set:nth-child(1) .updates-Container,
@@ -4740,33 +4984,26 @@ right: -30px;
 
 @media screen and (max-width: 600px) {
   .metrics {
-    flex-direction: column;
-    width: 90%;
+    flex-direction: row;
+    width: 100%;
     margin-left: 0;
   }
 
-  .servicesdone, .pendingservices, .Rewards {
-    width: 100%;
+ .servicesdone, .pendingservices, .Rewards {
+    flex: 1 1 30%; /* Allow the items to grow, shrink, and take 30% of the container width */
     margin-left: 0;
     margin-bottom: 10px;
-    height:80px;
+    height: 80px;
+    margin-right: 10px; /* Add margin to the right for spacing */
   }
 
 
   .progress-circle {
-    top: 0; /* Adjust the top position */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    margin-top: -5px; /* Adjust margin for spacing */
-    margin-left:10px;
+   display:none;
   }
 
   .progress-circle span {
-    top: 50%; /* Center vertically */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-left:50px;
-    margin-top:-40px;
+    display:none;
   }
 
   .popular_heading {
@@ -5200,9 +5437,7 @@ margin-left:100px;
  
  
   }
-  .AddingConatiner{
-    width: 100px;
-  }
+
   .service1{
     display: flex;
     width: 100%
