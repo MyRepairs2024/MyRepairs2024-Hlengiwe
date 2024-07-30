@@ -64,12 +64,24 @@ const Dashheader= () =>{
 
 
         <style jsx>{`
+
+
+/* Styles for iPads */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 15px; /* Adjust padding for iPads */
+    height: auto; /* Allow height to adjust based on content */
+  }
+    .navigation {
+    margin-right:100px;
+    }
+}
  .header {
   z-index: 1111;
 }
 
 .container {
-  width: 950px;
+  width: 900px;
   border-bottom: 2px solid #ff0066;
   justify-content: space-between;
   display: flex;
@@ -139,6 +151,7 @@ const Dashheader= () =>{
   cursor: pointer;
   transition: background-color 0.3s;
   position: relative;
+
 }
 
 .btn-login::after {
