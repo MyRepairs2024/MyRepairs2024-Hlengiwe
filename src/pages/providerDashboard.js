@@ -2143,6 +2143,12 @@ border-radius: 5px;
   overflow-y: auto; 
     padding: 10px; 
   }
+    @media (min-width: 375px) and (max-width: 667px) {
+  .ScrollableContainer0 {
+    height: 480px; /* Adjust height for smaller screens */
+    padding: 8px; /* Adjust padding for better fit */
+  }
+}
      .ScrollableContainer3 {
   height: 1000px; /* Set a fixed height */
   overflow-y: auto; /* Enable vertical scrolling */
@@ -2155,13 +2161,26 @@ border-radius: 5px;
   padding: 10px; /* Optional: Add padding */
 
   }
-
+/* Styles for Nest Hub Max */
+@media (min-width: 1280px) and (max-width: 800px) {
+  .ScrollableContainer2 {
+    height: 500px; /* Adjust height for better fit on larger screens */
+    padding: 15px; /* Adjust padding for better aesthetics */
+  }
+}
      .ScrollableContainer4 {
-  height: 650px; /* Set a fixed height */
+  height: 330px; /* Set a fixed height */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px; /* Optional: Add padding */
 
   }
+  /* Styles for Nest Hub Max */
+@media (min-width: 1280px) and (max-width: 800px) {
+  .ScrollableContainer4 {
+    height: 600px; /* Adjust height for better fit on larger screens */
+    padding: 15px; /* Adjust padding for better aesthetics */
+  }
+}
   .myserviceheader{
     display: flex;
     justify-content: space-between;
@@ -2631,10 +2650,7 @@ font-size: 14px;
     
 
   }
-  .info {
-    display: flex;
-    justify-content: space-between; /* Optional: Adjust this based on your layout preferences */   
-  }
+  
   .info-item {
     display: flex;
     flex-direction: column;
@@ -2872,11 +2888,11 @@ font-size: 14px;
   background-color: #fff;
   padding: 20px;
   height: 200px;
-  width: 500px;
+  width: 300px;
   border: 3px solid #ff0066;
   border-radius: 10px;
-  margin-left: 350px;
-  margin-top: -90px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .tiny-container {
@@ -3004,11 +3020,15 @@ font-size: 14px;
   .services-container {
     width: 100%; /* Full width */
     margin-left: 0; /* Remove margin left */
-  height:530px;
+    height:530px;
     }
-
+    .totalrevenue-container{
+    width: 200px; /* Full width */
+    margin-left: 0px; /* Remove margin left */
+    margin-top: 20px; /* Adjust margin top */
+}
   .analytics-container,
-  .totalrevenue-container {
+   {
     width: 100%; /* Full width */
     margin-left: 0; /* Remove margin left */
     margin-top: 20px; /* Adjust margin top */
@@ -4396,6 +4416,8 @@ border-radius: 10px;
         width: 100px;
     }
 }
+
+
  .des{
    padding: 3px;
    text-align: center;
@@ -4464,7 +4486,7 @@ border-radius: 30px;
 @media (min-width: 601px) and (max-width: 1024px) {
 .totalrevenue-container {
     height: auto; /* Adjust height for iPads */
-    width: 500px; /* Adjust width to fit the screen */
+    width: 200px; /* Adjust width to fit the screen */
     padding: 15px; /* Adjust padding for iPads */
     margin-left: 0; /* Reset margin-left for better alignment on iPads */
     margin-top: 20px; /* Adjust margin-top for iPads */
@@ -4489,7 +4511,6 @@ border-radius: 30px;
     height: auto; /* Adjust height for content */
     align-items: center; /* Center items on iPads */
   }
-
 
 .customers-container {
     padding: 15px;
@@ -4517,7 +4538,7 @@ border-radius: 30px;
     height: auto;
     padding: 10px;
     margin: 10px;
-    width:750px;
+    width:250px;
   }
 
   .grid-container {
@@ -4529,7 +4550,7 @@ border-radius: 30px;
   .grid-container .item1,
   .grid-container .item2,
   .grid-container .item3 {
-    width:400px;
+    width:200px;
     margin-bottom: 0; /* Remove margin-bottom for grid layout */
   }
 
@@ -4549,32 +4570,30 @@ border-radius: 30px;
   .metrics  {
     flex-direction: row;
     gap: 10px;
-    width:580px;
+    width:450px;
   }
 
   .servicesdone, .pendingservices, .Rewards {
-    width: 50%;
+    width: 100px;
     margin-bottom: 15px;
   }
 
   .progress-circle {
-    width: 100%;
+    dispaly:none;
   }
 
   .circle-progress {
-    width: 45px;
-    height: 45px;
+  display:none;
   }
 
   .container {
     gap: 10px;
-    
   }
 
   .set {
     flex-direction: column;
-    gap: 5px;
-   
+    gap: 0px;
+ 
   }
 
   .set:nth-child(2) .updates-Container {
@@ -4605,7 +4624,28 @@ border-radius: 30px;
     flex-direction: column;
   }
 }
+@media (min-width: 375px) and (max-width: 812px) {
+  .info {
+    padding: 10px; /* Adjust padding for iPhone X */
+    margin-left: -460px; /* Ensure no left margin for better alignment on iPhone X */
+  }
 
+  .info-item.pink {
+    padding: 8px; /* Slightly adjust padding for iPhone X */
+    margin-right: 160px; /* Further adjust margin for better fit */
+    width:200px;
+  }
+
+  .info-item.pink p {
+    font-size: 12px; /* Adjust font size for iPhone X */
+  }
+     .small-containers-container {
+    margin-left: 0; /* Reset margin for better alignment on iPhone X */
+    margin-top: 20px; /* Slightly adjust margin-top for iPhone X */
+    padding: 15px; /* Adjust padding for smaller screens */
+    
+  }
+}
  .progress-circle {
   position: relative;
   width: 60px;
@@ -4978,14 +5018,33 @@ right: -30px;
 }
 }
 
-
+/* Styles for iPhone 6/7/8 */
+@media (min-width: 375px) and (max-width: 667px) {
+  .container {
+    flex-direction: row; /* Stack items vertically on smaller screens */
+  }
+    .set {
+    margin: 0; /* Adjust margin for smaller screens */
+  }
+     .updates-Container p {
+    font-size: 12px; /* Slightly adjust font size */
+    margin: 10px 0; /* Adjust margins for smaller screens */
+    padding: 0; /* Ensure no extra padding */
+  }
+    
+  .updates-Container {
+    width: 50%; /* Adjust width to fit the screen */
+    height: 150px; /* Adjust height for better fit */
+    margin: 10px 0; /* Adjust margins for smaller screens */
+  }
+}
 
 
 
 @media screen and (max-width: 600px) {
   .metrics {
     flex-direction: row;
-    width: 100%;
+    width: 50%;
     margin-left: 0;
   }
 
@@ -5186,28 +5245,100 @@ right: -30px;
     margin-top: 10px; /* Adjust spacing as needed */
   }    
   }
-
-  @media (max-width: 768px) {
+/* Styles for iPad Pro */
+@media (min-width: 1025px) and (max-width: 1366px) {
   .orderslist {
-    height: 400px; 
+    height: 500px; 
+    width:500px;
   }
 
   .grid-container {
     display: block; /* Stack items vertically */
   }
 
- .grid-container .item1,
-  .grid-container .item2{
+  .grid-container .item1,
+  .grid-container .item2 {
     width: 100%; /* Full width for each item */
-    margin-bottom: 10px; /* Space between items */
+    margin-bottom: 15px; /* Increased space between items for iPad Pro */
   }
 
   .grid-container .item3 {
     width: 100%; /* Full width for each item */
-    margin-bottom: 10px; /* Space between items */
-    font-size: 10px;
-
+    margin-bottom: 15px; /* Increased space between items */
+    font-size: 14px; /* Adjust font size for better readability on iPad Pro */
   }
+    .metrics2{
+    flex-direction: row;
+    gap: 10px;
+    }
+
+  .metrics  {
+    flex-direction: row;
+    gap: 10px;
+    width:580px;
+  }
+
+  .servicesdone, .pendingservices, .Rewards {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
+  .progress-circle {
+    width: 100%;
+  }
+
+  .circle-progress {
+    width: 45px;
+    height: 45px;
+  }
+
+  .container {
+    gap: 10px;
+    
+  }
+
+  .set {
+    flex-direction: column;
+    gap: 5px;
+   
+  }
+
+  .set:nth-child(2) .updates-Container {
+    width: 250px; /* Width of the containers in the middle */
+  }
+  
+  .set:nth-child(1) .updates-Container,
+  .set:nth-child(3) .updates-Container {
+    width: 150px; /* Width of the containers on the left and right */
+  }
+  .updates-Container {
+    width: 100px;
+  }
+
+  .star {
+    font-size: 18px;
+  }
+
+
+  .services-container {
+    width: 80%;
+    padding: 20px;
+    margin-left: 20px;
+    height:700px;
+  }
+
+  .services-wrapper {
+    flex-direction: column;
+  }
+}
+
+
+
+
+  @media (max-width: 768px) {
+  
+
+  
 
   .contact-customer {
     width: 100%; /* Full width button */
@@ -5317,7 +5448,7 @@ right: -30px;
     flex-direction: column;
   }
 
-  .smallanalytics-container, .tiny-container, .totalrevenue-container, .item10, .item11, .item12, .item13 {
+  .smallanalytics-container, .tiny-container,  .item10, .item11, .item12, .item13 {
     width: 250px;
     margin: 5px 0;
   }
@@ -5344,16 +5475,7 @@ right: -30px;
   }
   
 
-.totalrevenue-container {
-  background-color: #fff;
-  padding: 20px;
-  height: 200px;
-  width: 300px;
-  border: 3px solid #ff0066;
-  border-radius: 10px;
-  margin-left: 350px;
-  margin-top: -90px;
-}
+
 
 .tiny-container {
   width: 245px;
