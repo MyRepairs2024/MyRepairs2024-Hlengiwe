@@ -2169,7 +2169,7 @@ border-radius: 5px;
   }
 }
      .ScrollableContainer4 {
-  height: 330px; /* Set a fixed height */
+  height: 650px; /* Set a fixed height */
   overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px; /* Optional: Add padding */
 
@@ -2866,7 +2866,7 @@ font-size: 14px;
   border: 3px solid #ff0066;
   border-radius: 10px;
   margin-top: 30px;
-
+ overflow: auto;
 
 }
 
@@ -4482,170 +4482,6 @@ border-radius: 30px;
   display: none;
  }
 
-
-@media (min-width: 601px) and (max-width: 1024px) {
-.totalrevenue-container {
-    height: auto; /* Adjust height for iPads */
-    width: 200px; /* Adjust width to fit the screen */
-    padding: 15px; /* Adjust padding for iPads */
-    margin-left: 0; /* Reset margin-left for better alignment on iPads */
-    margin-top: 20px; /* Adjust margin-top for iPads */
-  }
-
- .analytics-container {
-    height: auto; /* Adjust height for iPads */
-    width: 700px; /* Adjust width to fit the screen */
-    padding: 15px; /* Adjust padding for iPads */
-    margin-top: 20px; /* Adjust margin-top for iPads */
-  }
-
- .top-containers {
-    flex-direction: row; /* Stack items vertically on iPads */
-    align-items: center; /* Center items horizontally */
-    gap: 15px; /* Add space between items */
-    width:200px;
-  }
-
- .myserviceheader {
-    width: 700px; /* Adjust width for iPads */
-    height: auto; /* Adjust height for content */
-    align-items: center; /* Center items on iPads */
-  }
-
-.customers-container {
-    padding: 15px;
-    margin-left: 0; /* Adjust margin for better alignment on iPads */
-
-  }
-  .info {
-    margin-left: 0; /* Reset margin for better alignment on iPads */
-    padding: 15px; /* Adjust padding for iPads */
-  }
-    
-  .small-containers-container {
-    flex-direction: row; /* Stack items vertically on iPads */
-    gap: 10px; /* Add space between items */
-    width:800px;
-  }
-    .small-container {
-    height: 80px; /* Adjust height for iPads */
-    font-size: 14px; /* Adjust font size for readability */
-    padding: 8px; /* Adjust padding for iPads */
-  }
-
-
- .orderslist {
-    height: auto;
-    padding: 10px;
-    margin: 10px;
-    width:250px;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .grid-container .item1,
-  .grid-container .item2,
-  .grid-container .item3 {
-    width:200px;
-    margin-bottom: 0; /* Remove margin-bottom for grid layout */
-  }
-
-
-.Profiletab {
-    flex-direction: column;
-    padding: 20px;
-  }
-  .Dash-Container {
-    padding: 15px;
-  }
-.metrics2{
-    flex-direction: row;
-    gap: 10px;
-    }
-
-  .metrics  {
-    flex-direction: row;
-    gap: 10px;
-    width:450px;
-  }
-
-  .servicesdone, .pendingservices, .Rewards {
-    width: 100px;
-    margin-bottom: 15px;
-  }
-
-  .progress-circle {
-    dispaly:none;
-  }
-
-  .circle-progress {
-  display:none;
-  }
-
-  .container {
-    gap: 10px;
-  }
-
-  .set {
-    flex-direction: column;
-    gap: 0px;
- 
-  }
-
-  .set:nth-child(2) .updates-Container {
-    width: 250px; /* Width of the containers in the middle */
-  }
-  
-  .set:nth-child(1) .updates-Container,
-  .set:nth-child(3) .updates-Container {
-    width: 150px; /* Width of the containers on the left and right */
-  }
-  .updates-Container {
-    width: 100px;
-  }
-
-  .star {
-    font-size: 18px;
-  }
-
-
-  .services-container {
-    width: 80%;
-    padding: 20px;
-    margin-left: 20px;
-    height:700px;
-  }
-
-  .services-wrapper {
-    flex-direction: column;
-  }
-}
-@media (min-width: 375px) and (max-width: 812px) {
-  .info {
-    padding: 10px; /* Adjust padding for iPhone X */
-    margin-left: -460px; /* Ensure no left margin for better alignment on iPhone X */
-  }
-
-  .info-item.pink {
-    padding: 8px; /* Slightly adjust padding for iPhone X */
-    margin-right: 160px; /* Further adjust margin for better fit */
-    width:200px;
-  }
-
-  .info-item.pink p {
-    font-size: 12px; /* Adjust font size for iPhone X */
-  }
-     .small-containers-container {
-    margin-left: 0; /* Reset margin for better alignment on iPhone X */
-    margin-top: 20px; /* Slightly adjust margin-top for iPhone X */
-    padding: 15px; /* Adjust padding for smaller screens */
-    
-  }
-}
  .progress-circle {
   position: relative;
   width: 60px;
@@ -5049,11 +4885,11 @@ right: -30px;
   }
 
  .servicesdone, .pendingservices, .Rewards {
-    flex: 1 1 30%; /* Allow the items to grow, shrink, and take 30% of the container width */
+    flex: 1 1 30%;
     margin-left: 0;
     margin-bottom: 10px;
     height: 80px;
-    margin-right: 10px; /* Add margin to the right for spacing */
+    margin-right: 10px; 
   }
 
 
@@ -5245,95 +5081,6 @@ right: -30px;
     margin-top: 10px; /* Adjust spacing as needed */
   }    
   }
-/* Styles for iPad Pro */
-@media (min-width: 1025px) and (max-width: 1366px) {
-  .orderslist {
-    height: 500px; 
-    width:500px;
-  }
-
-  .grid-container {
-    display: block; /* Stack items vertically */
-  }
-
-  .grid-container .item1,
-  .grid-container .item2 {
-    width: 100%; /* Full width for each item */
-    margin-bottom: 15px; /* Increased space between items for iPad Pro */
-  }
-
-  .grid-container .item3 {
-    width: 100%; /* Full width for each item */
-    margin-bottom: 15px; /* Increased space between items */
-    font-size: 14px; /* Adjust font size for better readability on iPad Pro */
-  }
-    .metrics2{
-    flex-direction: row;
-    gap: 10px;
-    }
-
-  .metrics  {
-    flex-direction: row;
-    gap: 10px;
-    width:580px;
-  }
-
-  .servicesdone, .pendingservices, .Rewards {
-    width: 50%;
-    margin-bottom: 15px;
-  }
-
-  .progress-circle {
-    width: 100%;
-  }
-
-  .circle-progress {
-    width: 45px;
-    height: 45px;
-  }
-
-  .container {
-    gap: 10px;
-    
-  }
-
-  .set {
-    flex-direction: column;
-    gap: 5px;
-   
-  }
-
-  .set:nth-child(2) .updates-Container {
-    width: 250px; /* Width of the containers in the middle */
-  }
-  
-  .set:nth-child(1) .updates-Container,
-  .set:nth-child(3) .updates-Container {
-    width: 150px; /* Width of the containers on the left and right */
-  }
-  .updates-Container {
-    width: 100px;
-  }
-
-  .star {
-    font-size: 18px;
-  }
-
-
-  .services-container {
-    width: 80%;
-    padding: 20px;
-    margin-left: 20px;
-    height:700px;
-  }
-
-  .services-wrapper {
-    flex-direction: column;
-  }
-}
-
-
-
 
   @media (max-width: 768px) {
   

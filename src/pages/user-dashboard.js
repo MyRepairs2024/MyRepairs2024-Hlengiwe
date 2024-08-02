@@ -1424,7 +1424,7 @@ const [formData1, setFormData1] = useState({
   <button className='filterservices1' onClick={handleFilter}>Filter Services</button>
 
 </div>
-  <div className='my_services'>
+ 
     <div className='services_services'
    
     >  {filteredServices.map((service) => (
@@ -1437,7 +1437,7 @@ const [formData1, setFormData1] = useState({
       </div>
     ))}
     </div>
-    </div>
+    
     </div>  
 
 
@@ -2067,7 +2067,7 @@ const [formData1, setFormData1] = useState({
    overflow: auto;
   margin-left:200px;
   margin:0;
-  height:650px;
+  height:620px;
 }
   .ScrollableContainer1 {
    overflow: auto;
@@ -2627,6 +2627,7 @@ right: -30px;
         font-weight: bold;
         color: #fff;
       }
+ 
       .filterservices1{
         background: #21B6A8;
         color: #fff;
@@ -2638,11 +2639,9 @@ right: -30px;
         width: 100px;
         height: 40px;
         right: 80px;
-        margin-top: 100px;
-       
-        
-
+        margin-top: 100px;     
       }
+
       filter-email{
         border: none;
         border-style: none;
@@ -3398,29 +3397,41 @@ border-radius: 10px;
       bottom: 78%;
     }
 
+    @media only screen and (max-width: 768px) {
+      .container2 {
+        gap: 3px; /* Further reduce gap for smaller screens */
+        padding: 3px; /* Further reduce padding for smaller screens */
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .container2 {
+        gap: 2px; /* Further reduce gap for very small screens */
+        padding: 2px; /* Further reduce padding for very small screens */
+      }
+    }
+    
+  
     .container2 {
-      display: flex; /* Use flexbox */
-      gap:100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; /* Use flex-start to align items to the start of the container */
+  gap: 10px; /* Adjust gap between items to reduce spacing */
+  padding: 5px; /* Reduce padding inside the container */
+  margin: 0; /* Ensure there is no margin affecting spacing */
       justify-content: space-between; /* Distribute space between the containers */
     }
 
-    .container2 {
-      display: flex;
-      justify-content: flex-start;
-      align-items: left;
-      
-    }
-
    
    
 
-/* .set {
+ .set {
   display: flex;
   flex-direction: column;
   align-items: left;
   background-color: transparent;
   margin-right: auto; /* Push updates container to the left */
-}*/
+}
 
 
 /*search button*/}
@@ -3834,13 +3845,28 @@ margin-left: -19px;
  .metrics hr{
   display: none;
  }
-
-
+    .metrics2{
+      border-radius: 10px;
+      display: flex;
+     justify-content: space-between;
+      width: 750px;
+      margin-top: 20px;
+      margin-left: 0px;
+      padding: 0;
+   
+ }
+ .metrics2 hr{
+  display: none;
+ }
+.naming{
+margin-top:40px;
+}
      .progress-circle {
       position: relative;
       width: 60px;
       height: 60px;
-      margin: 0 auto;
+      margin-top:10px;
+      margin-left:70px;
     }
     
     .circle-progress {
@@ -3893,6 +3919,7 @@ margin-left: -19px;
       color: azure;
       height: 100px;
       width: 200px;
+      font-size: 12px;
       border-radius: 10px;
       background-color:#ff0066;
       cursor: pointer;
@@ -3902,6 +3929,7 @@ margin-left: -19px;
       color: azure;
       height: 100px;
       width: 200px;
+      font-size: 12px;
       border-radius: 10px;
       background-color:#ff0066;
       cursor: pointer;
@@ -3912,6 +3940,195 @@ margin-left: -19px;
   margin-top: -20px;
   clear: both;
 }
+@media only screen and (max-width: 1024px) and (orientation: portrait),
+       only screen and (max-width: 1366px) and (orientation: portrait) {
+    .Dash-Container2 {
+    padding: 15px; /* Adjust padding for iPad */
+    margin-top: 50px; /* Adjust margin-top for better fit */
+    margin-left: 30px; /* Adjust margin-left for better fit */
+  }
+  .metrics {
+    width: 100%; /* Adjust width for portrait mode */
+    margin-left: 0; /* Adjust left margin for better fit */
+  }
+  
+  .metrics2 {
+    width: 100%; /* Adjust width for portrait mode */
+    margin-left: -20px; /* Adjust left margin for better fit */
+  }
+
+  .progress-circle {
+    width: 50px; /* Adjust width for smaller screens */
+    height: 50px; /* Adjust height for smaller screens */
+    margin-left: 30px; /* Adjust left margin for better fit */
+  }
+
+  .servicesdone,
+  .pendingservices,
+  .Rewards {
+    width: 150px; /* Adjust width for portrait mode */
+    margin-left: 0; /* Adjust left margin for better fit */
+    font-size: 10px; /* Adjust font size for better readability */
+  }
+    .container {
+    flex-direction: colomn; /* Stack child elements vertically for portrait mode */
+    gap: 1px; /* Adjust gap for better spacing */
+    justify-content: center; /* Center justify content for better fit */
+  }
+    .container2 {
+    gap: 4px; /* Further reduce gap for tablets */
+    padding: 4px; /* Further reduce padding for tablets */
+  }
+    .set {
+    flex-direction: column; /* Stack items vertically for portrait mode */
+    align-items: flex-start; /* Align items to the start */
+  
+  }
+
+  .set .updates-Container {
+    width: 200px; /* Full width for mobile screens */
+    margin-bottom: 10px; /* Adjust margin for better spacing */
+  }
+
+  .set:nth-child(2) .updates-Container,
+  .set:nth-child(1) .updates-Container,
+  .set:nth-child(3) .updates-Container {
+    width: 150px; /* Full width for each container */
+  } 
+    .set2 {
+    flex-direction: column; /* Stack items vertically for portrait mode */
+    align-items: flex-start; /* Align items to the start */
+  
+  }
+
+  .set2 .updates-Container2 {
+    width: 200px; /* Full width for mobile screens */
+    margin-bottom: 10px; /* Adjust margin for better spacing */
+  }
+
+  .set2:nth-child(2) .updates-Container2,
+  .set2:nth-child(1) .updates-Container2,
+  .set2:nth-child(3) .updates-Container2 {
+    width: 150px; /* Full width for each container */
+  } 
+
+  /* Column alignment for smaller screens */
+  .container {
+    display: flex;
+    flex-direction: column; /* Align children in a column */
+    gap: 10px; /* Add spacing between elements */
+  }
+    .filters-search {
+    flex-direction: column; /* Stack filters vertically */
+    width: 100%; /* Full width for better fit */
+    padding: 15px; /* Adjust padding */
+    height:150px;
+    }
+
+  .searchfilters {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .radiofilters {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .radiofilters2 {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .filterservices1 {
+    width: 120px; /* Full width button */
+    margin-top: 90px; /* Space above button */
+      }
+
+      }
+
+
+@media only screen and (max-width: 1024px) and (orientation: landscape),
+       only screen and (max-width: 1366px) and (orientation: landscape) {
+          .Dash-Container2 {
+    padding: 15px; /* Adjust padding for iPad */
+    margin-top: 50px; /* Adjust margin-top for better fit */
+    margin-left: 30px; /* Adjust margin-left for better fit */
+  }
+  .metrics {
+    width: 100%; /* Adjust width for landscape mode */
+    margin-left: 0; /* Adjust left margin for better fit */
+  }
+  .metrics2 {
+    width: 100%; /* Adjust width for landscape mode */
+    margin-right: 100px; /* Adjust left margin for better fit */
+  }
+  .progress-circle {
+    width: 50px; /* Adjust width for smaller screens */
+    height: 50px; /* Adjust height for smaller screens */
+    margin-left: 30px; /* Adjust left margin for better fit */
+  }
+
+  .servicesdone,
+  .pendingservices,
+  .Rewards {
+    width: 150px; /* Adjust width for landscape mode */
+    margin-left: 0; /* Adjust left margin for better fit */
+    font-size: 10px; /* Adjust font size for better readability */
+  }
+
+  .container {
+    flex-direction: colomn; /* Maintain row direction for landscape mode */
+    gap: 1px; /* Adjust gap for better spacing */
+    justify-content: space-around; /* Adjust justify-content for better fit */
+  }
+   .container2 {
+    gap: 4px; /* Further reduce gap for tablets */
+    padding: 4px; /* Further reduce padding for tablets */
+  }
+    .set {
+    flex-direction: row; /* Maintain row direction for landscape mode */
+    align-items: flex-start; /* Align items to the start */
+   
+  }
+
+  .set .updates-Container {
+    width: 50%; /* Slightly reduce width for landscape mode */
+    margin-bottom: 15px; /* Adjust margin for better spacing */
+  }
+
+  .set:nth-child(2) .updates-Container,
+  .set:nth-child(1) .updates-Container,
+  .set:nth-child(3) .updates-Container {
+    width: 150px; /* Full width for each container */
+  }
+ .filters-search {
+    flex-direction: column; /* Stack filters vertically */
+    width: 100%; /* Full width for better fit */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .searchfilters {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .radiofilters {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .radiofilters2 {
+    width: 100%; /* Full width for filters */
+    margin-bottom: 15px; /* Space between filter groups */
+  }
+
+  .filterservices1 {
+    width: 100%; /* Full width button */
+    margin-top: 150px; /* Space above button */
+  }
+}
+
 
 @media screen and (max-width: 600px) {
   .metrics {
@@ -3959,15 +4176,22 @@ margin-left: -19px;
   background-color: #f4f4f4; 
   margin-top:10px;
 }
+.Dash-Container2 {
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack child elements vertically */
+  padding: 5px; /* Adjust padding as needed */
+  background-color: #f4f4f4; /* Light background color */
+   margin-top:300px;
+   margin-left:-20px;
+}
 .Dash-Container3 {
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   padding: 20px; /* Adjust padding as needed */
   background-color: #f4f4f4; /* Light background color */
-   margin-top:-150px;
+   margin-top:120px;
    margin-left:-20px;
 }
-
 /*Code for the Dividing line*/
 .popularservice_heading:before{
   content: '';
@@ -4011,16 +4235,6 @@ margin-left: -19px;
         border-left: 2px solid #ff0068;
         border-right: 2px solid #ff0068;
 
-}
-.my_services{
-  height: 260px;
-  overflow: auto;
-  width: 950px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-top: 30px;
-  border-left: 2px solid #ff0068;
-  border-right: 2px solid #ff0068;
 }
 
 @media (max-width: 768px){
@@ -4120,14 +4334,6 @@ a{
   margin: 0;
   width: 100%;
 }
-
-
-.Rewards{
-  width: 80px;
-  height: 70px;
-  font-size: 12px;
-  font-family: poppins;
-}
 progress{
   display: none;
 }
@@ -4177,13 +4383,7 @@ color: blue;
   margin-top: 20px;
   margin-left:-10px;
 }
-.my_services{
-  width: 100%;
-  padding: 20;
-  margin: 0;
-  margin-top: 20px;
-  margin-left:-10px;
-}
+
 .registration-form{
   width: 280px;
   margin: 0;
@@ -4220,16 +4420,11 @@ color: blue;
   padding: 0;
   }
   .services_tab {
-    height: 450px;
+    height: 200px;
     overflow: auto;
-    width: 100%;
+    width: 550px;
     padding: 10px;
     margin-left: 0px;
-  }
-  .filters-search{
-    width: 100%;
-    margin: 0;
-    
   }
 
 
