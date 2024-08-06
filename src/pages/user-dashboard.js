@@ -2067,7 +2067,7 @@ const [formData1, setFormData1] = useState({
    overflow: auto;
   margin-left:200px;
   margin:0;
-  height:620px;
+  height:750px;
 }
   .ScrollableContainer1 {
    overflow: auto;
@@ -3942,9 +3942,10 @@ margin-top:40px;
 }
 @media only screen and (max-width: 1024px) and (orientation: portrait),
        only screen and (max-width: 1366px) and (orientation: portrait) {
-    .Dash-Container2 {
+    
+     .Dash-Container3 {
     padding: 15px; /* Adjust padding for iPad */
-    margin-top: 50px; /* Adjust margin-top for better fit */
+    margin-top: 150px; /* Adjust margin-top for better fit */
     margin-left: 30px; /* Adjust margin-left for better fit */
   }
   .metrics {
@@ -4044,7 +4045,10 @@ margin-top:40px;
     width: 120px; /* Full width button */
     margin-top: 90px; /* Space above button */
       }
-
+ .receipts {
+    width: 500px; /* Full width for better fit on smaller screens */
+    height: auto; /* Adjust height automatically */
+ }
       }
 
 
@@ -4053,6 +4057,11 @@ margin-top:40px;
           .Dash-Container2 {
     padding: 15px; /* Adjust padding for iPad */
     margin-top: 50px; /* Adjust margin-top for better fit */
+    margin-left: 30px; /* Adjust margin-left for better fit */
+  }
+            .Dash-Container3 {
+    padding: 15px; /* Adjust padding for iPad */
+    margin-top: 150px; /* Adjust margin-top for better fit */
     margin-left: 30px; /* Adjust margin-left for better fit */
   }
   .metrics {
@@ -4127,6 +4136,10 @@ margin-top:40px;
     width: 100%; /* Full width button */
     margin-top: 150px; /* Space above button */
   }
+    .receipts {
+    width: 500px; /* Full width for better fit on smaller screens */
+    height: auto; /* Adjust height automatically */
+  }
 }
 
 
@@ -4173,14 +4186,12 @@ margin-top:40px;
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   padding: 20px; /* Adjust padding as needed */
-  background-color: #f4f4f4; 
   margin-top:10px;
 }
 .Dash-Container2 {
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   padding: 5px; /* Adjust padding as needed */
-  background-color: #f4f4f4; /* Light background color */
    margin-top:300px;
    margin-left:-20px;
 }
@@ -4188,8 +4199,7 @@ margin-top:40px;
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack child elements vertically */
   padding: 20px; /* Adjust padding as needed */
-  background-color: #f4f4f4; /* Light background color */
-   margin-top:120px;
+   margin-top:-100px;
    margin-left:-20px;
 }
 /*Code for the Dividing line*/
