@@ -1843,10 +1843,9 @@ const [formData1, setFormData1] = useState({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2222; /* Set a high z-index to ensure it's on top */
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  z-index: 2222; 
+  background-color: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(10px);
-  /* Semi-transparent overlay background */
   transition: backdropFilter 3s;
 }
 
@@ -1858,8 +1857,8 @@ const [formData1, setFormData1] = useState({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2222; /* Set a high z-index to ensure it's on top */
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  z-index: 2222; 
+  background-color: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(10px);
   margin-top:-600px;
   margin-left:-700px;
@@ -1874,8 +1873,8 @@ const [formData1, setFormData1] = useState({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2222; /* Set a high z-index to ensure it's on top */
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  z-index: 2222; 
+  background-color: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(10px);
   margin-top:-600px;
   margin-left:-100px;
@@ -1889,8 +1888,8 @@ const [formData1, setFormData1] = useState({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2222; /* Set a high z-index to ensure it's on top */
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  z-index: 2222; 
+  background-color: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(10px);
   margin-top:-600px;
   margin-left:-700px;
@@ -1904,8 +1903,8 @@ const [formData1, setFormData1] = useState({
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2222; /* Set a high z-index to ensure it's on top */
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+  z-index: 2222; 
+  background-color: rgba(255, 255, 255, 0.3); 
   backdrop-filter: blur(10px);
   margin-top:-600px;
   margin-left:400px;
@@ -2089,7 +2088,7 @@ const [formData1, setFormData1] = useState({
         font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4; /* Background color for the body on mobile devices */
+        background-color: #f4f4f4; 
         box-sizing: border-box;
       }
       .edit_personal1{
@@ -2328,58 +2327,58 @@ display: flex;
       }
 @media screen and (max-width: 600px) {
   .Profiletab {
-    flex-direction: column; /* Stack items vertically */
-    padding: 10px; /* Maintain padding for mobile view */
-    gap: 10px; /* Reduce gap between items for better fit */
+    flex-direction: column; 
+    padding: 10px; 
+    gap: 10px; 
   }
 
   .edit_pfp {
-    text-align: center; /* Center align text and elements within edit_pfp */
+    text-align: center; 
   
   }
 
   .pfp {
-    width: 100px; /* Adjust width for profile picture */
-    height: 100px; /* Adjust height for profile picture */
-    margin: 0 auto; /* Center the profile picture */
-    background-color: #ccc; /* Placeholder background color */
-    border-radius: 50%; /* Make the profile picture circular */
+    width: 100px; 
+    height: 100px; 
+    margin: 0 auto; 
+    background-color: #ccc; 
+    border-radius: 50%; 
   }
 
   .Name_Surname {
-    margin: 5px 0; /* Adjust margin for name and surname */
+    margin: 5px 0; 
   }
 
   .edit_container1 {
-    text-align: center; /* Center align the button */
+    text-align: center; 
   }
 
   .edit_image {
-    padding: 8px 12px; /* Adjust button padding */
-    font-size: 14px; /* Adjust button font size */
+    padding: 8px 12px; 
+    font-size: 14px; 
   }
 
   .profile_information {
-    width: 100%; /* Ensure profile information takes full width */
-   height: auto; /* Adjust height based on content */
-  padding: 10px; /* Optional: Add padding if needed */
-  box-sizing: border-box; /* Include padding in width calculation */
+    width: 100%; 
+   height: auto; 
+  padding: 10px; 
+  box-sizing: border-box; 
   }
 
   .personalinfo_header {
     display: flex;
-    justify-content: space-between; /* Space between heading and edit button */
-    align-items: center; /* Align items vertically */
-    margin-bottom: 10px; /* Space below the header */
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px; 
   }
 
   .personalinfo_heading {
-    font-size: 18px; /* Adjust heading font size */
+    font-size: 18px; 
   }
 
   .edit_personal {
-    padding: 8px 12px; /* Adjust button padding */
-    font-size: 14px; /* Adjust button font size */
+    padding: 8px 12px; 
+    font-size: 14px; 
   }
 }
       .edit_pfp{
@@ -2409,8 +2408,8 @@ font-weight: bold;
 
       }
      hr .hr_pendingservices{
-        height: 1px; /* Adjust the height to make it thinner */
-        background-color: #000; /* You can also set a color if needed */
+        height: 1px; 
+        background-color: #000; 
         border: none;
       }
       .fetched_price{
@@ -2505,7 +2504,7 @@ font-weight: bold;
       th, td {
         padding: 8px;
         text-align: left;
-align-items: center;
+        align-items: center;
         border-bottom: 2px solid #ff0068; /*  border line at the bottom of each cell */
       }
 
@@ -2527,12 +2526,12 @@ align-items: center;
 
 .receipts th.column:last-child,
 .receipts td.column:last-child {
-  width: 16.67%; /* Adjust the width of the last column if needed */
+  width: 16.67%; 
 }
 
 /* Additional styling for the Download button, adjust as needed */
 .download-button {
-  background-color: #21B6A8; /* Pink background color */
+  background-color: #21B6A8; 
   color: white;
   border: none;
   margin-top: 10px;
@@ -2563,16 +2562,16 @@ align-items: center;
 
 
 .custom-select {
-  font-size: 16px; /* Increase font size to make the arrow appear larger */
-  padding: 10px; /* Adjust padding as needed */
-  border: 1px solid #ccc; /* Add a border style */
-  color: Black; /* Change the text color to pink */
-  background-color: white; /* Set background color to white */
-  background-image: url("expandarrow.png"); /* Replace with your custom arrow image */
+  font-size: 16px; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  color: Black; 
+  background-color: white; 
+  background-image: url("expandarrow.png"); 
   background-repeat: no-repeat;
   background-position: right 10px center;
-  background-size: 20px 20px; /* Adjust the size as needed */
-  appearance: none; /* Remove default dropdown arrow on some browsers */
+  background-size: 20px 20px; 
+  appearance: none; 
 }
 
   
@@ -2607,8 +2606,8 @@ align-items: center;
         font-size: 25px;
         color: #fff;
         font-family: poppins;
-position: absolute;
-right: -30px;      
+         position: absolute;
+         right: -30px;      
         display: none;
       }
       .active_profile{
@@ -2721,11 +2720,11 @@ right: -30px;
         height: 100%;
         font-family: poppins;
         font-size: px;
-        background-color: #fff; /* Semi-transparent background: rgba(0, 0, 0, 0.3); */
+        background-color: #fff; 
        display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 9999; /* Ensure it's on top of other elements */
+        z-index: 9999; 
       }
       
       .alert-box {
@@ -2754,12 +2753,11 @@ right: -30px;
       
       .request-index {
         .request-index {
-          /* Optional styles for the index */
           font-weight: bold;
           margin-left: 10px; 
           float: right;
           position: absolute;
-          right: 0;/* Adjust the margin as needed for spacing */
+          right: 0;
         }
       }
       .totalpendingreq{
@@ -2772,8 +2770,8 @@ right: -30px;
 
       }
       .pending-requests-container {
-        max-height: 300px; /* Adjust the maximum height as needed */
-        overflow-y: auto; /* Add vertical scrollbar when content overflows */
+        max-height: 300px; 
+        overflow-y: auto; 
         margin: 8px;
       }
 
@@ -2799,12 +2797,12 @@ right: -30px;
       }
       
       .pendingrequests li {
-        margin-bottom: 10px; /* Add spacing between list items */
+        margin-bottom: 10px; 
       }
       
       .no-pending-requests {
         font-style: italic;
-        color: #777; /* Adjust the color as needed */
+        color: #777; 
       }
       
       .close-button {
@@ -2848,10 +2846,9 @@ right: -30px;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2222; /* Set a high z-index to ensure it's on top */
-        background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+        z-index: 2222; 
+        background-color: rgba(255, 255, 255, 0.3); 
         backdrop-filter: blur(10px);
-        /* Semi-transparent overlay background */
         transition: backdropFilter 3s;
       }
       
@@ -2863,11 +2860,10 @@ right: -30px;
 }
 /* CSS styles for the expanded-content (the actual content inside the container) */
 .expanded-content {
-  background-color: #fff; /* Background color for the content */
+  background-color: #fff; 
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  /* Add other styling as needed */
   animation: fallingBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 
 }
@@ -2877,7 +2873,7 @@ right: -30px;
   text-align: center;
   font-size: 18px;
   color: #555;
-  /* Add other styling as needed */
+  
 }
 
 
@@ -2943,7 +2939,7 @@ width: 100%;
   display: flex;
   
   justify-content: center;
-  align-items: center; /* Center vertically */
+  align-items: center; 
 text-align: center;
   width: 80px;
   height: 80px;
@@ -2960,7 +2956,7 @@ text-align: center;
 .profile-pic img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Adjust the object-fit property to control how the image fits within the container */
+  object-fit: cover; 
 }
 
 .dashboard-section.active {
@@ -3141,7 +3137,7 @@ border-radius: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      overflow-y: auto; /* Add vertical scroll if content overflows */
+      overflow-y: auto; 
      
     }
 
@@ -3281,15 +3277,15 @@ border-radius: 10px;
       padding: 10px;
       margin: 1px;
       box-shadow: 0 0 15px rgba(255, 0, 104, 0.5);
-      width: 300px; /* Adjust width */
-      height: 150px; /* Adjust height */
+      width: 300px; 
+      height: 150px; 
       margin-top: 200px;
       margin-left: 15px;
-      border-radius: 10px; /* Adjust the value to change the roundness */ 
-      font-family: Arial, sans-serif; /* Set font family to Arial */
-      font-weight: bold; /* Set font weight to bold */
-      color:#ff0068; /* Set text color to black */
-      font-size: 20px; /* Set font size to 20 pixels */
+      border-radius: 10px;  
+      font-family: Arial, sans-serif; 
+      font-weight: bold; 
+      color:#ff0068; 
+      font-size: 20px; 
       position: relative;
     }
     
@@ -3308,53 +3304,53 @@ border-radius: 10px;
     }
     
     .set:nth-child(2) .updates-Container {
-      width: 200px; /* Width of the containers in the middle */
+      width: 200px; 
       height:400px;
     }
     
     .set:nth-child(1) .updates-Container,
     .set:nth-child(3) .updates-Container {
-      width: 200px; /* Width of the containers on the left and right */
+      width: 200px; 
       height:400px;
     }
 
 /* Styles for cellphone screens */
 @media screen and (max-width: 600px) {
   .set {
-    flex-direction: row; /* Stack items vertically */
-    align-items: center; /* Center align items */
-    width: 100%; /* Full width for mobile */
-    margin-right: 0; /* Remove right margin */
+    flex-direction: row; 
+    align-items: center; 
+    width: 100%; 
+    margin-right: 0; 
   }
 
   .set .updates-Container {
-    width: 90%; /* Reduce width for mobile screens */
-    height: auto; /* Adjust height to fit content */
-    margin-bottom: 20px; /* Add margin for spacing between containers */
+    width: 90%; 
+    height: auto; 
+    margin-bottom: 20px; 
   }
 
   .set:nth-child(2) .updates-Container,
   .set:nth-child(1) .updates-Container,
   .set:nth-child(3) .updates-Container {
-    width: 100%; /* Full width for each container */
+    width: 100%; 
   }
 }
 @media screen and (max-width: 600px) {
   .container {
-    flex-direction: row; /* Align items in a row */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if they overflow */
-    gap: 2px; /* Reduce gap between items for mobile view */
-    justify-content: space-around; /* Space items evenly */
-    align-items: center; /* Center align items vertically */
-       width: 80%; /* Decrease width of the container for mobile view */
-    margin: 0; /* Center the container horizontally */
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 2px; 
+    justify-content: space-around; 
+    align-items: center; 
+       width: 80%; 
+   
   }
 }
 
     .allCintainers{
-      display: flex; /* Use flexbox */
+      display: flex;
       gap:10px;
-      justify-content: space-between; /* Distribute space between the containers */
+      justify-content: space-between;
     margin-left:-700px;
     }
     .container {
@@ -3364,6 +3360,7 @@ border-radius: 10px;
      display: flex;
       gap:5px;
       justify-content: space-between; 
+     
     }
 
     .updates-Container2 {
@@ -3371,15 +3368,15 @@ border-radius: 10px;
       padding: 10px;
       margin: 1px;
       box-shadow: 0 0 15px rgba(255, 0, 104, 0.5);
-      width: 200px; /* Adjust width */
-      height: 400px; /* Adjust height */
+      width: 200px;
+      height: 400px; 
       margin-top: -250px;
       margin-left: 20px;
-      border-radius: 10px; /* Adjust the value to change the roundness */ 
-      font-family: Arial, sans-serif; /* Set font family to Arial */
-      font-weight: bold; /* Set font weight to bold */
-      color:#ff0068; /* Set text color to black */
-      font-size: 20px; /* Set font size to 20 pixels */
+      border-radius: 10px;
+      font-family: Arial, sans-serif; 
+      font-weight: bold; 
+      color:#ff0068; 
+      font-size: 20px; 
       position: relative;
     }
     
@@ -3399,15 +3396,15 @@ border-radius: 10px;
 
     @media only screen and (max-width: 768px) {
       .container2 {
-        gap: 3px; /* Further reduce gap for smaller screens */
-        padding: 3px; /* Further reduce padding for smaller screens */
+        gap: 3px; 
+        padding: 3px; 
       }
     }
     
     @media only screen and (max-width: 480px) {
       .container2 {
-        gap: 2px; /* Further reduce gap for very small screens */
-        padding: 2px; /* Further reduce padding for very small screens */
+        gap: 2px;
+        padding: 2px; 
       }
     }
     
@@ -3415,11 +3412,11 @@ border-radius: 10px;
     .container2 {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start; /* Use flex-start to align items to the start of the container */
-  gap: 10px; /* Adjust gap between items to reduce spacing */
-  padding: 5px; /* Reduce padding inside the container */
-  margin: 0; /* Ensure there is no margin affecting spacing */
-      justify-content: space-between; /* Distribute space between the containers */
+  align-items: flex-start;
+  gap: 10px; 
+  padding: 5px; 
+  margin: 0; 
+ justify-content: space-between; 
     }
 
    
@@ -3430,7 +3427,7 @@ border-radius: 10px;
   flex-direction: column;
   align-items: left;
   background-color: transparent;
-  margin-right: auto; /* Push updates container to the left */
+  margin-right: auto; 
 }
 
 
@@ -3438,60 +3435,60 @@ border-radius: 10px;
 .search-container {
   display: flex;
   align-items: center;
-  position: relative; /* Needed for icon positioning */
+  position: relative; 
 }
 
 .search-container input {
-  flex: 1; /* Makes the input fill the remaining space */
+  flex: 1; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .search-container i {
-  position: absolute; /* Positions the icon absolutely */
-  right: 10px; /* Margin from the right edge */
-  top: 50%; /* Centers the icon vertically */
-  transform: translateY(-50%); /* Aligns icon with input field */
-  color: #ccc; /* Adjust icon color */
-  cursor: pointer; /* Makes the icon clickable (optional) */
+  position: absolute; 
+  right: 10px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  color: #ccc; 
+  cursor: pointer;
 }
 
 /*.search-bar {
-  display: flex; /* Makes the search bar container flexible */
-  width: 100%; /* Stretches the bar to full width */
-  background-color: #fff; /* Light gray background */
-  border-radius: 5px; /* Rounded corners */
+  display: flex; 
+  width: 100%; 
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .search-input {
-  flex: 1; /* Takes up remaining space in the container */
-  border: none; /* Remove default border */
-  outline: none; /* Remove default outline */
-  padding: 10px; /* Add padding for better readability */
-  font-size: 16px; /* Set font size */
+  flex: 1;
+  border: none; 
+  outline: none; 
+  padding: 10px;
+  font-size: 16px;
 }
 
 .search-button {
-  display: inline-block; /* Makes the button act like an inline element */
-  padding: 10px 20px; /* Adjust padding for desired size */
-  border: none; /* Remove default border */
-  border-radius: 1px; /* Add rounded corners */
-  background-color: #4CAF50; /* Green background color */
-  color: white; /* White text color */
-  cursor: pointer; /* Indicate clickable behavior */
+  display: inline-block; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 1px; 
+  background-color: #4CAF50; 
+  color: white; 
+  cursor: pointer; 
 }
 
 .search-button button {
-  background-color: inherit; /* Inherit background color from the div */
-  border: none; /* Remove default button border (redundant here) */
-  color: inherit; /* Inherit text color from the div */
-  font-weight: bold; /* Make text bold (optional) */
-  /* Other button styles as needed */
+  background-color: inherit; 
+  border: none; 
+  color: inherit; 
+  font-weight: bold; 
+ 
 }*/
    .set-of-containers {
     display: flex;
-      flex-direction: row; /* Arrange items horizontally */
+      flex-direction: row; 
     }
      
         .profile{
@@ -3518,14 +3515,14 @@ border-radius: 10px;
           background-color: #ff0066;
           align-items: center;
           width: 80px; 
-          height: 80px; /* Adjust the size as needed */
-          border-radius: 50%; /* Makes it a circle */
-          overflow: hidden; /* Clip the image to the circular boundary */
-          margin: 0 auto; /* Center horizontally */
+          height: 80px; 
+          border-radius: 50%; 
+          overflow: hidden;
+          margin: 0 auto; 
           margin-bottom: -10px;
           margin-top: 15px;
           margin-left: 25px;
-          border: 2px solid #ff0066; /* Add a border for styling */
+          border: 2px solid #ff0066; 
           box-shadow: 0 0 5px #ff0066;
         }
         
@@ -3534,7 +3531,7 @@ border-radius: 10px;
           position: relative;
           width: 100%;
           height: 100%;
-          object-fit: cover; /* Maintain aspect ratio and cover the circle */
+          object-fit: cover; 
         }
 
         nav{
@@ -3817,10 +3814,10 @@ margin-left: -19px;
      .contentcard{
      
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Three columns */
-        grid-gap: 20px; /* Gap between cards */
-        margin-top: 20px; /* Adjust as needed */
-        padding: 30px; /* Adjust as needed */
+        grid-template-columns: repeat(3, 1fr); 
+        grid-gap: 20px; 
+        margin-top: 20px; 
+        padding: 30px; 
       background-color: #fffdd0;
       width: 900px;
       height: 300px;
@@ -3870,16 +3867,16 @@ margin-top:40px;
     }
     
     .circle-progress {
-      width: 5%; /* Adjust the width to make the circle smaller */
-      height: 50%; /* Adjust the height accordingly */
-      border: 6px solid #fff; /* Adjust the border width and color */
-      border-top-color: ; /* Set the color for the progress */
+      width: 5%; 
+      height: 50%; 
+      border: 6px solid #fff; 
+      border-top-color: ; 
       border-radius: 50%;
       background: transparent;
       position: absolute;
-      top: -50px; /* Adjust the top position */
-      left: 50px; /* Adjust the left position */
-      padding: 30px; /* Adjust padding accordingly */
+      top: -50px; 
+      left: 50px;
+      padding: 30px; 
       transform: rotate(0deg);
       transform-origin: center;
     }
@@ -3944,110 +3941,106 @@ margin-top:40px;
        only screen and (max-width: 1366px) and (orientation: portrait) {
     
      .Dash-Container3 {
-    padding: 15px; /* Adjust padding for iPad */
-    margin-top: 150px; /* Adjust margin-top for better fit */
-    margin-left: 30px; /* Adjust margin-left for better fit */
+    padding: 15px; 
+    margin-top: 150px; 
+    margin-left: 30px; 
   }
   .metrics {
-    width: 100%; /* Adjust width for portrait mode */
-    margin-left: 0; /* Adjust left margin for better fit */
+    width: 100%; 
+    margin-left: 0; 
   }
   
   .metrics2 {
-    width: 100%; /* Adjust width for portrait mode */
-    margin-left: -20px; /* Adjust left margin for better fit */
+    width: 100%; 
+    margin-left: -20px; 
   }
 
   .progress-circle {
-    width: 50px; /* Adjust width for smaller screens */
-    height: 50px; /* Adjust height for smaller screens */
-    margin-left: 30px; /* Adjust left margin for better fit */
+    width: 50px; 
+    height: 50px; 
+    margin-left: 30px;
   }
 
   .servicesdone,
   .pendingservices,
   .Rewards {
-    width: 150px; /* Adjust width for portrait mode */
-    margin-left: 0; /* Adjust left margin for better fit */
-    font-size: 10px; /* Adjust font size for better readability */
+    width: 150px; 
+    margin-left: 0;
+    font-size: 10px; 
   }
     .container {
-    flex-direction: colomn; /* Stack child elements vertically for portrait mode */
-    gap: 1px; /* Adjust gap for better spacing */
-    justify-content: center; /* Center justify content for better fit */
+    gap: 4px; 
+    margin-left:-40px;
+    margin-top: -300px; 
   }
     .container2 {
-    gap: 4px; /* Further reduce gap for tablets */
-    padding: 4px; /* Further reduce padding for tablets */
+    gap: 4px; 
+    padding: 4px; 
   }
     .set {
-    flex-direction: column; /* Stack items vertically for portrait mode */
-    align-items: flex-start; /* Align items to the start */
+    flex-direction: column; 
+    align-items: flex-start; 
   
   }
 
   .set .updates-Container {
-    width: 200px; /* Full width for mobile screens */
-    margin-bottom: 10px; /* Adjust margin for better spacing */
+    width: 200px; 
+    margin-bottom: 10px; 
   }
 
   .set:nth-child(2) .updates-Container,
   .set:nth-child(1) .updates-Container,
   .set:nth-child(3) .updates-Container {
-    width: 150px; /* Full width for each container */
+    width: 150px; 
   } 
     .set2 {
-    flex-direction: column; /* Stack items vertically for portrait mode */
-    align-items: flex-start; /* Align items to the start */
+    flex-direction: column; 
+    align-items: flex-start; 
   
   }
 
   .set2 .updates-Container2 {
-    width: 200px; /* Full width for mobile screens */
-    margin-bottom: 10px; /* Adjust margin for better spacing */
+    width: 200px; 
+    margin-bottom: 10px; 
   }
 
   .set2:nth-child(2) .updates-Container2,
   .set2:nth-child(1) .updates-Container2,
   .set2:nth-child(3) .updates-Container2 {
-    width: 150px; /* Full width for each container */
+    width: 150px; 
   } 
 
   /* Column alignment for smaller screens */
-  .container {
-    display: flex;
-    flex-direction: column; /* Align children in a column */
-    gap: 10px; /* Add spacing between elements */
-  }
+  
     .filters-search {
-    flex-direction: column; /* Stack filters vertically */
-    width: 100%; /* Full width for better fit */
-    padding: 15px; /* Adjust padding */
+    flex-direction: column; 
+    width: 100%; 
+    padding: 15px; 
     height:150px;
     }
 
   .searchfilters {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
+    width: 100%; 
+    margin-bottom: 15px; 
   }
 
   .radiofilters {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
+    width: 100%; 
+    margin-bottom: 15px; 
   }
 
   .radiofilters2 {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
+    width: 100%; 
+    margin-bottom: 15px; 
   }
 
   .filterservices1 {
-    width: 120px; /* Full width button */
-    margin-top: 90px; /* Space above button */
+    width: 120px; 
+    margin-top: 90px; 
       }
  .receipts {
-    width: 500px; /* Full width for better fit on smaller screens */
-    height: auto; /* Adjust height automatically */
+    width: 500px; 
+    height: auto; 
  }
       }
 
@@ -4055,90 +4048,89 @@ margin-top:40px;
 @media only screen and (max-width: 1024px) and (orientation: landscape),
        only screen and (max-width: 1366px) and (orientation: landscape) {
           .Dash-Container2 {
-    padding: 15px; /* Adjust padding for iPad */
-    margin-top: 50px; /* Adjust margin-top for better fit */
-    margin-left: 30px; /* Adjust margin-left for better fit */
+    padding: 15px; 
+    margin-top: 50px; 
+    margin-left: 30px; 
   }
             .Dash-Container3 {
-    padding: 15px; /* Adjust padding for iPad */
-    margin-top: 150px; /* Adjust margin-top for better fit */
-    margin-left: 30px; /* Adjust margin-left for better fit */
+    padding: 15px; 
+    margin-top: 150px; 
+    margin-left: 30px; 
   }
   .metrics {
-    width: 100%; /* Adjust width for landscape mode */
-    margin-left: 0; /* Adjust left margin for better fit */
+    width: 100%; 
+    margin-left: 0; 
   }
   .metrics2 {
-    width: 100%; /* Adjust width for landscape mode */
-    margin-right: 100px; /* Adjust left margin for better fit */
+    width: 100%; 
+    margin-right: 100px; 
   }
   .progress-circle {
-    width: 50px; /* Adjust width for smaller screens */
-    height: 50px; /* Adjust height for smaller screens */
-    margin-left: 30px; /* Adjust left margin for better fit */
+    width: 50px; 
+    height: 50px; 
+    margin-left: 30px; 
   }
 
   .servicesdone,
   .pendingservices,
   .Rewards {
-    width: 150px; /* Adjust width for landscape mode */
-    margin-left: 0; /* Adjust left margin for better fit */
-    font-size: 10px; /* Adjust font size for better readability */
+    width: 150px; 
+    margin-left: 0; 
+    font-size: 10px; 
   }
-
   .container {
-    flex-direction: colomn; /* Maintain row direction for landscape mode */
-    gap: 1px; /* Adjust gap for better spacing */
-    justify-content: space-around; /* Adjust justify-content for better fit */
+    gap: 4px; 
+    margin-left:-40px;
+    margin-top: -300px; 
   }
+    
    .container2 {
-    gap: 4px; /* Further reduce gap for tablets */
-    padding: 4px; /* Further reduce padding for tablets */
+    gap: 4px; 
+    padding: 4px; 
   }
     .set {
-    flex-direction: row; /* Maintain row direction for landscape mode */
-    align-items: flex-start; /* Align items to the start */
+    flex-direction: row;
+    align-items: flex-start;
    
   }
 
   .set .updates-Container {
-    width: 50%; /* Slightly reduce width for landscape mode */
-    margin-bottom: 15px; /* Adjust margin for better spacing */
+    width: 50%; 
+    margin-bottom: 15px;
   }
 
   .set:nth-child(2) .updates-Container,
   .set:nth-child(1) .updates-Container,
   .set:nth-child(3) .updates-Container {
-    width: 150px; /* Full width for each container */
+    width: 150px; 
   }
  .filters-search {
-    flex-direction: column; /* Stack filters vertically */
-    width: 100%; /* Full width for better fit */
-    padding: 15px; /* Adjust padding */
+    flex-direction: column; 
+    width: 100%;
+    padding: 15px;
   }
 
   .searchfilters {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
+    width: 100%; 
+    margin-bottom: 15px; 
   }
 
   .radiofilters {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
+    width: 100%; 
+    margin-bottom: 15px; 
   }
 
   .radiofilters2 {
-    width: 100%; /* Full width for filters */
-    margin-bottom: 15px; /* Space between filter groups */
-  }
+    width: 100%;
+    margin-bottom: 15px; 
 
   .filterservices1 {
-    width: 100%; /* Full width button */
-    margin-top: 150px; /* Space above button */
+    width: 100%; 
+    margin-top: 150px; 
   }
     .receipts {
-    width: 500px; /* Full width for better fit on smaller screens */
-    height: auto; /* Adjust height automatically */
+    width: 500px;
+    height: auto; 
   }
 }
 
@@ -4159,15 +4151,15 @@ margin-top:40px;
 
 
   .progress-circle {
-    top: 0; /* Adjust the top position */
-    left: 50%; /* Center horizontally */
+    top: 0; 
+    left: 50%;
     transform: translateX(-50%);
-    margin-top: -5px; /* Adjust margin for spacing */
+    margin-top: -5px;
     margin-left:10px;
   }
 
   .progress-circle span {
-    top: 50%; /* Center vertically */
+    top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
     margin-left:50px;
@@ -4183,31 +4175,31 @@ margin-top:40px;
 
 
 .Dash-Container1 {
-  display: flex; /* Use Flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  padding: 20px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  padding: 20px; 
   margin-top:10px;
 }
 .Dash-Container2 {
-  display: flex; /* Use Flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  padding: 5px; /* Adjust padding as needed */
+  display: flex; 
+  flex-direction: column; 
+  padding: 5px; 
    margin-top:300px;
    margin-left:-20px;
 }
 .Dash-Container3 {
-  display: flex; /* Use Flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  padding: 20px; /* Adjust padding as needed */
+  display: flex; 
+  flex-direction: column; 
+  padding: 20px;
    margin-top:-100px;
    margin-left:-20px;
 }
 /*Code for the Dividing line*/
 .popularservice_heading:before{
   content: '';
-  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  border-top: 2px solid #ff0068; 
   display: block;
-  width: 100%; /* Adjust the line width as needed */
+  width: 100%;
   position: centre;
   top: 50%;
 }
@@ -4216,9 +4208,9 @@ margin-top:40px;
 /*Code for the line*/
 .popularservice_heading:after {
   content: '';
-  border-top: 2px solid #ff0068; /* Adjust the style and color as needed */
+  border-top: 2px solid #ff0068;
   display: block;
-  width: 475%; /* Adjust the line width as needed */
+  width: 475%;
   position: absolute;
   top: 150%;
 
@@ -4420,13 +4412,13 @@ color: blue;
 
 
   .overviewservices {
-    grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Display one card per row on smaller screens */
-    gap: 0px; /* Adjust the gap for smaller screens */
+    grid-template-columns: repeat(3, minmax(100px, 1fr)); 
+    gap: 0px; 
   padding: 0;
   }
   .services_services{
-    grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Display one card per row on smaller screens */
-    gap: 0px; /* Adjust the gap for smaller screens */
+    grid-template-columns: repeat(3, minmax(100px, 1fr)); 
+    gap: 0px; 
   padding: 0;
   }
   .services_tab {
@@ -4459,11 +4451,11 @@ body {
   }
 
  .servicesdone, .pendingservices, .Rewards {
-    flex: 1 1 30%; /* Allow the items to grow, shrink, and take 30% of the container width */
+    flex: 1 1 30%; 
     margin-left: 0;
     margin-bottom: 10px;
     height: 80px;
-    margin-right: 10px; /* Add margin to the right for spacing */
+    margin-right: 10px; 
   }
 
 
