@@ -2252,7 +2252,6 @@ display: flex;
       }
       .header_msg{
         text-align: center;
-
         width: 500px;
         margin-bottom: 10px;
         border: 1px solid #ff0068;
@@ -2556,7 +2555,7 @@ font-weight: bold;
         border: 2px solid #ff0068;
         border-radius: 5px;
         padding: 10px;
-        width: 900px;
+        width: 600px;
         height: 300px;
       }
 
@@ -3360,7 +3359,7 @@ border-radius: 10px;
      display: flex;
       gap:5px;
       justify-content: space-between; 
-     
+       margin-top:-150px;
     }
 
     .updates-Container2 {
@@ -3394,20 +3393,8 @@ border-radius: 10px;
       bottom: 78%;
     }
 
-    @media only screen and (max-width: 768px) {
-      .container2 {
-        gap: 3px; 
-        padding: 3px; 
-      }
-    }
-    
-    @media only screen and (max-width: 480px) {
-      .container2 {
-        gap: 2px;
-        padding: 2px; 
-      }
-    }
-    
+ 
+   
   
     .container2 {
   display: flex;
@@ -3415,7 +3402,8 @@ border-radius: 10px;
   align-items: flex-start;
   gap: 10px; 
   padding: 5px; 
-  margin: 0; 
+  margin-left:-700px;
+       margin-top:300px;
  justify-content: space-between; 
     }
 
@@ -3939,7 +3927,21 @@ margin-top:40px;
 }
 @media only screen and (max-width: 1024px) and (orientation: portrait),
        only screen and (max-width: 1366px) and (orientation: portrait) {
-    
+      .Dash-Container2 {
+    padding: 15px; 
+    margin-top: 500px; 
+    margin-left: 30px; 
+  }
+    .all_msg {
+    width: 200px;
+    margin-right: 20px;
+  }
+.condition_msg, .current_msg, .header_msg, .footer_msg {
+    width: 350px;
+  }
+  .opened_msg {
+    width: 200px;
+  }
      .Dash-Container3 {
     padding: 15px; 
     margin-top: 150px; 
@@ -3948,11 +3950,13 @@ margin-top:40px;
   .metrics {
     width: 100%; 
     margin-left: 0; 
+    margin-top:30px;
   }
   
   .metrics2 {
-    width: 100%; 
-    margin-left: -20px; 
+    width: 500px; 
+    margin-left: 50px; 
+    margin-top:-500px;
   }
 
   .progress-circle {
@@ -3970,13 +3974,13 @@ margin-top:40px;
   }
     .container {
     gap: 4px; 
-    margin-left:-40px;
-    margin-top: -300px; 
+    margin-left:-10px;
+    margin-top: -90px; 
   }
-    .container2 {
-    gap: 4px; 
-    padding: 4px; 
-  }
+ .container2 {
+margin-left:-50px;
+      }
+
     .set {
     flex-direction: column; 
     align-items: flex-start; 
@@ -4034,36 +4038,47 @@ margin-top:40px;
     margin-bottom: 15px; 
   }
 
-  .filterservices1 {
-    width: 120px; 
-    margin-top: 90px; 
-      }
- .receipts {
-    width: 500px; 
-    height: auto; 
- }
-      }
-
-
-@media only screen and (max-width: 1024px) and (orientation: landscape),
+  @media only screen and (max-width: 1024px) and (orientation: landscape),
        only screen and (max-width: 1366px) and (orientation: landscape) {
-          .Dash-Container2 {
+    .Dash-Container2 {
     padding: 15px; 
-    margin-top: 50px; 
+    margin-top: 500px; 
     margin-left: 30px; 
+  }
+     .all_msg {
+    width: 200px;
+    margin-right: 20px;
+  }
+.condition_msg, .current_msg, .header_msg, .footer_msg {
+    width: 350px;
+  }
+  .opened_msg {
+    width: 200px;
   }
             .Dash-Container3 {
     padding: 15px; 
     margin-top: 150px; 
     margin-left: 30px; 
   }
-  .metrics {
+ 1 {
+    width: 120px; 
+    margin-top: 90px; 
+      }
+ .receipts {
+    width: 400px; 
+    height: auto; 
+ }
+      }
+
+
+ .metrics {
     width: 100%; 
     margin-left: 0; 
   }
   .metrics2 {
-    width: 100%; 
-    margin-right: 100px; 
+    width: 500px; 
+    margin-left: 50px; 
+    margin-top:-500px;
   }
   .progress-circle {
     width: 50px; 
@@ -4080,14 +4095,14 @@ margin-top:40px;
   }
   .container {
     gap: 4px; 
-    margin-left:-40px;
-    margin-top: -300px; 
+    margin-left:-10px;
+    margin-top: -90px; 
   }
-    
-   .container2 {
-    gap: 4px; 
-    padding: 4px; 
-  }
+   .container2 
+   {
+   margin-left:-50px;
+   }
+
     .set {
     flex-direction: row;
     align-items: flex-start;
@@ -4129,11 +4144,10 @@ margin-top:40px;
     margin-top: 150px; 
   }
     .receipts {
-    width: 500px;
+    width: 400px;
     height: auto; 
   }
 }
-
 
 @media screen and (max-width: 600px) {
   .metrics {
@@ -4148,7 +4162,6 @@ margin-top:40px;
     margin-bottom: 10px;
     height:80px;
   }
-
 
   .progress-circle {
     top: 0; 
@@ -4173,7 +4186,6 @@ margin-top:40px;
   }
 }
 
-
 .Dash-Container1 {
   display: flex;
   flex-direction: column;
@@ -4184,8 +4196,8 @@ margin-top:40px;
   display: flex; 
   flex-direction: column; 
   padding: 5px; 
-   margin-top:300px;
    margin-left:-20px;
+   margin-bottom:100px;
 }
 .Dash-Container3 {
   display: flex; 
@@ -4204,7 +4216,6 @@ margin-top:40px;
   top: 50%;
 }
 
-
 /*Code for the line*/
 .popularservice_heading:after {
   content: '';
@@ -4213,7 +4224,6 @@ margin-top:40px;
   width: 475%;
   position: absolute;
   top: 150%;
-
 }
 
 .popularservice_heading:before {
@@ -4226,26 +4236,24 @@ margin-top:40px;
   margin-right: 0%;
 }
 
-
 .availableservices{
   height: 270px;
-   overflow: auto;
-    width: 100%;
-     padding-top: 30px;
-      padding-bottom: 30px;
-       margin-left: 0px;
-        border-left: 2px solid #ff0068;
-        border-right: 2px solid #ff0068;
-
+  overflow: auto;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 0px;
+  border-left: 2px solid #ff0068;
+  border-right: 2px solid #ff0068;
 }
 
 @media (max-width: 768px){
   .dashboard-container{
     width: 80px;
-height: 100vh;
+    height: 100vh;
   }
   .mainpage{
-height: 100vh;
+   height: 100vh;
   }
   .logsout{
     position: fixed;
@@ -4253,11 +4261,10 @@ height: 100vh;
     left: 10px;
     margin: 0;
     width: 75px;
-    
     font-size: 12px;
     font-weight: bold;
-
   }
+
   .dashboard-section{
     width: 50px;
     height: 30px;
@@ -4265,9 +4272,9 @@ height: 100vh;
 
   .img-and-title{
     width: 60px;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px; 
   }
+
   .profile-pic{
     background: #fff;
     color: #ff0068;
@@ -4275,48 +4282,49 @@ height: 100vh;
     height: 50px;
     margin-top: 25px;
     font-size: 25px;
-
   }
+
   .dashboard-section-title{
     display: none;
   }
+
   .dashboard-section-body{
     display: none;
   }
+
   .dashboard-section-header{
     height: 40px;
     justify-content: center;
     font-size: 18px;
-  
   }
   
 
   .dashboard-section.active {
     font-weight: bold;
-  color: #ff0068;
+    color: #ff0068;
     background-color:white;
-   width: 170px;
-   z-index: 99999;
+    width: 170px;
+    z-index: 99999;
     text-decoration: none;
     font-style: none;
-    
-  
+  }
+
     .dashboard-section-header{
       color:#ff0068;
       width: 60px;
       font-size: 30px;
     }
+
     .dashboard-section-body{
       color:#ff0068;
     }
+
     .dashboard-section-title{
       color: #ff0068;
-    }
-   
-  
+    } 
 }
-.maindash{
 
+.maindash{
   margin: 0;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -4324,7 +4332,7 @@ height: 100vh;
   justify-content: space-between;
   margin-right: 0;
   padding: 0;
-  
+  color:#ff0068;
 }
 a{
   padding: 3px;
@@ -4336,7 +4344,7 @@ a{
   margin: 0;
   width: 100%;
 }
-progress{
+.progress{
   display: none;
 }
 .overlay-container{
@@ -4405,22 +4413,20 @@ color: blue;
 .submitform{
   position: absolute;
   border-radius: 20px;
-  
- 
 }
-
-
 
   .overviewservices {
     grid-template-columns: repeat(3, minmax(100px, 1fr)); 
     gap: 0px; 
   padding: 0;
   }
+
   .services_services{
     grid-template-columns: repeat(3, minmax(100px, 1fr)); 
     gap: 0px; 
   padding: 0;
   }
+
   .services_tab {
     height: 200px;
     overflow: auto;

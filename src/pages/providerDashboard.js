@@ -5083,10 +5083,6 @@ right: -30px;
   }
 
   @media (max-width: 768px) {
-  
-
-  
-
   .contact-customer {
     width: 100%; /* Full width button */
     margin-top: 10px; /* Space above the button */

@@ -295,7 +295,8 @@ const UserDashboard = () => {
 
       <Dashheader />
       <hr />
-      <div className='registration-form'>
+      <div className="ScrollableContainer">
+       <div className='registration-form'>
       <form onSubmit={handleSubmit} >
 
         <div className='contact_details'>
@@ -490,7 +491,7 @@ const UserDashboard = () => {
   <button type="submit" >Submit</button>
 </form>
 
-     
+     </div>
     </div>
   </div>
   )}
@@ -619,7 +620,6 @@ table {
   border-collapse: collapse;
   width: 850px;
   margin-left: 30px;
-  
   border-radius: 20px;
   margin-top: 20px;
   background-color: white;
@@ -796,25 +796,22 @@ padding: 10px;
 border-radius: 10px;
       }
      .registration-form {
-      
       display: flex;
       flex-direction: row;
-      
-      max-width: 850px;
-      height: 460px;
+      width: 900px;
+      height: 850px;
       margin: 10px;
       margin-left: 80px;
       padding: 20px;
       color: #ff0066;
       font-weight: bold;
       background-color: white;
-    
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       overflow-y: auto; /* Add vertical scroll if content overflows */
      
     }
-    
+  
     .form-label {
       display: flex;
       flex-direction: column;
@@ -1115,16 +1112,11 @@ position: relative;
        width: 100%;
        border-top-right-radius: 5px;
        border-top-left-radius: 5px;
-       
-     
-      
       }
      
      .title{
-      
        text-align: center;
-       padding: 10px;
-       
+       padding: 10px; 
       }
      
      h1{
@@ -1138,6 +1130,7 @@ position: relative;
        border-bottom-right-radius: 5px;
        border-bottom-left-radius: 5px;
      }
+
      button{
        margin-top: 40px;
        margin-bottom: 10px;
@@ -1147,6 +1140,7 @@ position: relative;
        border-radius: 5px;
        padding:10px;
      }
+
      button:hover{
        background-color: azure;
        color: #454545;
@@ -1155,7 +1149,6 @@ position: relative;
      }
 
      .contentcard{
-     
         display: grid;
         grid-template-columns: repeat(3, 1fr); /* Three columns */
         grid-gap: 20px; /* Gap between cards */
@@ -1179,9 +1172,7 @@ position: relative;
       display: flex;
      justify-content: space-around;
      align-items: center;
-    
       position: relative;
-      
      }
 
      .progress-circle {
@@ -1274,6 +1265,254 @@ box-shadow: 0px 0px 10px #454545;
   border-radius: 20px;
   height: 440px;
 
+}
+    .ScrollableContainer {
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+  }
+
+  .maindash {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 10px;
+  border-radius: 0px;
+}
+
+.maindash a {
+  color: #ff0066;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.maindash a:hover {
+  background-color: #ff0066;
+  color: white;
+}
+/* For iPads in Landscape and Portrait orientations */
+@media only screen and (max-width: 1024px) {
+ .Dash-Container {
+    width: 780px;
+    padding: 15px;
+    margin-left: 10px;
+    height: 500px;
+  }
+     .dashboard-section.active {
+    width: 120px;
+    padding: 10px;
+    box-shadow: none;
+  }
+    .dashboard-section{
+    width: 120px;
+    padding: 10px;
+    box-shadow: none;
+  
+    }
+  .dashboard-section.active .dashboard-section-header {
+    font-size: 1.0em; /* Adjust font size as needed */
+  }
+  
+  .dashboard-section.active .dashboard-section-body {
+    font-size: 1em; /* Adjust font size as needed */
+  }
+  
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em; /* Adjust font size as needed */
+  }
+  .ScrollableContainer {
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+  }
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 100px;
+    padding: 10px;
+  }
+    .screening_questions{
+     width: 600px;
+    margin: 10px 0;
+    }
+  .contact_details
+  {
+   width: 600px;
+    margin: 10px 0;
+  }
+  .uploads {
+    width: 600px;
+    margin: 10px 0;
+  }
+  .contact_details label,
+  .screening_questions label,
+  .uploads label {
+    width: 350px;
+    display: block;
+  }
+  .contact_details input{
+    width: 400px;
+    margin-top: 5px;
+  }
+  .screening_questions textarea{
+    width: 400px;
+    margin-top: 5px;
+  }
+  .uploads input[type="file"] {
+    width: 400px;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+     .metrics {
+    width: 800px;
+    padding: 10px; /* Add padding for better spacing */
+    flex-direction: row; /* Change to column layout for better fit */
+      }
+
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 20px; /* Add spacing between items */
+     margin-left: -70px; 
+  }
+      .maindash {
+    flex-direction: row; /* Stack links vertically */
+    align-items: center;
+  }
+
+  .maindash a {
+    width: 100%; /* Full width links */
+    text-align: center; /* Center text */
+    margin-bottom: 10px; /* Space between links */
+     margin-left: -320px; 
+  }
+
+  .maindash a:last-child {
+    margin-bottom: 0; /* Remove margin from the last link */
+  }
+     table {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Center the table */
+  }
+
+  th, td {
+    padding: 6px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+    .mainpage hr{
+      margin-left: 0;
+      }
+}
+
+/* For Samsung Galaxy devices */
+@media only screen and (max-width: 768px) {
+.mainpage hr{
+      margin-left: 0;
+      }
+ table {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Center the table */
+  }
+
+  th, td {
+    padding: 4px; /* Adjust padding */
+    font-size: 12px; /* Adjust font size */
+  }
+.maindash {
+    flex-direction: row; /* Stack links vertically */
+    margin-left:-50px;
+    gap:10px;
+  }
+
+  .maindash a {
+    width: 100px; /* Full width links */
+    text-align: center; /* Center text */
+    margin-bottom: 8px; /* Space between links */
+  }
+
+  .maindash a:last-child {
+    margin-bottom: 0; /* Remove margin from the last link */
+  }
+
+ .progress-circle {
+ display:none;
+ }
+     .circle-progress {
+     display:none;
+      }
+ .metrics {
+    width: 270px;
+    padding: 8px; /* Add padding for better spacing */
+    flex-direction: row; /* Change to column layout for better fit */
+   
+  }
+    .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 20px; /* Add spacing between items */
+
+  }
+  .Dash-Container {
+    width: 300px;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+ .dashboard-section.active {
+    width: 80px;
+    padding: 8px;
+    box-shadow: none;
+  }
+
+   .dashboard-section{
+  width: 80px;
+    padding: 10px;
+    box-shadow: none;
+    }
+
+  .dashboard-section.active .dashboard-section-header {
+    font-size: 0.9em; /* Adjust font size as needed */
+  }
+  
+  .dashboard-section.active .dashboard-section-body {
+    font-size: 0.9em; /* Adjust font size as needed */
+  }
+  
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em; /* Adjust font size as needed */
+  }
+  .ScrollableContainer {
+  height: 800px; 
+  overflow-y: auto; 
+    padding: 10px; 
+  }
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+ 
+  .contact_details,
+  .screening_questions,
+  .uploads {
+    width: 250px;
+    margin: 5px 0;
+  }
+  .contact_details label,
+  .screening_questions label,
+  .uploads label {
+    width: 200px;
+    display: block;
+  }
+  .contact_details input,
+  .screening_questions textarea,
+  .uploads input[type="file"] {
+    width: 230px;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
 }
       `}</style>
     </div>
