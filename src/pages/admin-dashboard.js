@@ -163,6 +163,7 @@ const UserDashboard = () => {
           <a href="#" onClick={() => handleTabChange('accounts')}>Account</a>
         </nav>
         {activeTab === 'overview' && (
+          <div className='ScrollableContainer0'>
           <div className='Dash-Container'>
          <div className="metrics">
   <div className={`servicesdone ${expandedServicesDone ? 'expanded' : ''}`} onClick={() => setExpandedServicesDone(!expandedServicesDone)}>
@@ -249,7 +250,7 @@ const UserDashboard = () => {
 
   
         
-            
+            </div>
           </div>
 
           
@@ -1083,7 +1084,7 @@ position: relative;
           z-index: 1111;
           box-shadow: 0 0 8px black;
           box-shadow: 0px 0px 5px white;
-       overflow: hidden;
+          overflow: hidden;
           display: block;
 
         }
@@ -1271,18 +1272,20 @@ box-shadow: 0px 0px 10px #454545;
   overflow-y: auto; 
     padding: 10px; 
   }
-
+.ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
   .maindash {
   display: flex;
-  justify-content: space-around;
-  padding: 5px 10px;
+  justify-content: flex-start; /* Align items to the start */
+  padding: 10px 20px;
   border-radius: 0px;
 }
 
 .maindash a {
-  color: #ff0066;
-  font-weight: bold;
-  padding: 5px 10px;
+  margin: 0 10px; /* Adjust margin to control space between items */
 }
 
 .maindash a:hover {
@@ -1296,6 +1299,9 @@ box-shadow: 0px 0px 10px #454545;
     padding: 15px;
     margin-left: 10px;
     height: 500px;
+  }
+     .maindash {
+  margin-left:10px;
   }
      .dashboard-section.active {
     width: 120px;
@@ -1324,6 +1330,7 @@ box-shadow: 0px 0px 10px #454545;
   overflow-y: auto; 
     padding: 10px; 
   }
+    
   .registration-form {
     flex-direction: column;
     width: 100%;
@@ -1375,21 +1382,7 @@ box-shadow: 0px 0px 10px #454545;
     margin-bottom: 20px; /* Add spacing between items */
      margin-left: -70px; 
   }
-      .maindash {
-    flex-direction: row; /* Stack links vertically */
-    align-items: center;
-  }
 
-  .maindash a {
-    width: 100%; /* Full width links */
-    text-align: center; /* Center text */
-    margin-bottom: 10px; /* Space between links */
-     margin-left: -320px; 
-  }
-
-  .maindash a:last-child {
-    margin-bottom: 0; /* Remove margin from the last link */
-  }
      table {
     width: 100%; /* Full width */
     margin-left: 0; /* Center the table */
@@ -1418,21 +1411,6 @@ box-shadow: 0px 0px 10px #454545;
     padding: 4px; /* Adjust padding */
     font-size: 12px; /* Adjust font size */
   }
-.maindash {
-    flex-direction: row; /* Stack links vertically */
-    margin-left:-50px;
-    gap:10px;
-  }
-
-  .maindash a {
-    width: 100px; /* Full width links */
-    text-align: center; /* Center text */
-    margin-bottom: 8px; /* Space between links */
-  }
-
-  .maindash a:last-child {
-    margin-bottom: 0; /* Remove margin from the last link */
-  }
 
  .progress-circle {
  display:none;
@@ -1441,13 +1419,20 @@ box-shadow: 0px 0px 10px #454545;
      display:none;
       }
  .metrics {
-    width: 270px;
-    padding: 8px; /* Add padding for better spacing */
-    flex-direction: row; /* Change to column layout for better fit */
-   
+    display: flex; /* Ensure Flexbox is used */
+  flex-direction: row; /* Keep row direction */
+  width: 100%x;
+  padding: 10px; /* Add padding for better spacing */
+  gap:5px; /* Add space between items */
+  }
+       .maindash {
+  margin-left:-0px;
   }
     .servicesdone, .pendingservices, .Rewards {
-    margin-bottom: 20px; /* Add spacing between items */
+    margin-bottom: 10px; /* Add spacing between items */
+width:100px;
+margin-left:-90px;
+margin-right:110px;
 
   }
   .Dash-Container {
@@ -1479,7 +1464,11 @@ box-shadow: 0px 0px 10px #454545;
   .dashboard-section.active .dashboard-section-title {
     font-size: 0.9em; /* Adjust font size as needed */
   }
-  .ScrollableContainer {
+  ..ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}ableContainer {
   height: 800px; 
   overflow-y: auto; 
     padding: 10px; 
@@ -1514,6 +1503,416 @@ box-shadow: 0px 0px 10px #454545;
     margin-top: 10px;
   }
 }
+  /* Samsung Galaxy S20 (Screen Width: 360px) */
+@media only screen and (max-width: 360px) {
+  .mainpage hr {
+    margin-left: 0;
+  }
+  table {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Center the table */
+  }
+  th, td {
+    padding: 4px; /* Adjust padding */
+    font-size: 12px; /* Adjust font size */
+  }
+  .progress-circle, .circle-progress {
+    display: none;
+  }
+  .metrics {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    width: 250px;
+    padding: 10px;
+    gap: 5px;
+  }
+  .maindash {
+    margin-left: 0;
+  }
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Dash-Container {
+    width: 100%;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+  .dashboard-section.active, .dashboard-section {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .dashboard-section.active .dashboard-section-header,
+  .dashboard-section.active .dashboard-section-body,
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em;
+  }
+  .ScrollableContainer {
+    height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+    .ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+  .contact_details, .screening_questions, .uploads {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .contact_details label, .screening_questions label, .uploads label {
+    width: 100%;
+    display: block;
+  }
+  .contact_details input, .screening_questions textarea, .uploads input[type="file"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+}
+
+/* iPhone 6/7/8 (Screen Width: 375px) */
+@media only screen and (max-width: 375px) {
+  .mainpage hr {
+    margin-left: 0;
+  }
+  table {
+    width: 100%;
+    margin-left: 0;
+  }
+  th, td {
+    padding: 4px;
+    font-size: 12px;
+  }
+  .progress-circle, .circle-progress {
+    display: none;
+  }
+  .metrics {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    gap: 5px;
+  }
+  .maindash {
+    margin-left: 0;
+  }
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Dash-Container {
+    width: 100%;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+  .dashboard-section.active, .dashboard-section {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .dashboard-section.active .dashboard-section-header,
+  .dashboard-section.active .dashboard-section-body,
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em;
+  }
+  .ScrollableContainer {
+    height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+    .ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+  .contact_details, .screening_questions, .uploads {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .contact_details label, .screening_questions label, .uploads label {
+    width: 100%;
+    display: block;
+  }
+  .contact_details input, .screening_questions textarea, .uploads input[type="file"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+}
+
+/* Samsung Galaxy S20 Ultra (Screen Width: 412px) */
+@media only screen and (max-width: 412px) {
+  .mainpage hr {
+    margin-left: 0;
+  }
+  table {
+    width: 100%; /* Full width */
+    margin-left: 0; /* Center the table */
+  }
+  th, td {
+    padding: 4px; /* Adjust padding */
+    font-size: 12px; /* Adjust font size */
+  }
+  .progress-circle, .circle-progress {
+    display: none;
+  }
+  .metrics {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    width: 100%;
+    padding: 10px;
+    gap: 5px;
+  }
+  .maindash {
+    margin-left: 0;
+  }
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Dash-Container {
+    width: 100%;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+  .dashboard-section.active, .dashboard-section {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .dashboard-section.active .dashboard-section-header,
+  .dashboard-section.active .dashboard-section-body,
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em;
+  }
+  .ScrollableContainer {
+    height: 700px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+    .ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+  .contact_details, .screening_questions, .uploads {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .contact_details label, .screening_questions label, .uploads label {
+    width: 100%;
+    display: block;
+  }
+  .contact_details input, .screening_questions textarea, .uploads input[type="file"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+}
+
+/* iPhone 6/7/8 (Screen Width: 375px) */
+@media only screen and (max-width: 375px) {
+  .mainpage hr {
+    margin-left: 0;
+  }
+  table {
+    width: 100%;
+    margin-left: 0;
+  }
+  th, td {
+    padding: 4px;
+    font-size: 12px;
+  }
+  .progress-circle, .circle-progress {
+    display: none;
+  }
+  .metrics {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    gap: 5px;
+  }
+  .maindash {
+    margin-left: 0;
+  }
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 10px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Dash-Container {
+    width: 100%;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+  .dashboard-section.active, .dashboard-section {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .dashboard-section.active .dashboard-section-header,
+  .dashboard-section.active .dashboard-section-body,
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em;
+  }
+  .ScrollableContainer {
+    height: 700px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+    .ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+  .contact_details, .screening_questions, .uploads {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .contact_details label, .screening_questions label, .uploads label {
+    width: 100%;
+    display: block;
+  }
+  .contact_details input, .screening_questions textarea, .uploads input[type="file"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+}
+
+/* General Responsiveness (For devices with screen width up to 768px) */
+@media only screen and (max-width: 768px) {
+  .mainpage hr {
+    margin-left: 0;
+  }
+  table {
+    width: 100%;
+    margin-left: 0;
+  }
+  th, td {
+    padding: 4px;
+    font-size: 12px;
+  }
+  .progress-circle, .circle-progress {
+    display: none;
+  }
+  .metrics {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    padding: 10px;
+    gap: 5px;
+  }
+  .maindash {
+    margin-left: 0;
+  }
+  .servicesdone, .pendingservices, .Rewards {
+    margin-bottom: 10px;
+    width: 60%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .Dash-Container {
+    width: 80%;
+    padding: 10px;
+    margin-left: 5px;
+    height: auto;
+  }
+  .dashboard-section.active, .dashboard-section {
+    width: 60%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .dashboard-section.active .dashboard-section-header,
+  .dashboard-section.active .dashboard-section-body,
+  .dashboard-section.active .dashboard-section-title {
+    font-size: 0.9em;
+  }
+  .ScrollableContainer {
+    height: 700px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+    .ScrollableContainer0{
+  height: 910px; 
+  overflow-y: auto; 
+    padding: 10px; 
+}
+  .registration-form {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+    padding: 10px;
+  }
+  .contact_details, .screening_questions, .uploads {
+    width: 250px;
+    margin: 5px 0;
+  }
+  .contact_details label, .screening_questions label, .uploads label {
+    width: 250px;
+    display: block;
+  }
+  .contact_details input, .screening_questions textarea, .uploads input[type="file"] {
+    width: 200px;
+    margin-top: 5px;
+  }
+  .uploads button {
+    margin-top: 10px;
+  }
+}
+
       `}</style>
     </div>
   );
